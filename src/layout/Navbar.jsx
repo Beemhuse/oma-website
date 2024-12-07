@@ -1,5 +1,7 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
+import Button from "@/components/reusables/Button";
 
 const menuItems = [
     { label: "About Us", href: "/about" },
@@ -27,21 +29,21 @@ const menuItems = [
       ],
     },
     { label: "Contact", href: "/contact" },
-    { label: "Donate", href: "/donate", isButton: true },
   ];
   
 const Navbar = () => {
   return (
     <nav className="bg-green-700 text-white px-6 py-4">
-      <div className="container mx-auto flex items-center justify-between">
+      <div className="flex items-center justify-between">
         {/* Logo */}
-        <div className="flex items-center space-x-4">
-          <img
-            src="/logo.png" // Replace with your logo
+        <div className="flex items-center  space-x-4">
+          <Image
+            src="/one_map.svg"
+            width={200}
+            height={200}
             alt="One Map Africa"
-            className="w-10 h-10"
+            className="w-full h-auto"
           />
-          <h1 className="font-bold text-xl">ONE MAP AFRICA</h1>
         </div>
 
         {/* Menu Links */}
@@ -62,14 +64,6 @@ const Navbar = () => {
                   ))}
                 </div>
               </div>
-            ) : item.isButton ? (
-              <Link
-                href={item.href}
-                key={item.label}
-                className="bg-red-600 px-4 py-2 rounded text-white hover:bg-red-700"
-              >
-                {item.label}
-              </Link>
             ) : (
               <Link
                 href={item.href}
@@ -81,7 +75,7 @@ const Navbar = () => {
             )
           )}
         </div>
-
+<Button label={"Donate"} bgColor="bg-red-500"/>
         {/* Mobile Menu Button */}
         <button className="block md:hidden text-2xl">
           <span className="material-icons">menu</span>
