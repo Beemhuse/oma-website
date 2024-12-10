@@ -67,8 +67,51 @@ body {
   
     }
   }
-  .col-first{
-    grid-column: 1/span 6;
+  .gridBox{
+    min-height: 100vh;
+    grid-template-columns: repeat(13,1fr);
+  }
+  .grid1{
+    grid-column: 1/span 13;
+  }
+  .grid2{
+    grid-column: 1/span 7;
     grid-row: 2/span 2;
+  }
+  .grid3{
+    grid-column: 11/14;
+    grid-row: 2;
+  }
+  .grid4{
+    grid-column: 8/span 3;
+    grid-row: 3/span 2;
+  }
+  .grid5{
+    grid-column: 11/span 3;
+    grid-row: 3;
+  }
+  .grid6{
+    grid-column: 11/span 3;
+    grid-row: 4;
+  }
+  .grid7{
+    grid-column: 5/span 3;
+    grid-row: 4;
+  }
+  .grid8{
+    grid-column: 8/span 6;
+    grid-row: 5;
+  }
+  .grid9{
+    grid-column: 5/span 3;
+    grid-row: 5;
+  }
+  .grid10{
+    grid-column: 2/span 3;
+    grid-row: 5;
+  }
+  .grid11{
+    grid-column: 1/span 13;
+    grid-row: 6;
   }
 }

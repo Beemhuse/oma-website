@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import gal1 from "../../../public/landingPage/gal1.png";
 import gal2 from "../../../public/landingPage/gal2.png";
@@ -10,7 +12,7 @@ import gal8 from "../../../public/landingPage/gal8.png";
 import Image from 'next/image';
 
 export default function Page() {
-  const images = [gal1, gal2, gal3, gal4, gal5,gal3, gal4, gal5, gal6,gal3, gal4, gal5, gal6,gal3, gal4, gal5, gal6,gal3, gal4, gal5, gal6,gal3, gal4, gal5, gal6,gal3, gal4, gal5, gal6,gal3, gal4, gal5, gal6,gal3, gal4, gal5, gal6,gal3, gal4, gal5, gal6, gal6, gal7, gal8];
+  const images = [gal1, gal2, gal3, gal4, gal5,gal6, gal7, gal8,gal1, gal2, gal3, gal4, gal5,gal6, gal7, gal8,gal1, gal2, gal3, gal4, gal5,gal6, gal7, gal8,gal1, gal2, gal3, gal4, gal5,gal6, gal7, gal8,gal1, gal2, gal3, gal4, gal5,gal6, gal7, gal8,gal1, gal2, gal3, gal4, gal5,gal6, gal7, gal8];
 
   return (
     <div className="bg-white p-8">
@@ -20,20 +22,57 @@ export default function Page() {
       </div> */}
 
       {/* Gallery Section */}
-      <div className="grid h-screen grid-cols-13 gap-2 md:gap-4">
+      <div className="grid  gridBox  gap-x-2 md:gap-4">
 
-        <div className='border-2 border-green-200 col-span-12 '>testing 1</div>
-        <div className='border-2 border-green-200 col-span-6 row-span-2'>testing 2</div>
-        <div className='border-2 border-green-200 col-span-3 col-start-8'>testing 3</div>
-        <div className='border-2 border-green-200'>testing</div>
-        <div className='border-2 border-green-200'>testing</div>
-        <div className='border-2 border-green-200'>testing</div>
-        <div className='border-2 border-green-200'>testing</div>
-        <div className='border-2 border-green-200'>testing</div>
-        <div className='border-2 border-green-200'>testing</div>
-        <div className='border-2 border-green-200'>testing</div>
-        <div className='border-2 border-green-200'>testing</div>
-        <div className='border-2 border-green-200'>testing</div>
+        <div className='h-[250px] grid1'></div>
+        <div className='h-[250px] grid2 px-24'>
+          <h1 className="text-5xl leading-[48px] tracking-[2] font-bold mb-2">ONE MAP <br /> GALLERY</h1>
+          <p className="text-gray-500">Press Coverage / Event Pictures</p>
+        </div>
+        <div className=' grid3'>
+          <Image src={images[0]} alt='' className='w-full h-full object-cover'/>
+        </div>
+        <div className=' grid4'>
+          
+          <Image src={images[1]} alt='' className='w-full h-full object-cover'/>
+        </div>
+        <div className='max-h-[250px] grid5'>
+          
+          <Image src={images[2]} alt='' className='w-full h-full object-cover'/>
+        </div>
+        <div className='max-h-[250px] grid6'>
+          
+          <Image src={images[3]} alt='' className='w-full h-full object-cover'/>
+        </div>
+        <div className='max-h-[250px] grid7'>
+          
+          <Image src={images[4]} alt='' className='w-full h-full object-cover'/>
+        </div>
+        <div className='max-h-[250px] grid8'>
+          
+          <Image src={images[5]} alt='' className='w-full h-full object-cover'/>
+        </div>
+        <div className='max-h-[250px] grid9'>
+          
+          <Image src={images[6]} alt='' className='w-full h-full object-cover'/>
+        </div>
+        <div className='max-h-[250px] grid10'>
+          
+          <Image src={images[7]} alt='' className='w-full h-full object-cover'/></div>
+        <div className='min-h-[250px] grid11 gap-x-2 col-span-4 grid grid-cols-4'>
+          {
+            images?.slice(8,23).map((data,item)=>(
+              <div 
+                key={item}
+                className='border-2 border-green- h-[250px] grid12 '
+                onClick={()=>console.log('this is item',item + 1)}
+              >
+                <Image src={data} alt='' className='w-full h-full object-cover'/>
+              </div>  
+            ))
+          }
+        </div>
+        
         
 
       </div>
