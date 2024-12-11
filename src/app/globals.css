@@ -56,6 +56,13 @@ body {
   .anim{
     animation: anim 2s infinite alternate linear;
   }
+  svg {
+    width: 150px;
+    height: 150px;
+    stroke: #3498db;
+    fill: none;
+    stroke-width: 2;
+  }
   @keyframes anim {
     from{
       top: 0%;
