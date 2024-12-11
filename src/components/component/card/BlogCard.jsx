@@ -3,7 +3,7 @@ import React from 'react';
 
 export default function BlogCard({ imageSrc, title, description, author, date }) {
   return (
-    <article className="w-[380px] cursor-pointer">
+    <article className="xl:w-[380px] w-full cursor-pointer">
       <Image
         src={imageSrc}
         alt={title}

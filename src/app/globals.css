@@ -63,6 +63,10 @@ body {
     fill: none;
     stroke-width: 2;
   }
+  .bg-container {
+    background-color: #f6f4f4; /* Same as your main background */
+    mix-blend-mode: multiply;
+  }
   @keyframes anim {
     from{
       top: 0%;

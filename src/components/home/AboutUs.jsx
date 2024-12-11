@@ -1,11 +1,15 @@
+'use client'
+import useSlideInAnimation from '@/hooks/slideAnimation';
 import React from 'react'
 
 const AboutUs = () => {
+  const leftRef = useSlideInAnimation('left', 1000);
+  const rightRef = useSlideInAnimation('right', 1000, 200);
     return (
         <div className="bg-white text-black py-16 px-8 md:px-20 lg:px-32">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {/* Left Section */}
-            <div>
+            <div ref={leftRef}>
               <div className='flex gap-8 mb-2 items-center'>
                 <h3 className="text-[#1D2130] font-bold uppercase text-lg tracking-wide mb-2">
                     Introduction
@@ -27,7 +31,7 @@ const AboutUs = () => {
             </div>
     
             {/* Right Section */}
-            <div>
+            <div ref={rightRef}>
               <div className='flex gap-8 mb-2 items-center'>
                 <h3 className="text-[#1D2130] font-bold uppercase text-lg tracking-wide mb-2">
                     Our Story
@@ -38,8 +42,8 @@ const AboutUs = () => {
                 Our journey began with a vision shared by seven individuals from
                 diverse parts of Africa, including South Sudan, Ghana, Nigeria,
                 Zambia, Uganda, and South Africa. These pioneers founded the
-                organization under the name Africa's Eye Alliance, with the slogan
-                "Erasing the Lines that Divide Us." Formally incorporated in Ghana
+                organization under the name Africa&apos;s Eye Alliance, with the slogan
+                &quot;Erasing the Lines that Divide Us.&quot; Formally incorporated in Ghana
                 in 2022, the organization was renamed One Map Africa to reflect our
                 enduring commitment to unity and integration. Inspired by our past
                 slogan, we have developed strategic plans to ensure our

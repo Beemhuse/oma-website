@@ -13,8 +13,11 @@ import { ImLoop2 } from "react-icons/im"
 import blog1 from '../../../public/landingPage/test1.svg'
 import blog2 from '../../../public/landingPage/test2.svg'
 import blog3 from '../../../public/landingPage/test3.svg'
+import useSlideIn from '@/hooks/useSlideIn';
 
 const Testimonies = () => {
+  const slideInRef = useSlideIn(); 
+
     const blogData = [
         {
             imageSrc: blog1,
@@ -33,7 +36,7 @@ const Testimonies = () => {
         },
     ]
     return (
-        <section className="px-10 flex md:justify-center bg-[#F6F4F4] w-full">
+        <section key={slideInRef} className="px-10 flex md:justify-center bg-[#F6F4F4] w-full">
            <div className=''>
                 <div className="text-left my-10">
                     <h1 className="text-[32px] mb-4 font-[600] capitalize">Testimonies</h1>
@@ -43,7 +46,7 @@ const Testimonies = () => {
                 </div>
                 <div className="w-full flex gap-8 flex-wrap overflow-hidden">
                     {blogData.map(({ imageSrc, description, author }, index) => (
-                        <div className="w-full md:w-[380px] cursor-pointer">
+                        <div key={index} className="w-full md:w-[380px] cursor-pointer">
                             <Image
                             src={imageSrc}
                             alt={'title'}

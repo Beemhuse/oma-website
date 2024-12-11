@@ -20,7 +20,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
-      <body className="antialiased font-poppins">
+      <body className="antialiased overflow-x-hidden font-poppins">
         <MainLayout>
           <Header />
           {children}
