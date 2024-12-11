@@ -1,11 +1,16 @@
+'use client'
 import Image from 'next/image';
 import donate from '../../../public/landingPage/donate.svg'
+import useSlideInAnimation from '@/hooks/slideAnimation';
 const Donation = () => {
+  const leftRef = useSlideInAnimation('left', 1000);
+  const rightRef = useSlideInAnimation('right', 1000, 200);
+
     return (
       <div className="bg-white text-black py-16 px-8 md:px-20 lg:px-32">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center">
           {/* Text Content */}
-          <div className="lg:w-1/2 mb-8 lg:mb-0">
+          <div ref={leftRef} className="lg:w-1/2 mb-8 lg:mb-0">
             <div className="text-black text-sm font-semibold flex gap-2 mb-2 justify-left items-center transform -translate-x-[54px]">
                 <p className='bg-black w-[50px] h-[2px]'></p> Donate
             </div>
@@ -24,7 +29,7 @@ const Donation = () => {
           </div>
   
           {/* Image Content */}
-          <div className="lg:w-1/2">
+          <div ref={rightRef} className="lg:w-1/2">
             <Image
               src={donate}
               alt="Donation Box"

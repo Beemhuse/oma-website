@@ -56,6 +56,17 @@ body {
   .anim{
     animation: anim 2s infinite alternate linear;
   }
+  svg {
+    width: 150px;
+    height: 150px;
+    stroke: #3498db;
+    fill: none;
+    stroke-width: 2;
+  }
+  .bg-container {
+    background-color: #f6f4f4; /* Same as your main background */
+    mix-blend-mode: multiply;
+  }
   @keyframes anim {
     from{
       top: 0%;
