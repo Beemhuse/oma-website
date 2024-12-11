@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import gal1 from "../../../public/landingPage/gal1.png";
 import gal2 from "../../../public/landingPage/gal2.png";
 import gal3 from "../../../public/landingPage/gal3.png";
@@ -12,16 +12,25 @@ import gal8 from "../../../public/landingPage/gal8.png";
 import Image from 'next/image';
 
 export default function Page() {
-  const images = [gal1, gal2, gal3, gal4, gal5,gal6, gal7, gal8,gal1, gal2, gal3, gal4, gal5,gal6, gal7, gal8,gal1, gal2, gal3, gal4, gal5,gal6, gal7, gal8,gal1, gal2, gal3, gal4, gal5,gal6, gal7, gal8,gal1, gal2, gal3, gal4, gal5,gal6, gal7, gal8,gal1, gal2, gal3, gal4, gal5,gal6, gal7, gal8];
 
+  const [num,setNum] = useState()
+  useEffect(()=>{
+    setNum(4)
+  },[])
+
+  const images = [gal1, gal2, gal3, gal4, gal5,gal6, gal7, gal8,gal1, gal2, gal3, gal4, gal5,gal6, gal7, gal8,gal1, gal2, gal3, gal4, gal5,gal6, gal7, gal8,gal1, gal2, gal3, gal4, gal5,gal6];
+
+  let starter = 8
+  const updateHandler = ()=> {
+    if(starter + num >= images.length - 1){
+      return
+    }else{
+      setNum(()=> num + 8)
+    }
+  }
   return (
     <div className="bg-white p-8">
-      {/* Header Section */}
-      {/* <div className="mb-6">
-       
-      </div> */}
 
-      {/* Gallery Section */}
       <div className="grid  gridBox  gap-x-2 md:gap-4">
 
         <div className='h-[250px] grid1'></div>
@@ -61,7 +70,7 @@ export default function Page() {
           <Image src={images[7]} alt='' className='w-full h-full object-cover'/></div>
         <div className='min-h-[250px] grid11 gap-x-2 col-span-4 grid grid-cols-4'>
           {
-            images?.slice(8,23).map((data,item)=>(
+            images?.slice(starter,starter + num).map((data,item)=>(
               <div 
                 key={item}
                 className='border-2 border-green- h-[250px] grid12 '
@@ -79,7 +88,10 @@ export default function Page() {
 
       {/* Load More Button */}
       <div className="text-center mt-6">
-        <button className="px-6 py-2 bg-gray-800 text-white font-semibold rounded-md hover:bg-gray-700">
+        <button   
+          className="px-6 py-2 bg-gray-800 text-white font-semibold rounded-md hover:bg-gray-700"
+          onClick={updateHandler}
+        >
           Load more...
         </button>
       </div>
