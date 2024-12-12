@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Button from "@/components/reusables/Button";
-import { FaCheck } from "react-icons/fa";
 
 const menuItems = [
   { label: "About Us", href: "/about" },
@@ -42,9 +41,8 @@ const menuItems = [
 const Navbar = () => {
   const [openSubmenu, setOpenSubmenu] = useState(null);
 
-  // Toggle submenu visibility on click
   const toggleSubmenu = (label) => {
-    setOpenSubmenu((prev) => (prev === label ? null : label)); // Toggle the submenu
+    setOpenSubmenu((prev) => (prev === label ? null : label));
   };
 
   return (
@@ -62,22 +60,23 @@ const Navbar = () => {
         </div>
 
         {/* Menu Links */}
-        <div className="hidden md:flex space-x-6 ">
+        <div className="hidden md:flex space-x-6">
           {menuItems.map((item) =>
             item.submenu ? (
               <div
-                className="group "
+                className="group relative"
                 key={item.label}
-                onClick={() => toggleSubmenu(item.label)} // Toggle on click
+                onClick={() => toggleSubmenu(item.label)}
               >
                 <button className="hover:underline">{item.label}</button>
                 {/* Submenu */}
                 <div
                   className={`absolute ${
                     openSubmenu === item.label ? "block" : "hidden"
-                  } bg-gray-800 text-white py-4 px-6 mt-2 m-auto rounded shadow-lg w-full  top-10 z-10 transition-all duration-300`}
+                  } bg-gray-800 text-white py-4 px-6 mt-2 m-auto rounded shadow-lg top-10 z-10 transition-all duration-300`}
+                  style={{ left: 0, right: 0, width: "100vw" }}
                 >
-                  <div className="grid grid-cols-3 w-full gap-6">
+                  <div className="grid grid-cols-3 max-w-7xl mx-auto gap-6">
                     {item.submenu.map((subItem) => (
                       <Link
                         href={subItem.href}
