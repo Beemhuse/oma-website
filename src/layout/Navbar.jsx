@@ -78,7 +78,7 @@ const Navbar = () => {
                 <button className="hover:underline">{item.label}</button>
                 {/* Submenu */}
                 {
-                  item.label === "Projects" ?
+                  openSubmenu && item.label === "Projects" ?
                     <div
                       className={`absolute ${
                         openSubmenu === item.label ? "block" : "hidden"
@@ -97,8 +97,8 @@ const Navbar = () => {
                       <div className="md:w-2/3 grid grid-cols-3 w-full gap-6 p-10 text-sm font-semibold ">
                         { item.submenu.map((subItem) => (
                           <Link
-                            href={subItem.href}
-                            key={subItem.label}
+                            href={ subItem.href }
+                            key={ subItem.label }
                             className="block text-sm hover:text-black/50"
                           >
                             {subItem.label}
