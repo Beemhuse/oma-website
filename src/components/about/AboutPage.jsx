@@ -48,10 +48,10 @@ export default function AboutPage() {
     });
   };
   return (
-    <section className="py-10 w-[70%] mx-auto">
-      <div ref={leftRef} className="flex justify-between">
+    <section className="py-10 xl:w-[70%] w-full px-4 mx-auto">
+      <div ref={leftRef} className="flex xl:flex-row flex-col-reverse gap-6 justify-between">
         <div className="xl:w-[545px] w-full flex flex-col items-start gap-5">
-          <h1 className="text-[64px]">Together We Will Re-Unite Africa</h1>
+          <h1 className="xl:text-[64px] text-4xl">Together We Will Re-Unite Africa</h1>
           <p className="text-[18px] xl:w-[505px]">
             We aim to empower communities, drive sustainable growth, and
             contribute to the long-term prosperity of the continent.
@@ -64,7 +64,7 @@ export default function AboutPage() {
           />
         </div>
 
-        <Image src={"/unite.png"} alt="united World" height={500} width={500} />
+        <Image src={"/unite.png"} alt="united World" height={500} width={500} className="w-full object-cover aspect-auto" />
       </div>
 
       <div className="mt-[70px]">
@@ -75,7 +75,7 @@ export default function AboutPage() {
           </p>
         </div>
         <div className=" m-auto ">
-          <div className="justify-center gap-6 flex">
+          <div className="justify-center flex-wrap flex-grow gap-6 flex">
             {programs.map((program, index) => (
               <ProgramCard
                 key={index}
