@@ -56,7 +56,7 @@ body {
   .anim{
     animation: anim 2s infinite alternate linear;
   }
-  svg {
+  #svg {
     width: 150px;
     height: 150px;
     stroke: #3498db;

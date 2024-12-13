@@ -20,7 +20,7 @@ const Donation = () => {
               African.
             </h1>
             <p className="text-black/70 mb-6">
-              When you donate, you're supporting effective care to children with
+              When you donate, you&apos;re supporting effective care to children with
               special needs—an investment in the leaders of tomorrow.
             </p>
             <button className="bg-red-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-700">

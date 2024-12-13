@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import { FaRegCircleCheck } from "react-icons/fa6";
+import { IoIosCheckmarkCircleOutline  } from "react-icons/io";
 
 export default function Page() {
   return (
@@ -83,20 +83,20 @@ export default function Page() {
       {/* Right Column - Text */}
       <div className="flex flex-col gap-6">
         <div>
-          <h3 className="text-xl font-semibold text-gray-800 flex items-center gap-2">
-          <FaRegCircleCheck className="text-[#FFC90C]" />  Innovators:
+          <h3 className="  text-gray-800 flex items-center gap-2">
+          <IoIosCheckmarkCircleOutline  className="text-[#FFC90C] text-lg"/>  Innovators:
           </h3>
           <p className="text-gray-600">Share and develop new sustainable energy solutions.</p>
         </div>
         <div>
           <h3 className="text-xl font-semibold text-gray-800 flex items-center gap-2">
-          <FaRegCircleCheck className="text-[#FFC90C]"/>  Donors:
+          <IoIosCheckmarkCircleOutline className="text-[#FFC90C]"/>  Donors:
           </h3>
           <p className="text-gray-600">Support the installation and maintenance of energy systems.</p>
         </div>
         <div>
           <h3 className="text-xl font-semibold text-gray-800 flex items-center gap-2">
-            <FaRegCircleCheck className="text-[#FFC90C]"/> Volunteers:
+            <IoIosCheckmarkCircleOutline className="text-[#FFC90C]"/> Volunteers:
           </h3>
           <p className="text-gray-600">Educate communities on sustainable energy practices.</p>
         </div>

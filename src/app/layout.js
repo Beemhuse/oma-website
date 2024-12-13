@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import { Inter, Poppins } from "next/font/google";
 import MainLayout from "./MainLayout";
+import Footer from "@/components/Footer";
 
 // Import the Inter and Poppins fonts
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -24,6 +25,7 @@ export default function RootLayout({ children }) {
         <MainLayout>
           <Header />
           {children}
+          <Footer />
         </MainLayout>
       </body>
     </html>
