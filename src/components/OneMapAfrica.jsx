@@ -17,14 +17,7 @@ const OneMapAfrica = () => {
 
       {/* Hero Section */}
       <HeaderSection />
-      {/* {!session ? (
-        <button onClick={() => signIn()}>Sign In</button>
-      ) : (
-        <div>
-          <p>Welcome, {session.user.name}</p>
-          <button onClick={() => signOut()}>Sign Out</button>
-        </div>
-      )} */}
+     
       {/* Trusted companies */}
       <TrustedClients />
 

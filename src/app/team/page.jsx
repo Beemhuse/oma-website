@@ -1,43 +1,15 @@
 import TeamCard from "@/components/component/card/TeamCard";
 import React from "react";
-import { FiFacebook, FiTwitter } from "react-icons/fi";
-import { FaInstagram } from "react-icons/fa6";
+import { fetchTeam } from "@/services/apiService";
 
 
-const teamMembers = [
-    {
-      name: "John Doe",
-      position: "CEO",
-      image: "/john_doe.png",
-      socials: [
-        { icon: <FiFacebook />, href: "https://facebook.com/johndoe" },
-        { icon: <FiTwitter />, href: "https://twitter.com/johndoe" },
-        { icon: <FaInstagram />, href: "https://instagram.com/johndoe" },
-      ],
-    },
-    {
-      name: "Jane Smith",
-      position: "CTO",
-      image: "/jane_smith.png",
-      socials: [
-        { icon: <FiFacebook />, href: "https://facebook.com/janesmith" },
-        { icon: <FiTwitter />, href: "https://twitter.com/janesmith" },
-        { icon: <FaInstagram />, href: "https://instagram.com/janesmith" },
-      ],
-    },
-    {
-      name: "Michael Brown",
-      position: "CFO",
-      image: "/michael_brown.png",
-      socials: [
-        { icon: <FiFacebook />, href: "https://facebook.com/michaelbrown" },
-        { icon: <FiTwitter />, href: "https://twitter.com/michaelbrown" },
-        { icon: <FaInstagram />, href: "https://instagram.com/michaelbrown" },
-      ],
-    },
-  ];
-  
-export default function Page() {
+
+export default async function Page() {
+  const teamMembers = await fetchTeam()
+  if(!teamMembers){
+    return "Not found"
+  }
+  console.log(teamMembers)
   return (
     <section className="py-10 px-[80px]">
       <div className="text-center my-10">
@@ -47,13 +19,13 @@ export default function Page() {
       </div>
 
       <div className="flex gap-8">
-      {teamMembers.map((member, index) => (
+      {teamMembers?.map((member, index) => (
         <TeamCard
           key={index}
           name={member.name}
-          position={member.position}
-          image={member.image}
-          socials={member.socials}
+          position={member.role}
+          image={member.imageSrc}
+          socials={member.socialLinks}
         />
       ))}
     </div>

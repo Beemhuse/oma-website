@@ -26,7 +26,7 @@ const menuItems = [
     ],
   },
   { label: "Get Involved", href: "/get-involved" },
-  { label: "News & Updates", href: "/news-updates" },
+  { label: "News & Updates", href: "/blog" },
   {
     label: "Our Team",
     submenu: [
