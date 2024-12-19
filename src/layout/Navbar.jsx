@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Button from "@/components/reusables/Button";
 import arrowRight from "../../public/arrowRight.svg"
+import { useRouter } from "next/navigation";
 // import { FaCheck } from "react-icons/fa";
 // import { FaArrowRight } from "react-icons/fa6";
 
@@ -45,6 +46,7 @@ const menuItems = [
 ];
 
 const Navbar = () => {
+  const {push} = useRouter()
   const [openSubmenu, setOpenSubmenu] = useState(null);
 
   // Toggle submenu visibility on click
@@ -137,7 +139,7 @@ const Navbar = () => {
         </div>
 
         {/* Donate Button */}
-        <Button label={"Donate"} bgColor="bg-red-500" />
+        <Button onClick={()=> push("/donations")} label={"Donate"} bgColor="bg-red-500" />
 
         {/* Mobile Menu Button */}
         <button className="block md:hidden text-2xl">

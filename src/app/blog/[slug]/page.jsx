@@ -1,4 +1,3 @@
-// import SEO from "@/components/component/SEO";
 import DisplayFormattedArticle from "@/components/component/card/DisplayFormattedArticle";
 import { client } from "@/sanity/client";
 import { fetchBlogs } from "@/services/apiService";
@@ -32,7 +31,7 @@ export default async function Page({ params }) {
     <>
       {/* <SEO title={blog.title} image={blog.imageSrc} /> */}
       <section className="grid xl:grid-cols-4 grid-cols-1 px-10 py-8">
-        <div className="xl:col-span-3 col-span-1">
+        <div className="xl:col-span-3 xl:w-2/3 m-auto w-full col-span-1 flex-col justify-center">
           <span className="bg-[#F2F8F7] rounded-xl mb-3 p-2 text-xs">
             {blog?.categories}
           </span>
@@ -42,18 +41,18 @@ export default async function Page({ params }) {
               <div className="uppercase w-10 h-10 bg-gray-200 flex items-center justify-center rounded-full">{getFirstLetter(blog?.author)}</div>
               <p className="capitalize">{blog?.author}</p>
             </div>
-            <p className="flex items-center gap-2"> <FaRegCalendarAlt /> {formatDate(blog?.publishedAt)}</p>
+            <p className="flex items-center gap-2 ml-4"> <FaRegCalendarAlt /> {formatDate(blog?.publishedAt)}</p>
           </div>
-          <div className="flex justify-center ">
+          <div className="flex justify-center mt-5">
             <Image
               src={blog?.imageSrc}
               alt=""
               width={500}
               height={500}
-              className="object-cover w-2/3 aspect-auto"
+              className="object-cover xl:w-2/3 w-full aspect-auto"
             />
           </div>
-          <article>
+          <article className=" m-auto">
             <DisplayFormattedArticle description={blog?.content} />
           </article>
         </div>

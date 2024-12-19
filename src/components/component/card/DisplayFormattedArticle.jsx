@@ -15,12 +15,12 @@ function urlFor(source) {
 const components = {
   list: {
     // Ex. 1: customizing common list types
-    bullet: ({ children }) => <ul className="mt-xl">{children}</ul>,
-    number: ({ children }) => <ol className="mt-lg">{children}</ol>,
+    bullet: ({ children }) => <ul className="mt-xl mt-4">{children}</ul>,
+    number: ({ children }) => <ol className="mt-lg mt-4">{children}</ol>,
 
     // Ex. 2: rendering custom lists
     checkmarks: ({ children }) => (
-      <ol className="m-auto text-lg">{children}</ol>
+      <ol className="m-auto my-4 text-lg">{children}</ol>
     ),
   },
   types: {
@@ -31,6 +31,7 @@ const components = {
         loading="lazy"
         width={500}
         height={500}
+        className="my-4"
       />
     ),
 
@@ -53,9 +54,11 @@ const components = {
     },
   },
   block: {
-    normal: ({ children }) => <p className="my-2">{children}</p>,
-    h1: ({ children }) => <h1 className="my-2">{children}</h1>,
-    h2: ({ children }) => <h2 className="my-2">{children}</h2>,
+    normal: ({ children }) => <p className="my-5">{children}</p>,
+    h1: ({ children }) => <h1 className="my-4">{children}</h1>,
+    h2: ({ children }) => <h2 className="my-4">{children}</h2>,
+    h3: ({ children }) => <h3 className="my-4">{children}</h3>,
+    h4: ({ children }) => <h4 className="my-4">{children}</h4>,
   },
 };
 

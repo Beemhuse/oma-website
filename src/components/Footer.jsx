@@ -13,10 +13,10 @@ const Footer = () => {
         <div className="text-center mb-10">
           <h1 className="text-3xl font-normal w-full xl:w-[300px] m-auto">Erasing the lines that divide us</h1>
           <div className="flex justify-center gap-4 mt-6">
-            <button onClick={()=> push("/membership")} className="px-6 py-2 border border-white rounded-md hover:bg-white hover:text-green-800 transition">
+            <button onClick={()=> push("/subscription")} className="px-6 py-2 border border-white rounded-md hover:bg-white hover:text-green-800 transition">
               JOIN US
             </button>
-            <button onClick={()=> push("/donate")} className="px-6 py-2 bg-white text-green-800 rounded-md hover:bg-opacity-80 transition">
+            <button onClick={()=> push("/donations")} className="px-6 py-2 bg-white text-green-800 rounded-md hover:bg-opacity-80 transition">
               DONATE
             </button>
           </div>
