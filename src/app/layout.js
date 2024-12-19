@@ -1,8 +1,7 @@
-// import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/Header";
 import { Inter, Poppins } from "next/font/google";
-import MainLayout from "./MainLayout";
+// import MainLayout from "./MainLayout";
 import Footer from "@/components/Footer";
 
 // Import the Inter and Poppins fonts
@@ -22,11 +21,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
       <body className="antialiased overflow-x-hidden font-poppins">
-        <MainLayout>
+        {/* <MainLayout> */}
           <Header />
           {children}
           <Footer />
-        </MainLayout>
+        {/* </MainLayout> */}
       </body>
     </html>
   );

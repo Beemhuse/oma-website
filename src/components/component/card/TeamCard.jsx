@@ -11,7 +11,6 @@ export default function TeamCard({ name, position, image, socials }) {
       ref={slideInRef}
       className="w-[310px] bg-white rounded-lg shadow-lg overflow-hidden opacity-0 transform"
     >
-      {/* Team Member Image */}
       <Image
         src={image}
         alt={name}

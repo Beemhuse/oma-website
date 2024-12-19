@@ -1,3 +1,4 @@
+'use client'
 import React from "react";
 import HeaderSection from "./home/HeaderSection";
 import TrustedClients from "./home/TrustedClients";
@@ -6,14 +7,24 @@ import CoreValues from "./home/CoreValues";
 import OurBlogs from "./home/OurBlog";
 import Testimonies from "./home/Testimonies";
 import Donation from "./home/Donate";
+// import { signIn, signOut, useSession } from 'next-auth/react';
 
 const OneMapAfrica = () => {
+  // const { data: session } = useSession();
+
   return (
     <div>
 
       {/* Hero Section */}
       <HeaderSection />
-
+      {/* {!session ? (
+        <button onClick={() => signIn()}>Sign In</button>
+      ) : (
+        <div>
+          <p>Welcome, {session.user.name}</p>
+          <button onClick={() => signOut()}>Sign Out</button>
+        </div>
+      )} */}
       {/* Trusted companies */}
       <TrustedClients />
 

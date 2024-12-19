@@ -2,6 +2,7 @@
 
 import SvgPathLoader from "@/components/component/loaders/SvgLoader";
 import { useState, useEffect } from "react";
+import { Toaster } from "react-hot-toast";
 
 export default function MainLayout({ children }) {
   const [isAppInitialized, setIsAppInitialized] = useState(false);
@@ -33,5 +34,7 @@ export default function MainLayout({ children }) {
   }
 
   // Render main application after initialization
-  return <div>{children}</div>;
+  return <div>
+        <Toaster />
+        {children}</div>;
 }
