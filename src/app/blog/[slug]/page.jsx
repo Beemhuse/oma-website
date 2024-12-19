@@ -50,7 +50,7 @@ export default async function Page({ params }) {
               alt=""
               width={500}
               height={500}
-              className="object-cover"
+              className="object-cover w-2/3 aspect-auto"
             />
           </div>
           <article>
