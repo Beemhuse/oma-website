@@ -8,7 +8,7 @@ const AboutUs = () => {
   const rightRef = useSlideInAnimation('right', 1000, 200);
   const {push} = useRouter()
     return (
-        <div className="bg-white text-black py-16 px-8 md:px-20 lg:px-32">
+        <div className="bg-white text-black py-16 px-8 md:px-20 lg:px-32 mt-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {/* Left Section */}
             <div ref={leftRef}>

@@ -7,6 +7,7 @@ import CoreValues from "./home/CoreValues";
 import OurBlogs from "./home/OurBlog";
 import Testimonies from "./home/Testimonies";
 import Donation from "./home/Donate";
+import Events from "./home/Events";
 // import { signIn, signOut, useSession } from 'next-auth/react';
 
 const OneMapAfrica = () => {
@@ -25,7 +26,7 @@ const OneMapAfrica = () => {
 
       {/* our core values */}
       <CoreValues />
-
+      <Events />
       {/* Blog Section */}
       <OurBlogs />
 

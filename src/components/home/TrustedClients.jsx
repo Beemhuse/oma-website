@@ -35,8 +35,7 @@ const TrustedClients = ({
   const imageArr = [svg1, svg2, svg3, svg4, svg5, svg6, svg7, svg8, svg9];
 
   return (
-    <div className="flex flex-col gap-5 items-center whitespace-nowrap bg-[#F6F4F4] py-10">
-      {/* <p>Trusted by <Counter end={companies?.length} duration={1000} />+ companies worldwide</p> */}
+    <div className="flex flex-col gap-5 items-center whitespace-nowrap  py-10">
       <div className="w-full px-10 flex items-center">
         <Swiper
           modules={[Autoplay, Navigation, Pagination, Scrollbar, A11y, ImLoop2]}
