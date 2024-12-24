@@ -1,38 +1,16 @@
 "use client";
 import React, { useState } from "react";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
-import { postRequest } from "@/services/postRequest";
-import toast from "react-hot-toast";
-import CircularLoader from "@/components/component/loaders/CircularLoader";
-import { FaRegCircle } from "react-icons/fa6";
 import Payment from "@/components/Payment";
-
-const schema = yup.object().shape({
-  name: yup.string().required("Name is required"),
-  email: yup
-    .string()
-    .email("Invalid email format")
-    .required("Email is required"),
-  phone: yup
-    .string()
-    .matches(/^(\+234|0)[0-9]{10}$/, "Invalid phone number format")
-    .notRequired(),
-  subject: yup.string().required("Subject is required"),
-  message: yup.string().required("Message is required"),
-});
+import useSlideInAnimation from "@/hooks/slideAnimation";
 
 export default function Page() {
-  const [isLoading, setIsLoading] = useState(false);
   const [activeTab, setActiveTab] = useState("credit card");
-
+  const leftRef = useSlideInAnimation('left', 1000);
+  const rightRef = useSlideInAnimation('right', 1000, 200);
   const renderTabContent = () => {
     switch (activeTab) {
       case "credit card":
-        return (
-         <Payment />
-        );
+        return <Payment />;
       case "bank transfer":
         return (
           <div>
@@ -60,109 +38,100 @@ export default function Page() {
         return null;
     }
   };
-  const {
-    register,
-    reset,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    resolver: yupResolver(schema),
-  });
 
-  const onSubmit = async (data) => {
-    setIsLoading(true);
-    try {
-      await postRequest("/api/contact", data);
-      toast.success("Message sent successfully!");
-
-      setIsLoading(false);
-      reset();
-    } catch (err) {
-      setIsLoading(false);
-      toast.error(err.message || "failed");
-    } finally {
-      setIsLoading(false);
-    }
-  };
   return (
-    <div className="bg-gray-100 py-16 px-6 md:px-12 lg:px-20">
-      <div className="m-full mx-auto flex gap-5 ">
-        {/* Contact Information */}
-        <div className="w-1/3 flex flex-col items-center">
-          <div>
-            <h2 className="text-3xl font-bold text-gray-800 mb-6">
-              Payment Information
-            </h2>
+    <>
+      <section
+        className="relative py-20 px-4 sm:px-6 lg:px-8  text-white"
+        style={{
+          backgroundImage: "url(/bg-layout.png)",
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        <h1 className="text-center font-extrabold xl:text-4xl text-xl">
+          Subscription
+        </h1>
+      </section>
+      <div className="bg-gray-100 py-16 px-6 md:px-12 lg:px-20">
+        <div className="m-full mx-auto flex gap-5 ">
+          {/* Contact Information */}
+          <div ref={leftRef} className="w-1/3 flex flex-col items-center">
+            <div>
+              <h2 className="text-3xl font-bold text-gray-800 mb-6">
+                Payment Information
+              </h2>
 
-            <ol class="relative border-s  border-gray-600 dark:border-gray-700">
-              <li
-                className="mb-10 ms-4 cursor-pointer"
-                onClick={() => setActiveTab("credit card")}
-              >
-                <div
-                  className={`absolute w-3 h-3  rounded-full mt-1.5 -start-1.5 border -top-2 dark:border-gray-900 dark:bg-gray-700 ${
-                    activeTab === "credit card"
-                      ? "bg-red-500 border-red-500"
-                      : "bg-white border-gray-300"
-                  }`}
-                ></div>
-                <h3 className="mb-1 font-bold leading-none text-[19px] text-black dark:text-gray-500">
-                  Credit card
-                </h3>
-                <p className="mt-10 text-base font-normal text-gray-500 dark:text-gray-400">
-                  Pay with your card.
-                </p>
-              </li>
+              <ol class="relative border-s  border-gray-600 dark:border-gray-700">
+                <li
+                  className="mb-10 ms-4 cursor-pointer"
+                  onClick={() => setActiveTab("credit card")}
+                >
+                  <div
+                    className={`absolute w-3 h-3  rounded-full mt-1.5 -start-1.5 border -top-2 dark:border-gray-900 dark:bg-gray-700 ${
+                      activeTab === "credit card"
+                        ? "bg-red-500 border-red-500"
+                        : "bg-white border-gray-300"
+                    }`}
+                  ></div>
+                  <h3 className="mb-1 font-bold leading-none text-[19px] text-black dark:text-gray-500">
+                    Credit card
+                  </h3>
+                  <p className="mt-10 text-base font-normal text-gray-500 dark:text-gray-400">
+                    Pay with your card.
+                  </p>
+                </li>
 
-              <li
-                className="mb-10 ms-4 cursor-pointer"
-                onClick={() => setActiveTab("bank transfer")}
-              >
-                <div
-                  className={`absolute w-3 h-3 rounded-full mt-1.5 -start-1.5 border-2  dark:border-gray-900 dark:bg-gray-700
+                <li
+                  className="mb-10 ms-4 cursor-pointer"
+                  onClick={() => setActiveTab("bank transfer")}
+                >
+                  <div
+                    className={`absolute w-3 h-3 rounded-full mt-1.5 -start-1.5 border-2  dark:border-gray-900 dark:bg-gray-700
         ${
           activeTab === "bank transfer"
             ? "bg-red-500 border-red-500"
             : "bg-white border-gray-300"
         }`}
-                ></div>
-                <h3 className="mb-1 font-bold leading-none text-[19px] text-black dark:text-gray-500">
-                  Bank Transfer
-                </h3>
-                <p className="text-base mt-10 font-normal text-gray-500 dark:text-gray-400">
-                  Transfer to the NGO&apos;s account.
-                </p>
-              </li>
+                  ></div>
+                  <h3 className="mb-1 font-bold leading-none text-[19px] text-black dark:text-gray-500">
+                    Bank Transfer
+                  </h3>
+                  <p className="text-base mt-10 font-normal text-gray-500 dark:text-gray-400">
+                    Transfer to the NGO&apos;s account.
+                  </p>
+                </li>
 
-              <li
-                className="ms-4 cursor-pointer"
-                onClick={() => setActiveTab("cheque")}
-              >
-                <div
-                  className={`absolute w-3 h-3  rounded-full mt-1.5 -start-1.5 border-2  dark:border-gray-900 dark:bg-gray-700 
+                <li
+                  className="ms-4 cursor-pointer"
+                  onClick={() => setActiveTab("cheque")}
+                >
+                  <div
+                    className={`absolute w-3 h-3  rounded-full mt-1.5 -start-1.5 border-2  dark:border-gray-900 dark:bg-gray-700 
         ${
           activeTab === "cheque"
             ? "bg-red-500 border-red-500"
             : "bg-white border-gray-300"
         }`}
-                ></div>
-                <h3 className="mb-1 font-bold leading-none text-[19px] text-black dark:text-gray-500">
-                  Cheque
-                </h3>
-                <p className="text-base mt-10 font-normal text-gray-500 dark:text-gray-400">
-                  Pay using Bank cheque.
-                </p>
-              </li>
-            </ol>
+                  ></div>
+                  <h3 className="mb-1 font-bold leading-none text-[19px] text-black dark:text-gray-500">
+                    Cheque
+                  </h3>
+                  <p className="text-base mt-10 font-normal text-gray-500 dark:text-gray-400">
+                    Pay using Bank cheque.
+                  </p>
+                </li>
+              </ol>
+            </div>
           </div>
-        </div>
 
-        {/* Contact Form */}
-        <div className="w-2/3 bg-white p-6 rounded-lg shadow-lg">
-          {renderTabContent()}
-        </div>
+          {/* Contact Form */}
+          <div ref={rightRef} className="w-2/3 bg-white p-6 rounded-lg shadow-lg">
+            {renderTabContent()}
+          </div>
 
-        {/* <div className="bg-white p-8 rounded-[32px] shadow-lg w-2/3">
+          {/* <div className="bg-white p-8 rounded-[32px] shadow-lg w-2/3">
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             <div>
               <label
@@ -282,7 +251,8 @@ export default function Page() {
             </a>
           </p>
         </div> */}
+        </div>
       </div>
-    </div>
+    </>
   );
 }

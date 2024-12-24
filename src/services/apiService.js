@@ -14,7 +14,6 @@ export const fetchBlogs = async () => {
         "categories": categories[]->title // Fetch category titles
         }`
         );
-        console.log(data)
         return data;
 
     } catch (error) {
@@ -41,3 +40,23 @@ export const fetchTeam = async () => {
       throw error;
     }
   };
+
+  export const fetchPlans = async () => {
+    try {
+      const data = await client.fetch(
+        `*[_type == "pricing" && !(_id in path("drafts.**"))]{
+          _id,
+          name,
+          price,
+          highlighted,
+          benefits,
+          "description": description,
+        }`
+      );
+      return data;
+    } catch (error) {
+      console.error("Error fetching plans:", error);
+      throw error;
+    }
+  };
+  

@@ -7,7 +7,13 @@ import Image from 'next/image'
 
 const CoreValues = () => {
     return (
-        <div className="bg-black text-white flex justify-center py-20 md:py-10 flex-col px-8 md:px-20 h-screen md:h-[70vh]">
+        <div className=" text-white flex justify-center py-20 md:py-10 flex-col px-8 md:px-20 h-screen md:h-[70vh]"   style={{
+          backgroundImage: "url('/landingPage/bg.svg')",
+          backgroundSize: 'cover',
+          backgroundAttachment: 'fixed',
+          backgroundBlendMode: 'overlay',
+          backgroundColor: 'rgba(0, 0, 0, 0.8)', // Adds a black overlay
+        }}>
             <h1 className="text-4xl font-bold mb-4 pl-24">Core Value</h1>
           <div className="max-w-6xl mx-auto flex h-full gap-5">
             {/* sliding animated circle */}

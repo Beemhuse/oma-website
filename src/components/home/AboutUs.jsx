@@ -1,10 +1,12 @@
 'use client'
 import useSlideInAnimation from '@/hooks/slideAnimation';
+import { useRouter } from 'next/navigation';
 import React from 'react'
 
 const AboutUs = () => {
   const leftRef = useSlideInAnimation('left', 1000);
   const rightRef = useSlideInAnimation('right', 1000, 200);
+  const {push} = useRouter()
     return (
         <div className="bg-white text-black py-16 px-8 md:px-20 lg:px-32">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -25,7 +27,7 @@ const AboutUs = () => {
                 of common goals. By empowering individuals and communities, we strive
                 to dissolve barriers and enhance the well-being of all Africans.
               </p>
-              <button className="bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-6 rounded transition-all">
+              <button onClick={()=> push("/donations")} className="bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-6 rounded transition-all">
                 Donate Now
               </button>
             </div>

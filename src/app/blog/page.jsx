@@ -3,13 +3,8 @@ import React from "react";
 import { fetchBlogs } from "@/services/apiService";
 
 export default async function Page() {
+  let data = await fetchBlogs();
 
-  let data;
-  try {
-    data = await fetchBlogs();
-  } catch (error) {
-    console.error("Error fetching blogs:", error);
-  }
   return (
     <section className="xl:px-10 px-4">
       <div className="text-center my-10">
@@ -19,8 +14,8 @@ export default async function Page() {
           industry news.
         </p>
       </div>
-      <div className="flex justify-start gap-8">
-        {data.map((blog, index) => (
+      <div className="flex justify-start my-10 gap-8">
+        {data?.map((blog, index) => (
           <BlogCard key={index} {...blog} />
         ))}
       </div>

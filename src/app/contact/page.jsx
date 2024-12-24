@@ -6,6 +6,8 @@ import * as yup from "yup";
 import { postRequest } from "@/services/postRequest";
 import toast from "react-hot-toast";
 import CircularLoader from "@/components/component/loaders/CircularLoader";
+import Link from "next/link";
+import useSlideInAnimation from "@/hooks/slideAnimation";
 
 const schema = yup.object().shape({
   name: yup.string().required("Name is required"),
@@ -22,7 +24,8 @@ const schema = yup.object().shape({
 });
 export default function Page() {
   const [isLoading, setIsLoading] = useState(false);
-
+  const leftRef = useSlideInAnimation('left', 1000);
+  const rightRef = useSlideInAnimation('right', 1000, 200);
   const {
     register,
     reset,
@@ -48,10 +51,22 @@ export default function Page() {
     }
   };
   return (
+    <>
+        <section
+        className="relative py-20 px-4 sm:px-6 lg:px-8  text-white"
+        style={{
+          backgroundImage: "url(/bg-layout.png)",
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        <h1 className="text-center xl:text-4xl text-xl">Contact us</h1>
+      </section>
     <div className="bg-gray-100 py-16 px-6 md:px-12 lg:px-20">
       <div className="m-full mx-auto flex gap-5 ">
         {/* Contact Information */}
-        <div className="w-1/3 flex flex-col items-center">
+        <div ref={rightRef} className="w-1/3 flex flex-col items-center">
           <div>
             <h2 className="text-3xl font-bold text-gray-800 mb-6">
               Contact Information
@@ -97,7 +112,7 @@ export default function Page() {
         </div>
 
         {/* Contact Form */}
-        <div className="bg-white p-8 rounded-[32px] shadow-lg w-2/3">
+        <div ref={leftRef} className="bg-white p-8 rounded-[32px] shadow-lg w-2/3">
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             <div>
               <label
@@ -214,12 +229,13 @@ export default function Page() {
             </button>
           </form>
           <p className="mt-4 text-sm text-gray-500 text-right">
-            <a href="#" className="text-gray-700 underline">
+            <Link href="/privacy-policy" className="text-gray-700 underline">
               Privacy Policy
-            </a>
+            </Link>
           </p>
         </div>
       </div>
     </div>
+    </>
   );
 }

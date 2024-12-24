@@ -1,58 +1,85 @@
-'use client'
-import React, { useState } from 'react'
-import { Card } from './Card'
-import { Button } from './Button'
-import { CheckIcon } from './CheckIcon'
+"use client";
+import React, { useState, useEffect } from "react";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { Card } from "./Card";
+import { Button } from "./Button";
+import { CheckIcon } from "./CheckIcon";
+import { postRequest } from "@/services/postRequest";
+import { fetchPlans } from "@/services/apiService";
+import { Input } from "../component/ui/input";
+import ActionLoader from "../reusables/ActionLoader";
 
-const tiers = [
-  {
-    name: 'Premium Member',
-    price: 100,
-    benefits: [
-      'All benefits listed below',
-      'Priority access to events and conferences',
-      'Complimentary tickets to exclusive events',
-      'Recognition on NGO\'s website and social media',
-    ],
-  },
-  {
-    name: 'Silver Member',
-    price: 50,
-    benefits: [
-      'Access to exclusive events and conferences',
-      'Discounts on tickets to events and conferences',
-      'Access to NGO\'s newsletter and publications',
-      'Listing on NGO\'s website',
-    ],
-  },
-  {
-    name: 'Diamond Member',
-    price: 500,
-    benefits: [
-      'All benefits listed above',
-      'Opportunity to serve on NGO\'s board of directors',
-      'Complimentary tickets to exclusive events',
-      'Recognition on NGO\'s website and social media',
-      'Opportunity to monitor events and conferences',
-      'Personalized support from NGO\'s staff',
-    ],
-  },
-  {
-    name: 'Gold Member',
-    price: 200,
-    benefits: [
-      'All benefits listed above',
-      'Opportunity to serve on NGO\'s advisory board',
-      'Complimentary tickets to exclusive events',
-      'Recognition on NGO\'s website and social media',
-      'Opportunity to sponsor events and conferences',
-    ],
-    highlighted: true,
-  },
-]
+const subscriptionSchema = yup.object().shape({
+  name: yup.string().required("Name is required."),
+  email: yup
+    .string()
+    .email("Enter a valid email.")
+    .required("Email is required."),
+  // plan: yup.string().required('Please select a plan.'),
+});
 
 export function PricingTable() {
-  const [isAnnual, setIsAnnual] = useState(true)
+  const [tiers, setTiers] = useState([]);
+  const [loadingPlans, setLoadingPlans] = useState(true);
+  const [isAnnual, setIsAnnual] = useState(true);
+  const [submissionError, setSubmissionError] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLoading, setLoading] = useState(false);
+  const [planId, setPlanId] = useState("");
+  const [price, setPrice] = useState("");
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({
+    resolver: yupResolver(subscriptionSchema),
+  });
+
+  const openModal = (id, price) => {
+    setIsModalOpen(true);
+    setPlanId(id);
+    setPrice(id);
+  };
+  // Fetch plans from the API
+  useEffect(() => {
+    const getPlans = async () => {
+      try {
+        const res = await fetchPlans();
+        setTiers(res);
+      } catch (error) {
+        console.error("Failed to fetch plans:", error);
+      } finally {
+        setLoadingPlans(false);
+      }
+    };
+    getPlans();
+  }, []);
+
+  const onSubmit = async (formData) => {
+    console.log(formData);
+    setSubmissionError(null);
+    setLoading(true);
+
+    try {
+      const response = await postRequest("/api/subscriptions", {
+        ...formData,
+        plan: planId,
+        amount: price,
+      });
+      console.log(response);
+      alert("Subscription successful! 🎉");
+      reset();
+      setLoading(false);
+      setIsModalOpen(false);
+    } catch (error) {
+      setSubmissionError(error.message || "An error occurred.");
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="py-12 px-4">
@@ -62,7 +89,7 @@ export function PricingTable() {
           <button
             onClick={() => setIsAnnual(false)}
             className={`rounded-full px-4 py-2 transition-colors ${
-              !isAnnual ? 'bg-green-950 text-white' : 'hover:bg-green-50'
+              !isAnnual ? "bg-green-950 text-white" : "hover:bg-green-50"
             }`}
           >
             Billed Monthly
@@ -70,7 +97,7 @@ export function PricingTable() {
           <button
             onClick={() => setIsAnnual(true)}
             className={`rounded-full px-4 py-2 transition-colors ${
-              isAnnual ? 'bg-green-950 text-white' : 'hover:bg-green-50'
+              isAnnual ? "bg-green-950 text-white" : "hover:bg-green-50"
             }`}
           >
             Billed Annually
@@ -78,42 +105,123 @@ export function PricingTable() {
         </div>
       </div>
 
-      {/* Pricing Cards */}
-      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-        {tiers.map((tier) => (
-          <Card
-            key={tier.name}
-            className={tier.highlighted ? 'bg-green-950 text-white' : 'bg-white'}
-          >
-            <div className="p-6">
-              <h3 className="text-lg font-semibold mb-4">{tier.name}</h3>
-              <div className="mb-6">
-                <span className="text-3xl font-bold">$</span>
-                <span className="text-5xl font-bold">{tier.price}</span>
-                <span className="ml-1 text-sm">/year</span>
-              </div>
-              <ul className="space-y-3 text-sm mb-6">
-                {tier.benefits.map((benefit, index) => (
-                  <li key={index} className="flex items-start gap-2">
-                    <CheckIcon className="h-5 w-5 shrink-0" />
-                    <span>{benefit}</span>
-                  </li>
-                ))}
-              </ul>
-              <Button
-                className={`w-full ${
-                  tier.highlighted
-                    ? 'bg-white text-green-950 hover:bg-gray-100'
-                    : 'bg-green-950 text-white hover:bg-green-900'
-                }`}
+      {loadingPlans ? (
+        <p>Loading plans...</p>
+      ) : (
+        <div>
+          {/* Pricing Cards */}
+          <div className="grid gap-8 md:grid-cols-2 xl:w-2/3 w-full m-auto lg:grid-cols-4">
+            {tiers?.map((tier) => (
+              <Card
+                key={tier._id}
+                className={
+                  tier.highlighted ? "bg-green-950 text-white" : "bg-white"
+                }
               >
-                Get started
-              </Button>
-            </div>
-          </Card>
-        ))}
-      </div>
-    </div>
-  )
-}
+                <div className="p-6">
+                  <h3 className="text-lg font-semibold mb-4">{tier.name}</h3>
+                  <div className="mb-6">
+                    <span className="text-3xl font-bold">$</span>
+                    <span className="text-5xl font-bold">
+                      {/* {isAnnual ? tier.priceAnnual : tier.priceMonthly} */}
+                      {tier?.price}
+                    </span>
+                    <span className="ml-1 text-sm">
+                      /{isAnnual ? "year" : "month"}
+                    </span>
+                  </div>
+                  <ul className="space-y-3 text-sm mb-6">
+                    {tier?.benefits?.map((benefit, index) => (
+                      <li key={index} className="flex items-start gap-2">
+                        <CheckIcon className="h-5 w-5 shrink-0" />
+                        <span>{benefit}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Button
+                    onClick={() => openModal(tier._id, tier?.price)}
+                    className="w-full bg-green-950 text-white hover:bg-green-900"
+                  >
+                    Select Plan
+                  </Button>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      )}
 
+      {/* Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-white rounded-lg shadow-lg w-full max-w-lg p-6">
+            <h2 className="text-xl font-semibold mb-4">Subscribe to a Plan</h2>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <div className="mb-4">
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium text-gray-700"
+                >
+                  Name
+                </label>
+                <Input
+                  // id="name"
+                  type="text"
+                  {...register("name")}
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-950 focus:ring-green-950 sm:text-sm"
+                />
+                {errors.name && (
+                  <p className="text-red-600 text-sm mt-1">
+                    {errors.name.message}
+                  </p>
+                )}
+              </div>
+
+              <div className="mb-4">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-700"
+                >
+                  Email
+                </label>
+                <Input
+                  // id="email"
+                  type="email"
+                  {...register("email")}
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-950 focus:ring-green-950 sm:text-sm"
+                />
+                {errors.email && (
+                  <p className="text-red-600 text-sm mt-1">
+                    {errors.email.message}
+                  </p>
+                )}
+              </div>
+
+              {/* Submission Error */}
+              {submissionError && (
+                <p className="text-red-600 text-sm mt-4">{submissionError}</p>
+              )}
+
+              <div className="mt-6 flex gap-4">
+                <Button
+                  type="button"
+                  onClick={() => setIsModalOpen(false)}
+                  className="w-full bg-gray-300 text-gray-700 hover:bg-gray-400"
+                >
+                  Cancel
+                </Button>
+                <Button
+                  type="submit"
+                  className="w-full bg-green-950 text-white hover:bg-green-900"
+                >
+                  Subscribe
+                </Button>
+                <ActionLoader isVisible={isLoading} />
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}

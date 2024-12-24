@@ -27,8 +27,8 @@ export default function TeamCard({ name, position, image, socials }) {
         alt={name}
         priority
         width={500}
-        height={500}
-        className="w-full"
+        height={300}
+        className="w-full h-2/3 object-cover aspect-auto"
       />
 
       {/* Details */}

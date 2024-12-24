@@ -58,7 +58,7 @@ const Navbar = () => {
     <nav className="bg-green-700 relative w-full text-white px-6 py-4 ">
       <div className="flex items-center justify-between">
         {/* Logo */}
-        <div className="flex items-center space-x-4">
+        <div onClick={()=> push("/")} className="flex cursor-pointer  items-center space-x-4">
           <Image
             src="/one_map.svg"
             width={150}
