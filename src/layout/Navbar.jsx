@@ -1,22 +1,27 @@
-'use client'
+"use client";
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Button from "@/components/reusables/Button";
-import arrowRight from "../../public/arrowRight.svg"
+import arrowRight from "../../public/arrowRight.svg";
 import { useRouter } from "next/navigation";
-// import { FaCheck } from "react-icons/fa";
-// import { FaArrowRight } from "react-icons/fa6";
+import MobileNavbar from "./MobileNavbar";
+
 
 const menuItems = [
   { label: "About Us", href: "/about" },
   {
     label: "Projects",
     submenu: [
-      { label: <p className="flex items-center gap-5">
-        E-Commerce
-        <Image src={arrowRight} alt="arrow right" />
-      </p>, href: "/projects/e-commerce" },
+      {
+        label: (
+          <p className="flex items-center gap-5">
+            E-Commerce
+            <Image src={arrowRight} alt="arrow right" />
+          </p>
+        ),
+        href: "/projects/e-commerce",
+      },
       { label: "Agriculture", href: "/projects/agriculture" },
       { label: "Fashion & Event", href: "/projects/fashion-event" },
       { label: "Education & Mentorship", href: "/projects/education" },
@@ -46,9 +51,13 @@ const menuItems = [
 ];
 
 const Navbar = () => {
-  const {push} = useRouter()
+  const { push } = useRouter();
   const [openSubmenu, setOpenSubmenu] = useState(null);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
+  const toggleDrawer = () => {
+    setIsDrawerOpen(!isDrawerOpen);
+  };
   // Toggle submenu visibility on click
   const toggleSubmenu = (label) => {
     setOpenSubmenu((prev) => (prev === label ? null : label)); // Toggle the submenu
@@ -58,7 +67,10 @@ const Navbar = () => {
     <nav className="bg-green-700 relative w-full text-white px-6 py-4 ">
       <div className="flex items-center justify-between">
         {/* Logo */}
-        <div onClick={()=> push("/")} className="flex cursor-pointer  items-center space-x-4">
+        <div
+          onClick={() => push("/")}
+          className="flex cursor-pointer  items-center space-x-4"
+        >
           <Image
             src="/one_map.svg"
             width={150}
@@ -79,42 +91,25 @@ const Navbar = () => {
               >
                 <button className="hover:underline">{item.label}</button>
                 {/* Submenu */}
-                {
-                  item.label === "Projects" ?
-                    <div
-                      className={`absolute ${
-                        openSubmenu === item.label ? "block" : "hidden"
-                      } bg-white text-gray-700 text-xs shadow-lg w-full  top-full z-10 transition-all duration-300 absolute left-0 flex`}
-                    >
-                      <div className="md:w-1/3 pr-20 bg-[#EBEBEB] p-10">
-                        <p className="text-black/80 ">
-                          At One Map Africa, our projects are driven by the overarching goal
-                          of fostering unity and sustainable development across the continent.
-                          We aim to empower individuals and communities through strategic
-                          initiatives in various sectors, including E-commerce, Education,
-                          Agriculture, Energy, Housing, Tourism, Fashion and Events, and
-                          Women Empowerment.
-                        </p>
-                      </div>
-                      <div className="md:w-2/3 grid grid-cols-3 w-full gap-6 p-10 text-sm font-semibold ">
-                        { item.submenu.map((subItem) => (
-                          <Link
-                            href={subItem.href}
-                            key={subItem.label}
-                            className="block text-sm hover:text-black/50"
-                          >
-                            {subItem.label}
-                          </Link>
-                        ))}
-                      </div>
+                {item.label === "Projects" ? (
+                  <div
+                    className={`absolute ${
+                      openSubmenu === item.label ? "block" : "hidden"
+                    } bg-white text-gray-700 text-xs shadow-lg w-full  top-full z-10 transition-all duration-300 absolute left-0 flex`}
+                  >
+                    <div className="md:w-1/3 pr-20 bg-[#EBEBEB] p-10">
+                      <p className="text-black/80 ">
+                        At One Map Africa, our projects are driven by the
+                        overarching goal of fostering unity and sustainable
+                        development across the continent. We aim to empower
+                        individuals and communities through strategic
+                        initiatives in various sectors, including E-commerce,
+                        Education, Agriculture, Energy, Housing, Tourism,
+                        Fashion and Events, and Women Empowerment.
+                      </p>
                     </div>
-                  :
-                    <div
-                      className={`absolute ${
-                        openSubmenu === item.label ? "block" : "hidden"
-                      } bg-white text-gray-700 shadow-lg z-10 transition-all duration-300 absolute top-full flex flex-col gap-3 p-5 text-sm font-semibold `}
-                    >
-                      { item.submenu.map((subItem) => (
+                    <div className="md:w-2/3 grid grid-cols-3 w-full gap-6 p-10 text-sm font-semibold ">
+                      {item.submenu.map((subItem) => (
                         <Link
                           href={subItem.href}
                           key={subItem.label}
@@ -124,7 +119,24 @@ const Navbar = () => {
                         </Link>
                       ))}
                     </div>
-                }
+                  </div>
+                ) : (
+                  <div
+                    className={`absolute ${
+                      openSubmenu === item.label ? "block" : "hidden"
+                    } bg-white text-gray-700 shadow-lg z-10 transition-all duration-300 absolute top-full flex flex-col gap-3 p-5 text-sm font-semibold `}
+                  >
+                    {item.submenu.map((subItem) => (
+                      <Link
+                        href={subItem.href}
+                        key={subItem.label}
+                        className="block text-sm hover:text-black/50"
+                      >
+                        {subItem.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
               </div>
             ) : (
               <Link
@@ -139,13 +151,25 @@ const Navbar = () => {
         </div>
 
         {/* Donate Button */}
-        <Button onClick={()=> push("/donations")} label={"Donate"} bgColor="bg-red-500" />
+        <span className="hidden md:flex">
+
+        <Button
+          onClick={() => push("/donations")}
+          label={"Donate"}
+          bgColor="bg-red-500"
+          className="hidden md:block"
+        />
+        </span>
+      <MobileNavbar />
 
         {/* Mobile Menu Button */}
-        <button className="block md:hidden text-2xl">
+        {/* <button onClick={toggleDrawer} className="block md:hidden text-2xl">
           <span className="material-icons">menu</span>
-        </button>
+        </button> */}
       </div>
+      {/* {
+isDrawerOpen &&
+      } */}
     </nav>
   );
 };
