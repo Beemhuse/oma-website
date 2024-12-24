@@ -1,3 +1,4 @@
+'use client'
 import Image from "next/image";
 import Link from "next/link";
 import { Textarea } from "@/components/component/ui/textarea";
@@ -12,7 +13,7 @@ import { Input } from "@/components/component/ui/input";
 import useSlideInAnimation from "@/hooks/slideAnimation";
 
 export default function GetInvolved() {
-    const leftRef = useSlideInAnimation('left', 1000);
+    // const leftRef = useSlideInAnimation('left', 1000);
     const rightRef = useSlideInAnimation('right', 1000, 200);
   return (
     <div className="bg-gray-50">
