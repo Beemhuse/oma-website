@@ -10,10 +10,16 @@ import { runFireworks } from '@/lib/canvas';
 const Success = () => {
     const [loading, setLoading] = useState(true);
     const [paymentStatus, setPaymentStatus] = useState(null);
+    const [trxref, setTrxref] = useState(null);
 
-    const urlSearchParams = new URLSearchParams(window.location.search);
-    const trxref = urlSearchParams.get("trxref");
-
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+          const urlSearchParams = new URLSearchParams(window.location.search);
+          const trxRefFromUrl = urlSearchParams.get("trxref");
+          setTrxref(trxRefFromUrl);
+        }
+      }, []);
+    
     useEffect(() => {
         if (paymentStatus === 200) {
             runFireworks();
