@@ -64,9 +64,9 @@ export default function Page() {
         <h1 className="text-center xl:text-4xl text-xl">Contact us</h1>
       </section>
     <div className="bg-gray-100 py-16 px-6 md:px-12 lg:px-20">
-      <div className="m-full mx-auto flex gap-5 ">
+      <div className="m-full mx-auto flex xl:flex-row flex-col gap-5 ">
         {/* Contact Information */}
-        <div ref={rightRef} className="w-1/3 flex flex-col items-center">
+        <div ref={rightRef} className="xl:w-1/3 w-full p-3 flex flex-col items-center">
           <div>
             <h2 className="text-3xl font-bold text-gray-800 mb-6">
               Contact Information
@@ -112,7 +112,7 @@ export default function Page() {
         </div>
 
         {/* Contact Form */}
-        <div ref={leftRef} className="bg-white p-8 rounded-[32px] shadow-lg w-2/3">
+        <div ref={leftRef} className="bg-white p-8 rounded-[32px] shadow-lg w-full xl:w-2/3">
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             <div>
               <label

@@ -60,3 +60,25 @@ export const fetchTeam = async () => {
     }
   };
   
+
+  // Fetch events from the Sanity CMS
+export const fetchEvents = async () => {
+  try {
+      const data = await client.fetch(
+          `*[_type == "event" && !(_id in path("drafts.**"))]{
+              title,
+              slug,
+              "imageSrc": imageUrl,
+              "date": date,
+              location,
+              description,
+              eventCategory,
+              registrationLink
+          }`
+      );
+      return data;
+  } catch (error) {
+      console.error("Error fetching events:", error);
+      throw error;
+  }
+};

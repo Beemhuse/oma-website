@@ -1,13 +1,17 @@
 'use client'
+import useSlideIn from '@/hooks/useSlideIn';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React from 'react';
 import { FaFacebookF, FaLinkedinIn, FaTwitter } from 'react-icons/fa';
 
 const Footer = () => {
     const {push} = useRouter()
+  let slideinRef = useSlideIn()
+
   return (
-    <footer className="bg-green-800 text-white py-12">
+    <footer ref={slideinRef} className="bg-green-800 text-white py-12">
       <div className="container mx-auto px-4">
         {/* Top Section */}
         <div className="text-center mb-10">
@@ -49,8 +53,10 @@ const Footer = () => {
             <h3 className="font-semibold mb-4">LEGAL</h3>
             <ul className="space-y-2">
               <li>General Info</li>
-              <li>Privacy Policy</li>
-              <li>Terms of Service</li>
+              <li>
+              <Link href="/privacy-policy">Privacy Policy</Link>
+              </li>
+              <li> <Link href={'/terms'}> Terms of Service</Link></li>
             </ul>
           </div>
           <div>

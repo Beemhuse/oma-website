@@ -90,7 +90,7 @@ export default function AboutPage() {
           </p>
         </div>
         <div className=" m-auto ">
-          <div className="justify-center  gap-6 flex">
+          <div className="justify-center  gap-6 flex xl:flex-row flex-col">
             {programs.map((program, index) => (
               <ProgramCard
                 key={index}

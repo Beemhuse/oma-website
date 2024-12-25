@@ -13,6 +13,7 @@ const MobileNavbar = () => {
   const [activeSubmenu, setActiveSubmenu] = useState(null); // Track which submenu is open
 
   const menuItems = [
+    { label: "Home", href: "/" },
     { label: "About Us", href: "/about" },
     {
       label: "Projects",
@@ -31,18 +32,16 @@ const MobileNavbar = () => {
     { label: "News & Updates", href: "/blog" },
     {
       label: "Our Team",
-      submenu: [
-        { label: "Member 1", href: "/team/member1" },
-        { label: "Member 2", href: "/team/member2" },
-      ],
+      href: "/team"
+    
     },
-    {
-      label: "Resources",
-      submenu: [
-        { label: "Resource 1", href: "/resources/resource1" },
-        { label: "Resource 2", href: "/resources/resource2" },
-      ],
-    },
+    // {
+    //   label: "Resources",
+    //   submenu: [
+    //     { label: "Resource 1", href: "/resources/resource1" },
+    //     { label: "Resource 2", href: "/resources/resource2" },
+    //   ],
+    // },
     { label: "Contact", href: "/contact" },
   ];
 

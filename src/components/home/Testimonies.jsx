@@ -36,8 +36,8 @@ const Testimonies = () => {
         },
     ]
     return (
-        <section key={slideInRef} className="px-10 flex md:justify-center bg-[#F6F4F4] w-full">
-           <div className=''>
+        <section key={slideInRef} className="px-10  flex md:justify-center bg-[#F6F4F4] w-full">
+           <div className='container m-auto'>
                 <div className="text-left my-10">
                     <h1 className="text-[32px] mb-4 font-[600] capitalize">Testimonies</h1>
                     <p className="capitalize">

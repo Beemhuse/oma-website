@@ -28,7 +28,9 @@ export default async function Page() {
             Get to know the team members working behind the scenes.
           </p>
         </div>
-        <div className="flex gap-8">
+        <div className="container m-auto">
+
+        <div className="flex flex-wrap justify-start items-start gap-8  ">
           {teamMembers?.map((member, index) => (
             <TeamCard
               key={index}
@@ -38,6 +40,7 @@ export default async function Page() {
               socials={member.socialLinks}
             />
           ))}
+        </div>
         </div>
       </section>
     </>

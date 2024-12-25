@@ -7,8 +7,8 @@ import arrowRight from "../../public/arrowRight.svg";
 import { useRouter } from "next/navigation";
 import MobileNavbar from "./MobileNavbar";
 
-
 const menuItems = [
+  { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
   {
     label: "Projects",
@@ -35,29 +35,22 @@ const menuItems = [
   { label: "News & Updates", href: "/blog" },
   {
     label: "Our Team",
-    submenu: [
-      { label: "Member 1", href: "/team/member1" },
-      { label: "Member 2", href: "/team/member2" },
-    ],
+    href: "/team",
   },
-  {
-    label: "Resources",
-    submenu: [
-      { label: "Resource 1", href: "/resources/resource1" },
-      { label: "Resource 2", href: "/resources/resource2" },
-    ],
-  },
+  // {
+  //   label: "Resources",
+  //   submenu: [
+  //     { label: "Resource 1", href: "/resources/resource1" },
+  //     { label: "Resource 2", href: "/resources/resource2" },
+  //   ],
+  // },
   { label: "Contact", href: "/contact" },
 ];
 
 const Navbar = () => {
   const { push } = useRouter();
   const [openSubmenu, setOpenSubmenu] = useState(null);
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-  const toggleDrawer = () => {
-    setIsDrawerOpen(!isDrawerOpen);
-  };
   // Toggle submenu visibility on click
   const toggleSubmenu = (label) => {
     setOpenSubmenu((prev) => (prev === label ? null : label)); // Toggle the submenu
@@ -152,24 +145,15 @@ const Navbar = () => {
 
         {/* Donate Button */}
         <span className="hidden md:flex">
-
-        <Button
-          onClick={() => push("/donations")}
-          label={"Donate"}
-          bgColor="bg-red-500"
-          className="hidden md:block"
-        />
+          <Button
+            onClick={() => push("/donations")}
+            label={"Donate"}
+            bgColor="bg-red-500"
+            className="hidden md:block"
+          />
         </span>
-      <MobileNavbar />
-
-        {/* Mobile Menu Button */}
-        {/* <button onClick={toggleDrawer} className="block md:hidden text-2xl">
-          <span className="material-icons">menu</span>
-        </button> */}
+        <MobileNavbar />
       </div>
-      {/* {
-isDrawerOpen &&
-      } */}
     </nav>
   );
 };

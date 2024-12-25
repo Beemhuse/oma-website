@@ -83,7 +83,7 @@ const OurBlogs = () => {
   };
 
   return (
-    <section ref={slideInRef} className="px-10 flex my-10 md:justify-center">
+    <section ref={slideInRef} className="px-10 my-10 container m-auto">
       <div>
         <div className="text-left my-10">
           <h1 className="text-[32px] mb-4 font-[600] capitalize">Our Blog</h1>

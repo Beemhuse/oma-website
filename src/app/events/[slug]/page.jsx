@@ -1,104 +1,87 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-// import { ArrowLeft, Calendar, MapPin, Users } from 'lucide-react'
+import { client, urlFor } from "@/sanity/client";
+import DisplayFormattedArticle from "@/components/component/card/DisplayFormattedArticle";
+import { FaRegCalendarAlt } from "react-icons/fa";
+import { formatDate } from "@/utils/formatDate";
+import { EventLocation } from "@/components/component/card/EventCard";
 
-// This would typically come from a database or API
-const getEventDetails = (id) => ({
-  id,
-  title: "Annual GIS Conference",
-  date: "September 15-17, 2023",
-  location: "Nairobi, Kenya",
-  imageUrl: "/images/events/gis-conference.jpg",
-  description:
-    "Join us for the premier GIS event in Africa, featuring keynote speakers, workshops, and networking opportunities.",
-  agenda: [
-    { time: "09:00 AM", activity: "Opening Ceremony" },
-    {
-      time: "10:30 AM",
-      activity: "Keynote Speech: The Future of GIS in Africa",
-    },
-    { time: "12:00 PM", activity: "Lunch Break" },
-    {
-      time: "01:30 PM",
-      activity: "Workshop: Practical Applications of GIS in Urban Planning",
-    },
-    {
-      time: "03:30 PM",
-      activity: "Panel Discussion: Challenges and Opportunities in African GIS",
-    },
-    { time: "05:00 PM", activity: "Networking Reception" },
-  ],
-});
+export default async function Page({ params }) {
+  const { slug } = params;
 
-export default function EventDetails({ params }) {
-  const event = getEventDetails(params.slug);
-
+  const event = await client.fetch(
+    `*[_type == "event" && slug.current == $slug][0]{
+                  title,
+                  "imageSrc": imageUrl,
+                  "date": date,
+                  location,
+                  description,
+                  eventCategory,
+                  registrationLink
+              }`,
+    { slug }
+  );
+  console.log(event.description)
   return (
     <div className="min-h-screen bg-gray-100">
-      <div className="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <Link
-          href="/events"
+          href="/blog"
           className="inline-flex items-center text-blue-600 hover:text-blue-800 mb-6"
         >
           {/* <ArrowLeft className="w-4 h-4 mr-2" /> */}
           Back to Events
         </Link>
 
-        <div className="bg-white shadow-xl rounded-lg overflow-hidden">
-          <div className="relative h-64 sm:h-80">
+        <div className="xl:col-span-3 xl:w-2/3 m-auto w-full col-span-1 flex-col justify-center">
+          <ul className="flex gap-3 items-center mt-auto justify-end m-2">
+            {event?.eventCategory.map((category, index) => (
+              <li
+                key={index}
+                className="text-gray-500 text-xs p-2 rounded-xl bg-[#F2F8F7]"
+              >
+                {category}
+              </li>
+            ))}
+          </ul>
+          <h2 className="text-3xl font-bold mt-3">{event?.title}</h2>
+          <div className="flex mt-3 items-center">
+            <div className="flex items-center gap-3">
+              <EventLocation
+                location={event?.location}
+                isOnline={event?.registrationLink ? true : false}
+              />{" "}
+            </div>
+            <p className="flex items-center gap-2 ml-4">
+              {" "}
+              <FaRegCalendarAlt /> {formatDate(event?.date)}
+            </p>
+          </div>
+          <div className="flex justify-center mt-5">
             <Image
-              src={event.imageUrl}
-              alt={event.title}
-              layout="fill"
-              objectFit="cover"
-              className="w-full h-full object-center"
+              src={urlFor(event?.imageSrc)}
+              alt="event image"
+              width={500}
+              height={500}
+              className="object-cover xl:w-2/3 w-full aspect-auto"
             />
           </div>
-
-          <div className="p-6 sm:p-8">
-            <h1 className="text-3xl font-bold text-gray-900 mb-4">
-              {event.title}
-            </h1>
-
-            <div className="flex flex-wrap items-center text-sm text-gray-600 mb-6">
-              <div className="flex items-center mr-6 mb-2">
-                {/* <Calendar className="w-4 h-4 mr-2" /> */}
-                {event.date}
-              </div>
-              <div className="flex items-center mr-6 mb-2">
-                {/* <MapPin className="w-4 h-4 mr-2" /> */}
-                {event.location}
-              </div>
-              <div className="flex items-center mb-2">
-                {/* <Users className="w-4 h-4 mr-2" /> */}
-                250 Attendees
-              </div>
-            </div>
-
-            <p className="text-gray-700 mb-8">{event.description}</p>
-
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-              Event Agenda
-            </h2>
-            <div className="space-y-4">
-              {event.agenda.map((item, index) => (
-                <div key={index} className="flex items-start">
-                  <div className="flex-shrink-0 w-20 text-sm font-medium text-gray-600">
-                    {item.time}
-                  </div>
-                  <div className="ml-4 text-gray-700">{item.activity}</div>
-                </div>
-              ))}
-            </div>
+          <article className=" m-auto">
+            <DisplayFormattedArticle description={event?.description} />
+          </article>
+        </div>
+        {event?.registrationLink && (
+          <div className="mt-8 text-center">
+            <a
+              href={event?.registrationLink}
+              className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300"
+            >
+              Register for Event
+            </a>
           </div>
-        </div>
-
-        <div className="mt-8 text-center">
-          <button className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300">
-            Register for Event
-          </button>
-        </div>
+        )}
+        
       </div>
     </div>
   );

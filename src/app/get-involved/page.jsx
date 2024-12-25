@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import { Textarea } from "@/components/component/ui/textarea";
@@ -13,7 +13,7 @@ import { Input } from "@/components/component/ui/input";
 import useSlideInAnimation from "@/hooks/slideAnimation";
 
 export default function GetInvolved() {
-    const rightRef = useSlideInAnimation('right', 1000, 200);
+  const rightRef = useSlideInAnimation("right", 1000, 200);
   return (
     <div className="bg-gray-50">
       {/* Hero Section */}
@@ -38,7 +38,7 @@ export default function GetInvolved() {
 
       <div className="absolute bottom-0 right-0 lg:block hidden">
         <Image
-          src="/placeholder.svg?height=300&width=300"
+          src="/landingPage/africa.png"
           alt="Map of Africa"
           width={300}
           height={300}
@@ -102,7 +102,16 @@ export default function GetInvolved() {
       {/* Volunteer Form Section */}
       <section
         id="volunteer-form"
-        className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-100"
+        className="py-16 px-4 sm:px-6 lg:px-8 "
+        style={{
+          backgroundImage: "url(/landingPage/africa.png)",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          backgroundAttachment: "fixed",
+          backgroundBlendMode: "overlay",
+
+          // backgroundColor: "rgba(0, 74, 13, 0.5)", // Adds a black overlay
+        }}
       >
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-8">
@@ -178,7 +187,10 @@ export default function GetInvolved() {
               <Textarea id="message" name="message" rows={4} className="mt-1" />
             </div>
             <div>
-              <Button type="submit" className="w-full">
+              <Button
+                type="submit"
+                className=" w-fit m-auto bg-red-500 text-white "
+              >
                 Submit
               </Button>
             </div>

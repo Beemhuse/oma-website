@@ -26,19 +26,13 @@ const components = {
   types: {
     image: ({ value }) => (
       <Image
-        src={urlFor(value.asset)}
+        src={urlFor(value?.asset)}
         alt={value.alt || " "}
         loading="lazy"
         width={500}
         height={500}
         className="my-4"
       />
-    ),
-
-    code: ({ value }) => (
-      <pre>
-        <code>{value.code}</code>
-      </pre>
     ),
   },
   marks: {
@@ -59,10 +53,10 @@ const components = {
     h2: ({ children }) => <h2 className="my-4">{children}</h2>,
     h3: ({ children }) => <h3 className="my-4">{children}</h3>,
     h4: ({ children }) => <h4 className="my-4">{children}</h4>,
+    h5: ({ children }) => <h5 className="my-4">{children}</h5>,
   },
 };
 
 export default function DisplayFormattedArticle({ description }) {
-  console.log(description);
   return <PortableText value={description} components={components} />;
 }
