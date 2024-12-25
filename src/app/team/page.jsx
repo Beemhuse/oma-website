@@ -20,7 +20,7 @@ export default async function Page() {
       >
         <h1 className="text-center xl:text-4xl text-xl">Team</h1>
       </section>
-      <section className="py-10 px-[80px]">
+      <section className="py-10 xl:px-[80px] px-4">
         <div className="text-center my-10">
           <h2 className="text-[16px]">OUR TEAM</h2>
           <h3 className="text-[54px] font-[600]">Staff</h3>

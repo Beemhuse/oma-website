@@ -1,9 +1,11 @@
 import useSlideInAnimation from "@/hooks/slideAnimation";
 import anime from "animejs";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 export default function WhatWeDo() {
+  const {push} = useRouter()
   const leftRef = useSlideInAnimation("left", 1000);
   const rightRef = useSlideInAnimation("right", 1000, 200);
   const handleMouseEnter = (target) => {
@@ -26,9 +28,9 @@ export default function WhatWeDo() {
   return (
     <div className="">
       <div className="bg-white text-black py-16  ">
-        <div className=" flex flex-col justify-between lg:flex-row-reverse items-center">
+        <div className=" flex flex-col  lg:flex-row-reverse justify-center items-center">
           {/* Text Content */}
-          <div ref={leftRef} className=" lg:w-1/3 mb-8 lg:mb-0">
+          <div ref={leftRef} className=" lg:w-1/3 w-full mb-8 lg:mb-0">
             <div className="text-black text-sm uppercase gap-10 font-semibold flex  mb-5 justify-left items-center transform ">
               <div className="uppercase"> What We Do</div>{" "}
               <p className="bg-black w-[50px]  h-[2px]"></p>
@@ -43,16 +45,16 @@ export default function WhatWeDo() {
               and fostering long-term prosperity through collaboration and
               strategic initiatives
             </p>
-            <button className="bg-red-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-700">
+            <button onClick={()=> push ('/donations')} className="bg-red-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-700">
               Donate
             </button>
           </div>
           <div
             ref={rightRef}
-            className="lg:w-1/2 flex gap-3 items-center flex-wrap"
+            className="lg:w-1/2 justify-center w-full flex m-auto gap-3 items-center flex-wrap flex-grow"
           >
             <div
-              className="relative w-2/6"
+              className="relative xl:w-2/6 w-1/3 grow-1"
               onMouseEnter={(e) =>
                 handleMouseEnter(e.currentTarget.querySelector("img"))
               }
@@ -72,7 +74,7 @@ export default function WhatWeDo() {
             <div>
               {/* Second Image */}
               <div
-                className="relative"
+                className="relative grow-1"
                 onMouseEnter={(e) =>
                   handleMouseEnter(e.currentTarget.querySelector("img"))
                 }
@@ -85,7 +87,7 @@ export default function WhatWeDo() {
                   alt="Donation Box"
                   width={500}
                   height={500}
-                  className="shadow-lg w-2/3"
+                  className="shadow-lg w-2/3 "
                 />
               </div>
 

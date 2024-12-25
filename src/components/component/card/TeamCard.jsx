@@ -20,7 +20,7 @@ export default function TeamCard({ name, position, image, socials }) {
   return (
     <div
       ref={slideInRef}
-      className="w-[350px] h-2/5  bg-white rounded-lg shadow-lg overflow-hidden opacity-0 transform group"
+      className="xl:w-[350px] w-full h-2/5  bg-white rounded-lg shadow-lg overflow-hidden opacity-0 transform group"
     >
      <div className="relative overflow-hidden">
         <Image

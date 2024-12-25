@@ -10,6 +10,7 @@ import core1 from "../../../public/landingPage/core1.svg";
 import core2 from "../../../public/landingPage/core2.svg";
 import core3 from "../../../public/landingPage/core3.svg";
 import core4 from "../../../public/landingPage/core4.svg";
+import { useRouter } from "next/navigation";
 
 const programs = [
   {
@@ -34,6 +35,7 @@ const programs = [
 export default function AboutPage() {
   const leftRef = useSlideInAnimation("left", 1000);
   const rightRef = useSlideInAnimation("right", 1000, 200);
+  const {push} = useRouter()
   const handleMouseEnter = (target) => {
     anime({
       targets: target,
@@ -106,7 +108,7 @@ export default function AboutPage() {
             <Button
               bgColor="bg-[#DB101C]"
               hoverColor="bg-[#DB101C]"
-              href={"/donate"}
+              href={"/donations"}
               label={"Donate Now"}
             />
           </div>
@@ -133,7 +135,7 @@ export default function AboutPage() {
                 communication and encourage cooperative efforts to
                 achieve this vision.
               </p>
-              <button className="bg-red-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-700">
+              <button onClick={()=> push ('/donations')} className="bg-red-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-700">
                 Donate
               </button>
             </div>

@@ -1,6 +1,5 @@
 "use client";
-
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import {
   A11y,
@@ -16,24 +15,22 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import { ImLoop2 } from "react-icons/im";
 import Image from "next/image";
-import svg1 from "../../../public/landingPage/svg1.svg";
-import svg2 from "../../../public/landingPage/svg2.svg";
-import svg3 from "../../../public/landingPage/svg3.svg";
-import svg4 from "../../../public/landingPage/svg4.svg";
-import svg5 from "../../../public/landingPage/svg5.svg";
-import svg6 from "../../../public/landingPage/svg6.svg";
-import svg7 from "../../../public/landingPage/svg7.svg";
-import svg8 from "../../../public/landingPage/svg8.svg";
-import svg9 from "../../../public/landingPage/svg9.svg";
-import useSlideInAnimation from "@/hooks/slideAnimation";
+import { fetchTrustedClients } from "@/services/apiService";
+import { urlFor } from "@/sanity/client";
 
 const TrustedClients = ({
   smallScreen = 2,
   mediumScreen = 3,
   largeScreen = 5,
 }) => {
-  const imageArr = [svg1, svg2, svg3, svg4, svg5, svg6, svg7, svg8, svg9];
-
+  const [trustedClients, setTrustedClients] = useState([]);
+useEffect(()=>{
+  async function getTrustedClients(){
+    const data = await fetchTrustedClients();
+    setTrustedClients(data);
+  }
+  getTrustedClients()
+})
   return (
     <div className="flex flex-col gap-5 items-center whitespace-nowrap  py-10">
       <div className="w-full px-10 flex items-center">
@@ -59,14 +56,15 @@ const TrustedClients = ({
           }}
           className=""
         >
-          {imageArr?.map((image, index) => (
+          {trustedClients?.map((client, index) => (
             <SwiperSlide key={index}>
               <div className="flex flex-col w-fit items-center justify-center gap-1">
                 <Image
-                  alt=""
-                  src={image}
-                  height={150}
-                  className="object-contain bg-blend-multiply mix-blend-multiply"
+                  alt={`Trusted Client ${client?.name}`}
+                  src={urlFor(client?.imageSrc)}
+                  height={120}
+                  width={150}
+                  className="object-cover bg-blend-multiply mix-blend-multiply"
                 />{" "}
               </div>
             </SwiperSlide>

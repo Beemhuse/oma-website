@@ -4,9 +4,17 @@ import React from "react";
 export default function Page() {
   return (
     <div>
-          <h1 className="text-[54px] my-10 text-center font-bold text-gray-800 mb-6">
-          Privacy Policy
-        </h1>
+      <section
+        className="relative py-20 px-4 sm:px-6 lg:px-8  text-white"
+        style={{
+          backgroundImage: "url(/bg-layout.png)",
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        <h1 className="text-center xl:text-4xl text-xl">Privacy Policy</h1>
+      </section>
       <PrivacyPolicy />
     </div>
   );

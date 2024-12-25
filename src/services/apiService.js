@@ -82,3 +82,17 @@ export const fetchEvents = async () => {
       throw error;
   }
 };
+export const fetchTrustedClients = async () => {
+  try {
+      const data = await client.fetch(
+          `*[_type == "trustedClients" && !(_id in path("drafts.**"))]{
+              name,
+              "imageSrc": clientImage,
+          }`
+      );
+      return data;
+  } catch (error) {
+      console.error("Error fetching events:", error);
+      throw error;
+  }
+};

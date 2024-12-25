@@ -35,7 +35,7 @@ export default function PrivacyPolicy() {
   }, [sections]);
 
   return (
-    <div className="flex flex-col justify-center lg:flex-row p-8 gap-8">
+    <div className="flex flex-col-reverse justify-center lg:flex-row p-8 gap-8">
       {/* Left Side: Privacy Policy Content */}
       <div className="flex-1 max-w-4xl">
       
