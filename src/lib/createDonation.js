@@ -8,6 +8,7 @@ export const createDonation = async ({
   transactionRef,
   status = "pending",
   method,
+  donationPurpose
 }) => {
   try {
     const shortUuid = uuidv4().split("-")[0]; 
@@ -21,8 +22,10 @@ export const createDonation = async ({
       amount,
       transactionRef,
       transactionDate: new Date().toISOString(),
-      status,
+      // status,
       method,
+      donationPurpose
+
     });
 
     return donation;

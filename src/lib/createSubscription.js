@@ -7,7 +7,7 @@ export const createSubscriptions = async ({
     amount,
     plan,
     transactionRef,
-    status = "pending",
+    // status = "pending",
     method,
   }) => {
     try {
@@ -26,7 +26,7 @@ export const createSubscriptions = async ({
           },
         transactionRef,
         transactionDate: new Date().toISOString(),
-        status,
+        // status,
         method,
       });
   

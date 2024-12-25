@@ -3,13 +3,13 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import Image from "next/image";
 import { postRequest } from "@/services/postRequest";
 import ActionLoader from "./reusables/ActionLoader";
 
 // Validation schema using Yup
 const schema = yup.object({
   name: yup.string().required("Name is required"),
+  donationPurpose: yup.string().required("Donation purpose is required"),
   email: yup
     .string()
     .email("Please enter a valid email address")
@@ -47,7 +47,6 @@ const Payment = () => {
       if (paymentLink) {
         window.location.href = paymentLink;
       }
-        // console.log(response)
     }
     catch(err){
       setLoading(false)
@@ -76,7 +75,7 @@ const Payment = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
           {/* Name Field */}
           <div className="mb-4">
-            <label className="block font-bold mb-2">Name</label>
+            <label className="block font-normal mb-2">Name</label>
             <input
               type="text"
               {...register("name")}
@@ -92,7 +91,7 @@ const Payment = () => {
 
           {/* Email Field */}
           <div className="mb-4">
-            <label className="block font-bold mb-2">Email Address</label>
+            <label className="block font-normal mb-2">Email Address</label>
             <input
               type="email"
               {...register("email")}
@@ -128,7 +127,7 @@ const Payment = () => {
 
           {/* Custom Amount Input */}
           <div className="mb-6">
-            <label className="block font-bold mb-2">Custom Amount</label>
+            <label className="block font-normal mb-2">Custom Amount</label>
             <input
               type="text"
               {...register("amount")}
@@ -140,6 +139,23 @@ const Payment = () => {
             {errors.amount && (
               <p className="text-red-500 text-sm mt-1">
                 {errors.amount.message}
+              </p>
+            )}
+          </div>
+          {/* Puspose Input */}
+          <div className="mb-6">
+            <label className="block font-normal mb-2">Donation Purpose</label>
+            <textarea
+              type="text"
+              {...register("donationPurpose")}
+              placeholder="donation purpose"
+              className={`w-full border p-2 rounded ${
+                errors.donationPurpose ? "border-red-500" : ""
+              }`}
+            ></textarea>
+            {errors.donationPurpose && (
+              <p className="text-red-500 text-sm mt-1">
+                {errors.donationPurpose.message}
               </p>
             )}
           </div>
