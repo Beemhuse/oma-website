@@ -47,9 +47,9 @@ export const GET = async (req) => {
 
     // Verify the payment with Paystack
     const isPaymentVerified = await verifyPaystackPayment(trxref);
-
+console.log(isPaymentVerified, "ispayment verified?")
     // Determine the new transaction status
-    const newStatus = isPaymentVerified ? "completed" : "failed";
+    const newStatus = isPaymentVerified ? "success" : "failed";
 
     // Update the transaction status in Sanity
     const updateResult = await updateTransactionStatus(trxref, newStatus);

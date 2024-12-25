@@ -43,7 +43,7 @@ export const getUserByEmail = async (email) => {
 
 
   // Valid status options for transactions
-  const VALID_STATUSES = ['pending', 'completed', 'failed', 'cancelled', 'in_progress'];
+  const VALID_STATUSES = ['pending', 'success', 'failed', 'cancelled', 'in_progress'];
   
   export const updateTransactionStatus = async (transactionRef, newStatus) => {
     try {
@@ -57,7 +57,8 @@ export const getUserByEmail = async (email) => {
         `*[_type == 'transaction' && transactionRef == $transactionRef][0]`,
         { transactionRef }
       );
-  
+      
+      console.log(transaction, "transaction")
       // Check if the transaction exists
       if (!transaction) {
         throw new Error(`Transaction with reference '${transactionRef}' not found.`);
@@ -68,6 +69,7 @@ export const getUserByEmail = async (email) => {
         .patch(transaction._id) // Use the transaction's `_id`
         .set({ status: newStatus })
         .commit();
+        console.log(updatedTransaction, "updated transaction")
   
       return {
         success: true,
