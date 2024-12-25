@@ -4,8 +4,8 @@ import Link from 'next/link';
 import { BsBagCheckFill } from 'react-icons/bs';
 import { FaEnvelope, FaWhatsapp, FaHome } from 'react-icons/fa';
 import axios from 'axios';
-import { runFireworks } from '@/utils/lib/utils';
 import { motion } from 'motion/react';
+import { runFireworks } from '@/lib/canvas';
 
 const Success = () => {
     const [loading, setLoading] = useState(true);

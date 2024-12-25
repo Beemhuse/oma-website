@@ -26,8 +26,8 @@
 // };
 
 
-import { verifyPaystackPayment } from "@/utils/lib/verify";
-import { updateTransactionStatus } from "@/utils/sanity/client";
+import { updateTransactionStatus } from "@/sanity";
+import { verifyPaystackPayment } from "@/utils/verify";
 
 export const dynamic = "force-dynamic";
 
