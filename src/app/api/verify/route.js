@@ -65,7 +65,7 @@ console.log(isPaymentVerified, "ispayment verified?")
     // Respond with success or failure based on payment verification
     if (isPaymentVerified) {
       return new Response(
-        JSON.stringify({ success: true, message: "Payment verified and transaction status updated." }),
+        JSON.stringify({ success: true, data:updateResult.updatedTransaction, message: "Payment verified and transaction status updated." }),
         { status: 200 }
       );
     } else {
