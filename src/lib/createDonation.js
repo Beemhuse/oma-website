@@ -2,6 +2,8 @@ import { client } from "@/sanity/client";
 import { v4 as uuidv4 } from "uuid";
 
 export const createDonation = async ({
+  name,
+  email,
   amount,
   transactionRef,
   status = "pending",
@@ -14,6 +16,8 @@ export const createDonation = async ({
     const donation = await client.create({
       _type: "donation",
       id: customTransactionId,
+      name,
+      email,
       amount,
       transactionRef,
       transactionDate: new Date().toISOString(),

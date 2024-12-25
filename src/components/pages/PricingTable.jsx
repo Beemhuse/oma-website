@@ -10,6 +10,7 @@ import { postRequest } from "@/services/postRequest";
 import { fetchPlans } from "@/services/apiService";
 import { Input } from "../component/ui/input";
 import ActionLoader from "../reusables/ActionLoader";
+import toast from "react-hot-toast";
 
 const subscriptionSchema = yup.object().shape({
   name: yup.string().required("Name is required."),
@@ -42,7 +43,7 @@ export function PricingTable() {
   const openModal = (id, price) => {
     setIsModalOpen(true);
     setPlanId(id);
-    setPrice(id);
+    setPrice(price);
   };
   // Fetch plans from the API
   useEffect(() => {
@@ -70,11 +71,15 @@ export function PricingTable() {
         plan: planId,
         amount: price,
       });
-      console.log(response);
-      alert("Subscription successful! 🎉");
+      const paymentLink =
+      response?.paymentResponse?.authorization_url;
+      toast.success("Subscription successful! 🎉");
       reset();
       setLoading(false);
       setIsModalOpen(false);
+      if (paymentLink) {
+        window.location.href = paymentLink;
+      }
     } catch (error) {
       setSubmissionError(error.message || "An error occurred.");
       setLoading(false);

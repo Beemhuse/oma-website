@@ -50,14 +50,14 @@ export default function Page() {
           backgroundRepeat: "no-repeat",
         }}
       >
-        <h1 className="text-center font-extrabold xl:text-4xl text-xl">
-          Subscription
+        <h1 className="text-center font-[600] xl:text-2xl text-xl">
+          Donations
         </h1>
       </section>
       <div className="bg-gray-100 py-16 px-6 md:px-12 lg:px-20">
-        <div className="m-full mx-auto flex gap-5 ">
+        <div className="container mx-auto flex gap-5 xl:flex-row flex-col ">
           {/* Contact Information */}
-          <div ref={leftRef} className="w-1/3 flex flex-col items-center">
+          <div ref={leftRef} className="xl:w-1/3 w-full flex flex-col items-center">
             <div>
               <h2 className="text-3xl font-bold text-gray-800 mb-6">
                 Payment Information
@@ -127,7 +127,7 @@ export default function Page() {
           </div>
 
           {/* Contact Form */}
-          <div ref={rightRef} className="w-2/3 bg-white p-6 rounded-lg shadow-lg">
+          <div ref={rightRef} className="xl:w-2/3 w-full bg-white p-6 rounded-lg shadow-lg">
             {renderTabContent()}
           </div>
 

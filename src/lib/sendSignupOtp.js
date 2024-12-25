@@ -12,18 +12,18 @@ export default async function sendSignupOtp(to, otp) {
   const mailOptions = {
     from: process.env.NEXT_PRIVATE_EMAIL,
     to,
-    subject: 'Your Agro-Splash OTP',
+    subject: 'Your OMA OTP',
     html: `
     <div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px;">
       <div style="text-align: center; margin-bottom: 20px;">
-        <img src="https://your-agro-splash-logo-url/logo.svg" alt="Agro-Splash Logo" style="max-width: 150px;" />
+        <img src="https://your-OMA-logo-url/logo.svg" alt="OMA Logo" style="max-width: 150px;" />
       </div>
 
       <div style="padding: 20px; background-color: #f9f9f9; border-radius: 10px;">
-        <h2 style="color: #333;">Welcome to Agro-Splash</h2>
+        <h2 style="color: #333;">Welcome to OMA</h2>
         <p style="font-size: 16px;">Hi there,</p>
         <p style="font-size: 16px;">
-          Thank you for signing up with Agro-Splash! Your One-Time Password (OTP) is below. This OTP is valid for the next 10 minutes.
+          Thank you for signing up with OMA! Your One-Time Password (OTP) is below. This OTP is valid for the next 10 minutes.
         </p>
         <div style="text-align: center; margin: 20px 0;">
           <div style="display: inline-block; background-color: #28a745; color: white; padding: 15px 25px; border-radius: 5px; font-size: 24px; font-weight: bold;">
@@ -31,14 +31,14 @@ export default async function sendSignupOtp(to, otp) {
           </div>
         </div>
         <p style="font-size: 16px;">
-          If you did not sign up for Agro-Splash, please ignore this email or contact our support team for assistance.
+          If you did not sign up for OMA, please ignore this email or contact our support team for assistance.
         </p>
-        <p style="font-size: 16px;">Best regards, <br/> The Agro-Splash Team</p>
+        <p style="font-size: 16px;">Best regards, <br/> The OMA Team</p>
       </div>
 
       <div style="text-align: center; margin-top: 20px; color: #999;">
-        <p style="font-size: 14px;">&copy; ${new Date().getFullYear()} Agro-Splash. All rights reserved.</p>
-        <p style="font-size: 14px;">Location: [Your Address] | Phone: +234 800 000 0000 | <a href="mailto:support@agro-splash.com" style="color: #28a745;">support@agro-splash.com</a></p>
+        <p style="font-size: 14px;">&copy; ${new Date().getFullYear()} OMA. All rights reserved.</p>
+        <p style="font-size: 14px;">Location: [Your Address] | Phone: +234 800 000 0000 | <a href="mailto:support@oma.com" style="color: #28a745;">support@oma.com</a></p>
       </div>
     </div>
   `,

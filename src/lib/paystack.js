@@ -36,7 +36,7 @@ export const initializePaystack = async (email, amount) => {
       {
         email,
         amount: Number(amount) * 100, // Convert to kobo
-        reference: `Agro-${transactionRef}`,
+        reference: `OMA-${transactionRef}`,
       },
       {
         headers: {

@@ -40,3 +40,47 @@ export const getUserByEmail = async (email) => {
           }
     }
   };
+
+
+  // Valid status options for transactions
+  const VALID_STATUSES = ['pending', 'completed', 'failed', 'cancelled', 'in_progress'];
+  
+  export const updateTransactionStatus = async (transactionRef, newStatus) => {
+    try {
+      // Validate the new status
+      if (!VALID_STATUSES.includes(newStatus)) {
+        throw new Error(`Invalid status '${newStatus}'. Valid statuses are: ${VALID_STATUSES.join(', ')}`);
+      }
+  
+      // Fetch the transaction using its unique transaction reference
+      const transaction = await client.fetch(
+        `*[_type == 'transaction' && transactionRef == $transactionRef][0]`,
+        { transactionRef }
+      );
+  
+      // Check if the transaction exists
+      if (!transaction) {
+        throw new Error(`Transaction with reference '${transactionRef}' not found.`);
+      }
+  
+      // Update the status field in the transaction
+      const updatedTransaction = await client
+        .patch(transaction._id) // Use the transaction's `_id`
+        .set({ status: newStatus })
+        .commit();
+  
+      return {
+        success: true,
+        message: `Transaction status updated successfully.`,
+        oldTransaction: transaction,
+        updatedTransaction,
+      };
+    } catch (error) {
+      console.error('Error updating transaction status:', error);
+      return {
+        success: false,
+        message: error.message || 'Failed to update transaction status.',
+      };
+    }
+  };
+  

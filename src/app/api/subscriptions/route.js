@@ -17,7 +17,7 @@ import { v4 as uuidv4 } from "uuid";
       const customSubscriptionId = `subscription-${shortUuid}`;
   
       const subscription = await client.create({
-        _type: "subscription",
+        _type: "subscriptions",
         id: customSubscriptionId,
         name,
         email,

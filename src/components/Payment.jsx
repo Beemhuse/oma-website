@@ -5,6 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import Image from "next/image";
 import { postRequest } from "@/services/postRequest";
+import ActionLoader from "./reusables/ActionLoader";
 
 // Validation schema using Yup
 const schema = yup.object({
@@ -21,11 +22,13 @@ const schema = yup.object({
 
 const Payment = () => {
   //   const [frequency, setFrequency] = useState("One-time");
+  const [isLoading, setLoading] = useState(false);
 
   const {
     register,
     handleSubmit,
     watch,
+    reset,
     setValue,
     formState: { errors },
   } = useForm({
@@ -34,17 +37,20 @@ const Payment = () => {
 
   const onSubmit = async (data) => {
     console.log("Form Submitted:", data);
+    setLoading(true)
     try{
         const response = await postRequest("/api/donations", data);
         const paymentLink =
         response?.paymentResponse?.authorization_url;
-
+        setLoading(false)
+        reset()
       if (paymentLink) {
         window.location.href = paymentLink;
       }
-        console.log(response)
+        // console.log(response)
     }
     catch(err){
+      setLoading(false)
 
     }
   };
@@ -115,7 +121,7 @@ const Payment = () => {
                     : "bg-gray-200"
                 }`}
               >
-                ${presetAmount}
+                GHS {presetAmount}
               </button>
             ))}
           </div>
@@ -154,6 +160,7 @@ const Payment = () => {
           </button>
         </form>
       </div>
+                <ActionLoader isVisible={isLoading} />
     </div>
   );
 };
