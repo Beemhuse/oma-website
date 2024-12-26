@@ -1,18 +1,16 @@
 'use client';
 import React from 'react';
-import img1 from '../../../public/landingPage/ngo.jpg';
 import pics1 from '../../../public/landingPage/unity2.webp';
 import pics2 from '../../../public/landingPage/unity.jpg';
-import africa from '../../../public/landingPage/africa.png';
-import Image from 'next/image';
 import useSlideInAnimation from '@/hooks/slideAnimation';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
+import { useRouter } from 'next/navigation';
 
 const HeaderSection = () => {
   const leftRef = useSlideInAnimation('left', 1000);
-
+const {push } = useRouter()
   return (
     <Swiper
       spaceBetween={0}
@@ -48,10 +46,10 @@ const HeaderSection = () => {
                 collaboration, and integration among nations.
               </p>
               <div className="flex justify-center space-x-4">
-                <button className="bg-red-500 text-white px-6 py-3 rounded-md hover:bg-red-600">
+                <button onClick={()=>push("/about-us")} className="bg-red-500 text-white px-6 py-3 rounded-md hover:bg-red-600">
                   Learn More
                 </button>
-                <button className="border border-red-500 text-red-500 px-6 py-3 rounded-md hover:bg-red-500 hover:text-white">
+                <button onClick={()=>push("/get-involved")} className="border border-red-500 text-red-500 px-6 py-3 rounded-md hover:bg-red-500 hover:text-white">
                   Get Involved
                 </button>
               </div>
@@ -87,10 +85,10 @@ const HeaderSection = () => {
                 collaboration, and integration among nations.
               </p>
               <div className="flex justify-center space-x-4">
-                <button className="bg-red-500 text-white px-6 py-3 rounded-md hover:bg-red-600">
+                <button onClick={()=>push("/about-us")} className="bg-red-500 text-white px-6 py-3 rounded-md hover:bg-red-600">
                   Learn More
                 </button>
-                <button className="border border-red-500 text-red-500 px-6 py-3 rounded-md hover:bg-red-500 hover:text-white">
+                <button onClick={()=>push("/get-involved")} className="border border-red-500 text-red-500 px-6 py-3 rounded-md hover:bg-red-500 hover:text-white">
                   Get Involved
                 </button>
               </div>

@@ -54,7 +54,7 @@ export default function AboutPage() {
     });
   };
   return (
-    <section className="py-10 xl:w-[70%] w-full px-4 mx-auto">
+    <section className="py-10 xl:w-[70%] mt-20 w-full px-4 mx-auto">
       <div
         ref={leftRef}
         className="flex xl:flex-row flex-col-reverse gap-6 justify-between"
@@ -72,6 +72,8 @@ export default function AboutPage() {
             hoverColor="bg-[#DB101C]"
             rounded={false}
             label={"Join Now"}
+            href={"/get-involved"}
+            isButton={false}
           />
         </div>
 
@@ -110,6 +112,7 @@ export default function AboutPage() {
               hoverColor="bg-[#DB101C]"
               href={"/donations"}
               label={"Donate Now"}
+              isButton={false}
             />
           </div>
         </div>
