@@ -59,8 +59,8 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-green-700 relative w-full text-white px-6 py-4 ">
-      <div className="flex items-center justify-between">
+    <nav className="bg-green-700 fixed top-0 z-50 w-full text-white px-6 py-4 ">
+      <div className="flex relative items-center justify-between">
         {/* Logo */}
         <div
           onClick={() => push("/")}
