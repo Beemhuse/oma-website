@@ -23,7 +23,7 @@ export default function BlogCard({
   return (
     <article
       onClick={() => push(`blog/${slug?.current}`)}
-      className="xl:w-[380px] h-auto w-full flex flex-col cursor-pointer  transition-all duration-300"
+      className="md:w-[380px] h-auto w-full flex flex-col cursor-pointer  transition-all duration-300"
     >
       <Image
         src={imageSrc}

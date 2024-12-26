@@ -20,7 +20,7 @@ export default function TeamCard({ name, position, image, socials }) {
   return (
     <div
       ref={slideInRef}
-      className="xl:w-[350px] w-full h-2/5  bg-white rounded-lg shadow-lg overflow-hidden opacity-0 transform group"
+      className="md:w-[350px]  w-full h-2/5  bg-white rounded-lg shadow-lg overflow-hidden opacity-0 transform group"
     >
      <div className="relative overflow-hidden">
         <Image
@@ -29,7 +29,7 @@ export default function TeamCard({ name, position, image, socials }) {
           priority
           width={500}
           height={200}
-          className="w-full m-auto h-96 object-cover transition-transform duration-300 ease-in-out transform group-hover:scale-110"
+          className="w-full m-auto h-80 object-cover transition-transform duration-300 ease-in-out transform group-hover:scale-110"
         />
       </div>
       {/* Details */}
