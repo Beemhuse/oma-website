@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Button from "@/components/reusables/Button";
 import arrowRight from "../../public/arrowRight.svg";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import MobileNavbar from "./MobileNavbar";
 
 const menuItems = [
@@ -49,6 +49,8 @@ const menuItems = [
 
 const Navbar = () => {
   const { push } = useRouter();
+  const pathname = usePathname(); // Get current route
+
   const [openSubmenu, setOpenSubmenu] = useState(null);
 
   // Toggle submenu visibility on click
@@ -82,7 +84,11 @@ const Navbar = () => {
                 key={item.label}
                 onClick={() => toggleSubmenu(item.label)} // Toggle on click
               >
-                <button className="hover:underline">{item.label}</button>
+                <button className={`hover:text-[#FFD700] ${
+                    openSubmenu === item.label || pathname.startsWith(item.href)
+                      ? "text-[#FFD700] "
+                      : ""
+                  }`}>{item.label}</button>
                 {/* Submenu */}
                 {item.label === "Projects" ? (
                   <div
@@ -106,8 +112,9 @@ const Navbar = () => {
                         <Link
                           href={subItem.href}
                           key={subItem.label}
-                          className="block text-sm hover:text-black/50"
-                        >
+                          className={`block text-sm hover:text-black/50 ${
+                            pathname === subItem.href ? "text-[#FFD700] font-bold" : ""
+                          }`}                        >
                           {subItem.label}
                         </Link>
                       ))}
@@ -123,8 +130,9 @@ const Navbar = () => {
                       <Link
                         href={subItem.href}
                         key={subItem.label}
-                        className="block text-sm hover:text-black/50"
-                      >
+                        className={`block text-sm hover:text-black/50 ${
+                          pathname === subItem.href ? "text-gold-500 font-bold" : ""
+                        }`}                      >
                         {subItem.label}
                       </Link>
                     ))}
@@ -135,8 +143,9 @@ const Navbar = () => {
               <Link
                 href={item.href}
                 key={item.label}
-                className="hover:underline"
-              >
+                className={`hover:text-[#FFD700] ${
+                  pathname === item.href ? "text-[#FFD700] " : "text-white"
+                }`}              >
                 {item.label}
               </Link>
             )

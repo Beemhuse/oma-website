@@ -16,31 +16,37 @@ export default function BlogCard({
   slug,
   title,
   description,
-  author,
   date,
+  categories
 }) {
   const { push } = useRouter();
   return (
     <article
       onClick={() => push(`blog/${slug?.current}`)}
-      className="xl:w-[380px] h-auto w-full flex flex-col cursor-pointer border border-transparent hover:border-green-600 hover:shadow-xl hover:rounded-2xl transition-all duration-300"
+      className="xl:w-[380px] h-auto w-full flex flex-col cursor-pointer  transition-all duration-300"
     >
       <Image
         src={imageSrc}
         alt={title}
         height={100}
         width={300}
-        className="w-full h-56 aspect-square rounded-tl-2xl rounded-tr-2xl object-cover"
+        style={{
+          boxShadow: "0px 2px 50px 20px rgba(0, 0, 0, 0.2)",
+        }}
+        className="w-full h-56   aspect-square  object-cover"
       />
-      <div className="p-4 flex flex-col justify-between h-full">
-        <h2 className="font-[600] mb-2 text-[18px]">
-          {title?.slice(0, 30) + (title?.length > 30 ? "..." : " ")}
+      <div className="p-8 flex flex-col flex-grow justify-between h-full">
+        <h2 className="font-[600] font-poppins mb-2 text-[19px]">
+          {/* {title?.slice(0, 30) + (title?.length > 30 ? "..." : " ")} */}
+          {title}
         </h2>
-        <div>{extractText(description)}</div>
+        <div className="text-[#AAAAAA] text-[15px] font-inter">{extractText(description)}</div>
+        <div className="mt-auto">
         <hr className="border-[#AAAAAA] my-4 w-full" />
-        <p className="text-[#AAAAAA] mt-auto">
-          BY {author} | {formatDate(date)}
+        <p className="text-[#0DA574] text-[15px] font-inter ">
+          {categories} | {formatDate(date)}
         </p>
+        </div>
       </div>
     </article>
   );

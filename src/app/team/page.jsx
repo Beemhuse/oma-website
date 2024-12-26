@@ -1,6 +1,9 @@
 import TeamCard from "@/components/component/card/TeamCard";
 import React from "react";
 import { fetchTeam } from "@/services/apiService";
+import Image from "next/image";
+import Button from "@/components/reusables/Button";
+// import { Button } from "@/components/component/ui/button";
 
 export default async function Page() {
   const teamMembers = await fetchTeam();
@@ -41,6 +44,13 @@ export default async function Page() {
             />
           ))}
         </div>
+        </div>
+        <div className="flex w-full justify-center rounded-lg mt-10 h-24">
+          <Image  src={'/team.svg'} alt="" width={400} height={400} className="w-fit rounded-tl-xl rounded-bl-xl"/>
+          <div className="bg-black flex items-center justify-between p-10 rounded-tr-xl rounded-br-xl gap-7">
+            <h3 className="text-white">Join our team and help us achieve our vision of a united Africa. </h3>
+            <Button isButton={false} href={"/get-involved"} hoverColor="bg-red-600" bgColor="bg-red-500" label={"Join us now"} />
+          </div>
         </div>
       </section>
     </>

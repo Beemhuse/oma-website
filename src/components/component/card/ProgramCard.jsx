@@ -26,7 +26,7 @@ export default function ProgramCard({
         alt=""
       />
       <h3 className="text-[20px] font-[500] my-3">{title}</h3>
-      <p className="text-[18px]">{description} </p>
+      <p className="text-[18px] text-[#525560]">{description} </p>
     </div>
   );
 }

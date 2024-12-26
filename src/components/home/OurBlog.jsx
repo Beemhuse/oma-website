@@ -66,7 +66,7 @@ const OurBlogs = () => {
     anime({
       targets: cardsRef.current[index],
       scale: 1.05,
-      boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.2)",
+      // boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.2)",
       duration: 300,
       easing: "easeOutExpo",
     });
@@ -76,17 +76,17 @@ const OurBlogs = () => {
     anime({
       targets: cardsRef.current[index],
       scale: 1,
-      boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.1)",
+      // boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.1)",
       duration: 300,
       easing: "easeOutExpo",
     });
   };
-
+console.log(blogData)
   return (
     <section ref={slideInRef} className="px-10 my-10 container m-auto">
       <div>
         <div className="text-left my-10">
-          <h1 className="text-[32px] mb-4 font-[600] capitalize">Our Blog</h1>
+          <h1 className="text-[54px] mb-4 font-[600] capitalize">Our Blog</h1>
           <p className="capitalize">Our recent blogs</p>
         </div>
         <div className="flex flex-col md:flex-row gap-8">
@@ -96,7 +96,7 @@ const OurBlogs = () => {
               ref={(el) => (cardsRef.current[index] = el)}
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={() => handleMouseLeave(index)}
-              className="relative overflow-hidden rounded-lg shadow-md transition-shadow duration-300"
+              className="relative overflow-hidden   duration-300"
             >
               <BlogCard {...blog} />
             </div>
