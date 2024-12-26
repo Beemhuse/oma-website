@@ -11,9 +11,54 @@ import {
 import { Button } from "@/components/component/ui/button";
 import { Input } from "@/components/component/ui/input";
 import useSlideInAnimation from "@/hooks/slideAnimation";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as Yup from "yup";
+import { useState } from "react";
+import { postRequest } from "@/services/postRequest";
+import toast from "react-hot-toast";
+import ActionLoader from "@/components/reusables/ActionLoader";
+
+// Validation schema
+const validationSchema = Yup.object().shape({
+  firstName: Yup.string().required("First Name is required"),
+  lastName: Yup.string().required("Last Name is required"),
+  email: Yup.string()
+    .email("Enter a valid email")
+    .required("Email is required"),
+  skills: Yup.string().required("Skills are required"),
+  message: Yup.string()
+    .min(10, "Message must be at least 10 characters")
+    .required("Message is required"),
+});
 
 export default function GetInvolved() {
   const rightRef = useSlideInAnimation("right", 1000, 200);
+  const [isLoading, setLoading] = useState(false);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(validationSchema),
+  });
+
+  const onSubmit = async (data) => {
+    // console.log(data);
+    setLoading(true);
+    try {
+      await postRequest("/api/volunteer", { data });
+      toast.success(
+        "Form submitted successfully. Thank you for volunteering with us."
+      );
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+
+      toast.error("An error occurred. Please try again.");
+    }
+  };
   return (
     <div className="bg-gray-50">
       {/* Hero Section */}
@@ -29,13 +74,7 @@ export default function GetInvolved() {
         <h1 className="text-center  xl:text-4xl text-xl">
           Get Involved with One Map Africa
         </h1>
-        <p className="mt-6 text-xl text-center m-auto max-w-3xl">
-          Join us in our mission to create a unified map of Africa. Your support
-          can make a real difference in improving lives and fostering
-          sustainable development.
-        </p>
       </section>
-
       <div className="absolute bottom-0 right-0 lg:block hidden">
         <Image
           src="/landingPage/africa.png"
@@ -49,9 +88,14 @@ export default function GetInvolved() {
       {/* Ways to Get Involved Section */}
       <section id="ways-to-help" className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">
+          <h2 className="text-3xl font-bold text-center mb-1">
             Ways to Get Involved
           </h2>
+          <p className="mt-1 mb-12 text-lg text-center m-auto max-w-3xl">
+            Join us in our mission to create a unified map of Africa. Your
+            support can make a real difference in improving lives and fostering
+            sustainable development.
+          </p>
           <div className="grid md:grid-cols-3 gap-8">
             <Card>
               <CardHeader>
@@ -117,7 +161,7 @@ export default function GetInvolved() {
           <h2 className="text-3xl font-bold text-center mb-8">
             Volunteer with Us
           </h2>
-          <form className="space-y-6">
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
               <div>
                 <label
@@ -128,10 +172,15 @@ export default function GetInvolved() {
                 </label>
                 <Input
                   id="first-name"
-                  name="first-name"
-                  required
-                  className="mt-1"
+                  name="firstName"
+                  {...register("firstName")}
+                  className="mt-1 input-class"
                 />
+                {errors.firstName && (
+                  <p className="text-red-500 text-sm">
+                    {errors.firstName.message}
+                  </p>
+                )}
               </div>
               <div>
                 <label
@@ -142,10 +191,15 @@ export default function GetInvolved() {
                 </label>
                 <Input
                   id="last-name"
-                  name="last-name"
-                  required
-                  className="mt-1"
+                  name="lastName"
+                  {...register("lastName")}
+                  className="mt-1 input-class"
                 />
+                {errors.lastName && (
+                  <p className="text-red-500 text-sm">
+                    {errors.lastName.message}
+                  </p>
+                )}
               </div>
             </div>
             <div>
@@ -158,10 +212,12 @@ export default function GetInvolved() {
               <Input
                 id="email"
                 name="email"
-                type="email"
-                required
-                className="mt-1"
+                {...register("email")}
+                className="mt-1 input-class"
               />
+              {errors.email && (
+                <p className="text-red-500 text-sm">{errors.email.message}</p>
+              )}
             </div>
             <div>
               <label
@@ -173,9 +229,13 @@ export default function GetInvolved() {
               <Input
                 id="skills"
                 name="skills"
+                {...register("skills")}
                 placeholder="e.g., GIS, Data Analysis, Community Outreach"
-                className="mt-1"
+                className="mt-1 input-class"
               />
+              {errors.skills && (
+                <p className="text-red-500 text-sm">{errors.skills.message}</p>
+              )}
             </div>
             <div>
               <label
@@ -184,15 +244,24 @@ export default function GetInvolved() {
               >
                 Message
               </label>
-              <Textarea id="message" name="message" rows={4} className="mt-1" />
+              <Textarea
+                id="message"
+                name="message"
+                rows={4}
+                {...register("message")}
+                className="mt-1 input-class"
+              />
+              {errors.message && (
+                <p className="text-red-500 text-sm">{errors.message.message}</p>
+              )}
             </div>
             <div>
-              <Button
+              <button
                 type="submit"
-                className=" w-fit m-auto bg-red-500 text-white "
+                className="w-fit m-auto bg-red-500 text-white p-2 rounded"
               >
                 Submit
-              </Button>
+              </button>
             </div>
           </form>
         </div>
@@ -236,6 +305,8 @@ export default function GetInvolved() {
           </div>
         </div>
       </section>
+                      <ActionLoader isVisible={isLoading} />
+      
     </div>
   );
 }

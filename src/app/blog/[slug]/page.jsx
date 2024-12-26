@@ -35,13 +35,13 @@ export default async function Page({ params }) {
           <span className="bg-[#F2F8F7] rounded-xl mb-3 p-2 text-xs">
             {blog?.categories}
           </span>
-          <h2 className="text-3xl font-bold mt-3">{blog?.title}</h2>
+          <h2 className="text-2xl font-bold mt-3">{blog?.title}</h2>
           <div className="flex mt-3 items-center">
             <div className="flex items-center gap-3">
-              <div className="uppercase w-10 h-10 bg-gray-200 flex items-center justify-center rounded-full">{getFirstLetter(blog?.author)}</div>
-              <p className="capitalize">{blog?.author}</p>
+              <div className="uppercase w-10 h-10 bg-gray-200 flex items-center justify-center rounded-full text-sm">{getFirstLetter(blog?.author)}</div>
+              <p className="capitalize text-sm">{blog?.author}</p>
             </div>
-            <p className="flex items-center gap-2 ml-4"> <FaRegCalendarAlt /> {formatDate(blog?.publishedAt)}</p>
+            <p className="flex text-sm items-center gap-2 ml-4"> <FaRegCalendarAlt /> {formatDate(blog?.publishedAt)}</p>
           </div>
           <div className="flex justify-center mt-5">
             <Image
