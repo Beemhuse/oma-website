@@ -43,6 +43,42 @@ const Testimonies = () => {
         "Join us on September 21st, 2024, as we celebrate the legacy of Dr. Kwame Nkrumah, a pioneer of Pan-Africanism and the first President of Ghana...",
       author: "Event",
     },
+    {
+      imageSrc: blog1,
+      description:
+        "Join us at the Castle of Good Hope, Cape Town, on September 23rd-24th, 2024, for the launch of One Map Africa's Fashion Project...",
+      author: "John Doe",
+    },
+    {
+      imageSrc: blog2,
+      description:
+        "A virtual conference in Commemoration of the legacy of Dr. Kwame Nkrumah, a pioneering figure in Pan-Africanism and a key architect in the movement toward African unity...",
+      author: "Mark Dove",
+    },
+    {
+      imageSrc: blog3,
+      description:
+        "Join us on September 21st, 2024, as we celebrate the legacy of Dr. Kwame Nkrumah, a pioneer of Pan-Africanism and the first President of Ghana...",
+      author: "Event",
+    },
+    {
+      imageSrc: blog1,
+      description:
+        "Join us at the Castle of Good Hope, Cape Town, on September 23rd-24th, 2024, for the launch of One Map Africa's Fashion Project...",
+      author: "John Doe",
+    },
+    {
+      imageSrc: blog2,
+      description:
+        "A virtual conference in Commemoration of the legacy of Dr. Kwame Nkrumah, a pioneering figure in Pan-Africanism and a key architect in the movement toward African unity...",
+      author: "Mark Dove",
+    },
+    {
+      imageSrc: blog3,
+      description:
+        "Join us on September 21st, 2024, as we celebrate the legacy of Dr. Kwame Nkrumah, a pioneer of Pan-Africanism and the first President of Ghana...",
+      author: "Event",
+    },
   ];
   return (
     <section
@@ -56,70 +92,51 @@ const Testimonies = () => {
           </h1>
           <p className="capitalize">What people says about us</p>
         </div>
-        <div className="w-full flex gap-8 flex-wrap overflow-hidden">
-          {blogData.map(({ imageSrc, description, author }, index) => (
-            <div key={index} className="w-full md:w-[380px] cursor-pointer">
-              <Image
-                src={imageSrc}
-                alt={"title"}
-                height={500}
-                width={"100%"}
-                className="w-full h-auto"
-              />
-              <div className="p-8 flex flex-col gap-5">
-                <p className="text-[rgba(0,0,0,0.7)] text-sm text-center">
-                  {description}
-                </p>
-                <div className="text-black text-sm font-semibold flex gap-2 justify-center items-center">
-                  <p className="bg-black w-[30px] h-[2px]"></p> {author}
+        <div className="w-full px-10 flex items-center">
+          <Swiper
+            modules={[Autoplay, Navigation, Pagination, Scrollbar, A11y, ImLoop2]}
+            spaceBetween={10}
+            loop={true}
+            autoplay={{ delay: 2800, disableOnInteraction: false }}
+            breakpoints={{
+              // Configure different breakpoints
+              500: {
+                slidesPerView: 1, // 1 slide on small screens
+                spaceBetween: 20,
+              },
+              768: {
+                slidesPerView: 2, // 2 slides on medium screens
+                spaceBetween: 30,
+              },
+              1024: {
+                slidesPerView: 3, // 3 slides on large screens
+                spaceBetween: 50,
+              },
+            }}
+            className=""
+          >
+            {blogData.map(({ imageSrc, description, author }, index) => (
+              <SwiperSlide key={index}>
+                <div key={index} className="w-full md:w-[380px] cursor-pointer">
+                  <Image
+                    src={imageSrc}
+                    alt={"title"}
+                    height={500}
+                    width={"100%"}
+                    className="w-full h-auto"
+                  />
+                  <div className="p-8 flex flex-col gap-5">
+                    <p className="text-[rgba(0,0,0,0.7)] text-sm text-center">
+                      {description}
+                    </p>
+                    <div className="text-black text-sm font-semibold flex gap-2 justify-center items-center">
+                      <p className="bg-black w-[30px] h-[2px]"></p> {author}
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          ))}
-          {/* <Swiper
-                    modules={[Autoplay, Navigation, Pagination, Scrollbar, A11y,ImLoop2]}
-                    spaceBetween={10}
-                    loop={true}
-                    autoplay={{ delay: 2500, disableOnInteraction: false }}
-        
-                    breakpoints={{
-                        // Configure different breakpoints
-                        500: {
-                        slidesPerView: 1, // 1 slide on small screens
-                            spaceBetween: 20,
-                        },
-                        768: {
-                        slidesPerView: 2, // 2 slides on medium screens
-                            spaceBetween: 30,
-                        },
-                        1024: {
-                        slidesPerView: 3, // 3 slides on large screens
-                            spaceBetween: 50,
-                        },
-                    }}
-                    className=''
-                        
-                    >
-                        {blogData.map(({ imageSrc, description, author }, index) => (
-                            <SwiperSlide key={index}>
-                                <article key={index} className="w-[380px] cursor-pointer">
-                                <Image
-                                src={imageSrc}
-                                alt={'title'}
-                                height={500}
-                                width={'100%'}
-                                className="w-full h-auto"
-                                />
-                                <div className="p-8 flex flex-col gap-5">
-                                    <p className="text-[rgba(0,0,0,0.7)] text-sm text-center">{description}</p>
-                                    <div className="text-black text-sm font-semibold flex gap-2 justify-center items-center">
-                                        <p className='bg-black w-[30px] h-[2px]'></p> {author}
-                                    </div>
-                                </div>
-                            </article>
-                            </SwiperSlide>
-                        ))}
-                    </Swiper> */}
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </div>
     </section>

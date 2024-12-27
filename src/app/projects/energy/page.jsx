@@ -5,8 +5,8 @@ const imageArray = ["/energy-1.png", "/energy-2.png", "/energy-3.png"];
 export default function Page() {
   return (
     <section className="bg-[#FFFFFFB2] font-[inter]">
-      <div className="p-[60px] flex justify-between items-start gap-4">
-        <div className="w-[30%] ">
+      <div className="p-3 md:p-[60px] flex flex-col md:flex-row justify-between items-start gap-4">
+        <div className="w-full md:w-[30%] ">
           <div>
             <h3 className="font-[inter] 2xl:text-[95px] lg:text-[60px] font-bold">
               Energy
@@ -34,7 +34,7 @@ export default function Page() {
             </ul>
           </div>
         </div>
-        <div className="w-2/4">
+        <div className="w-full md:w-2/4">
           <Image
             src={"/energy.png"}
             width={500}

@@ -13,6 +13,7 @@ import Image from "next/image";
 
 export default function Page() {
   const [num, setNum] = useState();
+  const [disabled, setDisabled] = useState(false);
   useEffect(() => {
     setNum(4);
   }, []);
@@ -58,6 +59,13 @@ export default function Page() {
       setNum(() => num + 8);
     }
   };
+  useEffect(()=>{
+    if (starter + num >= images.length - 1) {
+      setDisabled(true)
+    } else {
+      setDisabled(false);
+    }
+  },[num])
   return (
     <>
       <section
@@ -73,13 +81,14 @@ export default function Page() {
           Gallery
         </h1>
       </section>
-      <div className="bg-white p-8">
-        <div className="grid  gridBox  gap-x-2 md:gap-4">
-          <div className="h-[250px] grid2 px-24">
-            <h1 className="text-5xl leading-[48px] tracking-[2] font-bold mb-2">
-              ONE MAP <br /> GALLERY
+      <div className="bg-white p-2 pr-0 pt-0 md:pt-8 md:pr-8 md:p-8">
+
+        <div className="grid  gridBox  gap-1 md:gap-4">
+          <div className="h-[250px] grid2 md:px-24 text-center md:text-left md:flex md:flex-col md:justify-end">
+            <h1 className="text-3xl md:text-5xl leading-[48px] tracking-[2] font-bold md:mb-2">
+              ONE MAP <br className="hidden md:block"/> GALLERY
             </h1>
-            <p className="text-gray-500">Press Coverage / Event Pictures</p>
+            <p className="text-lg text-gray-500">Press Coverage / Event <br className="md:hidden"/> Pictures</p>
           </div>
           <div className=" grid3">
             <Image
@@ -95,53 +104,53 @@ export default function Page() {
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="max-h-[250px] grid5">
+          <div className="md:max-h-[250px] grid5">
             <Image
               src={images[2]}
               alt=""
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="max-h-[250px] grid6">
+          <div className="md:max-h-[250px] grid6">
             <Image
               src={images[3]}
               alt=""
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="max-h-[250px] grid7">
+          <div className="md:max-h-[250px] grid7">
             <Image
               src={images[4]}
               alt=""
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="max-h-[250px] grid8">
+          <div className="md:max-h-[250px] grid8">
             <Image
               src={images[5]}
               alt=""
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="max-h-[250px] grid9">
+          <div className="md:max-h-[250px] grid9">
             <Image
               src={images[6]}
               alt=""
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="max-h-[250px] grid10">
+          <div className="md:max-h-[250px] grid10">
             <Image
               src={images[7]}
               alt=""
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="min-h-[250px] grid11 gap-x-2 col-span-4 grid grid-cols-4">
+          <div className="min-h-[250px] grid11 gap-1 md:gap-x-2 col-span-4 grid grid-cols-3 md:grid-cols-4">
             {images?.slice(starter, starter + num).map((data, item) => (
               <div
                 key={item}
-                className="border-2 border-green- h-[250px] grid12 "
+                className="aspect-square md:h-[250px] grid12 md:w-full"
                 onClick={() => console.log("this is item", item + 1)}
               >
                 <Image
@@ -157,8 +166,9 @@ export default function Page() {
         {/* Load More Button */}
         <div className="text-center mt-6">
           <button
-            className="px-6 py-2 bg-gray-800 text-white font-semibold rounded-md hover:bg-gray-700"
+            className={`px-6 py-2 text-white font-semibold rounded-md ${disabled? 'bg-gray-400 cursor-default' : 'bg-gray-800 hover:bg-gray-600 cursor-pointer'}`}
             onClick={updateHandler}
+            disabled={disabled}
           >
             Load more...
           </button>

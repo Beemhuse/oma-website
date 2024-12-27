@@ -93,7 +93,7 @@ export default function AboutPage() {
             Some of our Project Areas
           </p>
         </div>
-        <div className=" m-auto ">
+        <div className=" m-auto flex flex-col gap-2 ">
           <div className="justify-center  gap-6 flex xl:flex-row flex-col">
             {programs.map((program, index) => (
               <ProgramCard

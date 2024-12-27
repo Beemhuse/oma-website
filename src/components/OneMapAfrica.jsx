@@ -8,10 +8,8 @@ import OurBlogs from "./home/OurBlog";
 import Testimonies from "./home/Testimonies";
 import Donation from "./home/Donate";
 import Events from "./home/Events";
-// import { signIn, signOut, useSession } from 'next-auth/react';
 
 const OneMapAfrica = () => {
-  // const { data: session } = useSession();
 
   return (
     <div>

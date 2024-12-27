@@ -16,7 +16,7 @@ export default function ProgramCard({
     onMouseLeave={(e) =>
       mouseLeave(e.currentTarget.querySelector("img"))
     }
-      className=""
+      className="h-fit"
     >
       <Image
         src={src}
