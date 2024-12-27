@@ -1,8 +1,9 @@
-// import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/Header";
 import { Inter, Poppins } from "next/font/google";
-import MainLayout from "./MainLayout";
+// import MainLayout from "./MainLayout";
+import Footer from "@/components/Footer";
+import { Toaster } from "react-hot-toast";
 
 // Import the Inter and Poppins fonts
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -20,11 +21,16 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
-      <body className="antialiased overflow-x-hidden font-poppins">
-        <MainLayout>
-          <Header />
-          {children}
-        </MainLayout>
+      <body className="antialiased  overflow-x-hidden font-poppins">
+        {/* <MainLayout> */}
+        <Toaster />
+        <Header />
+        <div className="mt-20">
+
+        {children}
+        </div>
+        <Footer />
+        {/* </MainLayout> */}
       </body>
     </html>
   );

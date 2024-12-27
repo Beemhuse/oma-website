@@ -1,3 +1,4 @@
+'use client'
 import { useEffect, useRef, useState } from 'react';
 import anime from 'animejs';
 
@@ -10,10 +11,10 @@ const useSlideInAnimation = (direction = 'left', duration = 1000, delay = 0) => 
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          observer.disconnect(); // Stop observing once visible
+          observer.disconnect(); 
         }
       },
-      { threshold: 0.1 } // Trigger when 10% of the component is visible
+      { threshold: 0.1 } 
     );
 
     if (ref.current) {

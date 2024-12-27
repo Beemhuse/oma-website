@@ -45,6 +45,7 @@ export default function SvgPathLoader() {
 
   return (
     <svg
+    id="svg"
       ref={scope}
       width="94.033241mm"
       height="29.361317mm"

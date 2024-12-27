@@ -1,55 +1,115 @@
+import DisplayFormattedArticle from "@/components/component/card/DisplayFormattedArticle";
+import { client } from "@/sanity/client";
+import { fetchBlogs } from "@/services/apiService";
+import { formatDate } from "@/utils/formatDate";
+import { getFirstLetter } from "@/utils/getFirstLetter";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
+import { FaRegCalendarAlt } from "react-icons/fa";
 
-export default function Page() {
+export default async function Page({ params }) {
+  const { slug } = params;
+
+  const blog = await client.fetch(
+    `*[_type == "blog" && slug.current == $slug][0]{
+      title,
+      "imageSrc": mainImage.asset->url,
+      "author": author->name,
+      publishedAt,
+      content,
+              "categories": categories[]->title // Fetch category titles
+
+    }`,
+    { slug } // Correct parameter binding
+  );
+  const blogs = await fetchBlogs();
+  if (!blog) {
+    return <div>Blog not found</div>;
+  }
   return (
-    <section className="grid grid-cols-4">
-      <div className="col-span-3">
-        <h3>Fashion</h3>
-        <h2>Fashion Project Launch: African Heritage Exhibition Day</h2>
-
-        <div className="flex">
-          <Image
-            src={"/img.png"}
-            alt=""
-            width={60}
-            height={60}
-            className="object-cover"
-          />
+    <>
+      {/* <SEO title={blog.title} image={blog.imageSrc} /> */}
+      <section className="grid xl:grid-cols-4 grid-cols-1 px-10 py-8">
+        <div className="xl:col-span-3 xl:w-2/3 m-auto w-full col-span-1 flex-col justify-center">
+          <span className="bg-[#F2F8F7] rounded-xl mb-3 p-2 text-xs">
+            {blog?.categories}
+          </span>
+          <h2 className="text-2xl font-bold mt-3">{blog?.title}</h2>
+          <div className="flex mt-3 items-center">
+            <div className="flex items-center gap-3">
+              <div className="uppercase w-10 h-10 bg-gray-200 flex items-center justify-center rounded-full text-sm">{getFirstLetter(blog?.author)}</div>
+              <p className="capitalize text-sm">{blog?.author}</p>
+            </div>
+            <p className="flex text-sm items-center gap-2 ml-4"> <FaRegCalendarAlt /> {formatDate(blog?.publishedAt)}</p>
+          </div>
+          <div className="flex justify-center mt-5">
+            <Image
+              src={blog?.imageSrc}
+              alt=""
+              width={500}
+              height={500}
+              className="object-cover xl:w-2/3 w-full aspect-auto"
+            />
+          </div>
+          <article className=" m-auto">
+            <DisplayFormattedArticle description={blog?.content} />
+          </article>
         </div>
-        <article>
-          Are you considering a trip to Nigeria this December to immerse
-          yourself in the festive season or explore the rich culture of Africa&apos;s
-          largest nation? If you&apos;re a UK citizen or other National living and
-          working in the UK, obtaining a Nigerian tourist visa is essential for
-          your leisure travel. This guide will simplify the application process
-          while highlighting key tourism activities, accommodation options,
-          flights, necessary vaccinations, and transportation in Nigeria.
-          <h2>Why You Need a Nigerian Tourist Visa</h2>
-          <p>
-            UK citizens must apply for a tourist visa before travelling to
-            Nigeria. This visa is specifically intended for non-Nigerians
-            wishing to explore the country and does not permit work or study.
-            The application process can take up to two months, so it’s advisable
-            to apply early.
-          </p>
-          <h2>Required Documents for Visa Application</h2>
-          <p>
-            To successfully apply for your Nigerian tourist visa, you’ll need
-            the following documents: Valid Passport: Ensure your passport is
-            valid for at least six months beyond your intended stay and has two
-            blank pages. Visa Application Form: This can be obtained from the
-            Nigerian High Commission in London. Two Passport-Sized Photos:
-            Recent photos against a white background that meet the specified
-            dimensions. Proof of Accommodation: Evidence of where you&apos;ll stay in
-            Nigeria, such as hotel booking confirmations or an invitation
-            letter. Financial Proof: Bank statements or credit card statements
-            showing sufficient funds for your stay. Return or Onward Ticket:
-            Proof of your return or onward flight tickets. Yellow Fever
-            Vaccination Certificate: Mandatory for entry into Nigeria.
-          </p>
-        </article>
-      </div>
-    </section>
+        <div className="col-span-1">
+          {/* Sidebar */}
+          <aside className="w-full  mt-10 lg:mt-0">
+            {/* Recent Posts */}
+            <div>
+              <h3 className="text-lg font-semibold text-gray-800 mb-4">
+                Recent Posts
+              </h3>
+              <ul className="space-y-4">
+                {blogs?.slice(0, 3).map((recentBlog) => (
+                  <li key={recentBlog._id}>
+                    <Link href={`/blog/${recentBlog?.slug.current}`}>
+                      <div className="flex items-center gap-4">
+                        <Image
+                          src={recentBlog?.imageSrc}
+                          alt=""
+                          width={50}
+                          height={50}
+                          className="object-cover"
+                        />{" "}
+                        <div>
+                          <p className="text-sm font-medium text-gray-800">
+                            {recentBlog?.title}
+                          </p>
+                          <p className="text-xs text-gray-500">
+                            {formatDate(recentBlog?.date)}
+                          </p>
+                        </div>
+                      </div>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Tags */}
+            <div className="mt-10">
+              <h3 className="text-lg font-semibold text-gray-800 mb-4">
+                Search With Tags
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {["Travel", "Lifestyle", "Ghana", "USA Visa"].map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-3 py-1 bg-green-100 text-green-600 text-xs rounded-lg"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </aside>{" "}
+        </div>
+      </section>
+    </>
   );
 }
