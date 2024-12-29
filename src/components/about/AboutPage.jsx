@@ -59,11 +59,11 @@ export default function AboutPage() {
         </div>
 
         <Image
-          src={"/unite.png"}
+          src={"/unite.jpg"}
           alt="united World"
           height={500}
           width={500}
-          className="w-full object-cover aspect-auto"
+          className="w-full rounded-xl object-cover aspect-auto"
         />
       </div>
 
