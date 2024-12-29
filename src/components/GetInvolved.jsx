@@ -23,58 +23,58 @@ export default function GetInvolved({ images }) {
     });
   };
 
-
-  const getInvolved = [
-    {
-      title: 'Innovators',
-      description: 'Share and develop new sustainable energy solutions.',
-    },
-    {
-      title: 'Donors',
-      description: 'Support the installation and maintenance of energy systems.',
-    },
-    {
-      title: 'Volunteers',
-      description: 'Educate communities on sustainable energy practices.',
-    }
-  ]
-
   return (
-    <div>
+    <div className="flex flex-col lg:flex-row justify-center items-center gap-8 p-8">
       {/* Left Column - Images */}
-      <div>
+      <div className="flex flex-wrap items-center justify-center w-2/4 gap-4">
         {images?.map((imgSrc, index) => (
           <div
-          key={index}
-          className="w-full flex  xl:flex-row justify-center items-center gap-8 p-8">
-            <div
-              onMouseEnter={(e) =>
-                handleMouseEnter(e.currentTarget.querySelector('img'))
-              }
-              onMouseLeave={(e) =>
-                handleMouseLeave(e.currentTarget.querySelector('img'))
-              }
-              className="relative flex border border-red-500 w-64 h-48 lg:w-72 lg:h-56"
-            >
-              <Image
-                src={imgSrc}
-                alt={`Agriculture Image ${index + 1}`}
-                layout="fill"
-                objectFit="cover"
-                className="rounded-lg"
-              />
-            </div>
-
-            <div className='flex flex-col items-center md:items-start gap-3'>
-              <h3 className="text-xl font-semibold text-gray-800 flex items-center gap-2">
-                <FaRegCircleCheck className="text-[#FFC90C]" /> {getInvolved[index]?.title}:
-              </h3>
-              <p className="text-gray-600 text-center md:text-left">
-              {getInvolved[index]?.description}
-              </p>
-            </div>
+            key={index}
+            onMouseEnter={(e) =>
+              handleMouseEnter(e.currentTarget.querySelector('img'))
+            }
+            onMouseLeave={(e) =>
+              handleMouseLeave(e.currentTarget.querySelector('img'))
+            }
+            className="relative w-64 h-48 lg:w-72 lg:h-56"
+          >
+            <Image
+              src={imgSrc}
+              alt={`Agriculture Image ${index + 1}`}
+              layout="fill"
+              objectFit="cover"
+              className="rounded-lg"
+            />
           </div>
         ))}
+      </div>
+
+      {/* Right Column - Text */}
+      <div className="flex flex-col dark:text-white gap-6">
+        <div>
+          <h3 className="text-xl font-semibold text-gray-800 dark:text-white flex items-center gap-2">
+            <FaRegCircleCheck className="text-[#FFC90C]" /> Innovators:
+          </h3>
+          <p className="text-gray-600 dark:text-white">
+            Share and develop new sustainable energy solutions.
+          </p>
+        </div>
+        <div>
+          <h3 className="text-xl font-semibold text-gray-800 dark:text-white flex items-center gap-2">
+            <FaRegCircleCheck className="text-[#FFC90C]" /> Donors:
+          </h3>
+          <p className="text-gray-600 dark:text-white">
+            Support the installation and maintenance of energy systems.
+          </p>
+        </div>
+        <div>
+          <h3 className="text-xl font-semibold text-gray-800 dark:text-white flex items-center gap-2">
+            <FaRegCircleCheck className="text-[#FFC90C]" /> Volunteers:
+          </h3>
+          <p className="text-gray-600 dark:text-white">
+            Educate communities on sustainable energy practices.
+          </p>
+        </div>
       </div>
     </div>
   );

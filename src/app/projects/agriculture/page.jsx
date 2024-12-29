@@ -48,10 +48,10 @@ export default function Page() {
         </div>
       </div>
 
-      <div className="bg-[#F6F4F4B2]">
-        <div className="text-center">
-          <h3 className="my-6 text-[40px]  font-[600]">Get Involved</h3>
-          <p>
+      <div className="bg-[#F6F4F4B2] dark:bg-inherit">
+        <div className="text-center ">
+          <h3 className="my-6 text-[40px] dark:text-white   font-[600]">Get Involved</h3>
+          <p className="dark:text-white">
             Join us to boost agricultural sustainability through farmer
             training, impactful investments, and hands-on volunteer projects.
           </p>

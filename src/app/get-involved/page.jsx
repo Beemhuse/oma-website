@@ -59,7 +59,7 @@ export default function GetInvolved() {
     }
   };
   return (
-    <div className="bg-gray-50">
+    <div className="bg-gray-50 dark:bg-inherit">
       {/* Hero Section */}
       <section
         className="relative py-20 px-4 sm:px-6 lg:px-8  text-white"
@@ -120,7 +120,7 @@ export default function GetInvolved() {
                   reach more communities.
                 </p>
                 <Button asChild>
-                  <Link href="/donate">Make a Donation</Link>
+                  <Link href="/donations">Make a Donation</Link>
                 </Button>
               </CardContent>
             </Card>
@@ -152,7 +152,6 @@ export default function GetInvolved() {
           backgroundPosition: "center",
           backgroundAttachment: "fixed",
           backgroundBlendMode: "overlay",
-
         }}
       >
         <div className="max-w-3xl mx-auto">
@@ -278,24 +277,27 @@ export default function GetInvolved() {
                 href="https://twitter.com/intent/tweet?text=Join%20me%20in%20supporting%20One%20Map%20Africa%20to%20create%20a%20unified%20map%20of%20the%20continent!%20%23OneMapAfrica"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="dark:text-[#FFD700] "
               >
                 Share on Twitter
               </Link>
             </Button>
             <Button asChild>
               <Link
-                href="https://www.facebook.com/sharer/sharer.php?u=https://onemapafricawebsite.com"
+                href="https://www.facebook.com/sharer/sharer.php?u=https://www.onemapafrica.org"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="dark:text-[#FFD700] "
               >
                 Share on Facebook
               </Link>
             </Button>
             <Button asChild>
               <Link
-                href="https://www.linkedin.com/shareArticle?mini=true&url=https://onemapafricawebsite.com&title=Support%20One%20Map%20Africa&summary=Join%20me%20in%20supporting%20One%20Map%20Africa%20to%20create%20a%20unified%20map%20of%20the%20continent!"
+                href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.onemapafrica.org"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="dark:text-[#FFD700] "
               >
                 Share on LinkedIn
               </Link>
@@ -303,8 +305,7 @@ export default function GetInvolved() {
           </div>
         </div>
       </section>
-                      <ActionLoader isVisible={isLoading} />
-      
+      <ActionLoader isVisible={isLoading} />
     </div>
   );
 }

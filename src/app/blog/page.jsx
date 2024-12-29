@@ -2,11 +2,16 @@ import BlogCard from "@/components/component/card/BlogCard";
 import React from "react";
 import { fetchBlogs, fetchEvents } from "@/services/apiService";
 import EventCard from "@/components/component/card/EventCard";
+import { LoaderIcon } from "react-hot-toast";
+import CircularLoader from "@/components/component/loaders/CircularLoader";
 
 export default async function Page() {
   let data = await fetchBlogs();
   const event = await fetchEvents();
-
+if(!data) {
+  <CircularLoader />
+}
+  
   return (
     <>
       <section

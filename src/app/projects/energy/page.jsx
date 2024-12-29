@@ -4,7 +4,7 @@ import React from "react";
 const imageArray = ["/energy-1.png", "/energy-2.png", "/energy-3.png"];
 export default function Page() {
   return (
-    <section className="bg-[#FFFFFFB2] font-[inter]">
+    <section className="bg-[#FFFFFFB2] dark:bg-inherit font-[inter]">
       <div className="p-3 md:p-[60px] flex flex-col md:flex-row justify-between items-start gap-4">
         <div className="w-full md:w-[30%] ">
           <div>
@@ -45,7 +45,7 @@ export default function Page() {
         </div>
       </div>
 
-      <div className="bg-[#F6F4F4B2]">
+      <div className="bg-[#F6F4F4B2] dark:bg-inherit">
         <div className="text-center">
           <h3 className="my-6 text-[40px]  font-[600]">Get Involved</h3>
           <p>

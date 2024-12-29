@@ -14,11 +14,11 @@ export default function Page() {
       case "bank transfer":
         return (
           <div>
-            <h3 className="text-xl font-semibold mb-4">
+            <h3 className="text-xl font-semibold dark:text-black mb-4">
               Bank Transfer Details
             </h3>
-            <p>Transfer the amount to the NGO&apos;s account:</p>
-            <ul className="list-disc pl-6 mt-2">
+            <p className="dark:text-black">Transfer the amount to the NGO&apos;s account:</p>
+            <ul className="list-disc dark:text-black pl-6 mt-2">
               <li>Bank Name: Ecobank Ghana Limited</li>
               <li>Account Name: One Map Africa LBG</li>
               <li>Account Number: 1441004115273</li>
@@ -28,8 +28,8 @@ export default function Page() {
         );
       case "cheque":
         return (
-          <div>
-            <h3 className="text-xl font-semibold mb-4">Cheque Payment</h3>
+          <div className="dark:text-black">
+            <h3 className="text-xl font-semibold mb-4 dark:text-black">Cheque Payment</h3>
             <p>Please send your cheque to the following address:</p>
             <p className="mt-2">123 NGO Street, City, Country</p>
           </div>

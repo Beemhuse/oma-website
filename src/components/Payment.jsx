@@ -71,9 +71,9 @@ const Payment = () => {
           ))}
         </div> */}
 
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)} className="dark:text-black">
           {/* Name Field */}
-          <div className="mb-4">
+          <div className="mb-4 ">
             <label className="block font-normal mb-2">Name</label>
             <input
               type="text"

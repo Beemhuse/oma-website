@@ -35,7 +35,7 @@ export default function Programs() {
 
       
   return (
-    <div className=" m-auto flex flex-col justify-center border border-red-500 gap-2 ">
+    <div className=" m-auto flex flex-col justify-center  gap-2 ">
     <div className="justify-center  gap-6 flex xl:flex-row flex-col">
         {isLoading && 
           <ProgramsSkeleton count={programs?.length} />
