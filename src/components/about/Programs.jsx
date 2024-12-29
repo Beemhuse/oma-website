@@ -10,7 +10,6 @@ import { handleGenericError } from '@/utils/errorHandler';
 
 export default function Programs() {
     const { data: programs, error, isLoading } = useSWR(programQuery);
-    console.log(programs)
 
     const handleMouseEnter = (target) => {
         anime({
@@ -39,7 +38,7 @@ export default function Programs() {
     <div className=" m-auto flex flex-col justify-center border border-red-500 gap-2 ">
     <div className="justify-center  gap-6 flex xl:flex-row flex-col">
         {isLoading && 
-          <ProgramsSkeleton count={i} />
+          <ProgramsSkeleton count={programs?.length} />
         }
       {programs?.map((program, index) => (
         <ProgramCard
