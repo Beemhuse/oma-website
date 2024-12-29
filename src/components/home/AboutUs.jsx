@@ -8,18 +8,18 @@ const AboutUs = () => {
   const rightRef = useSlideInAnimation('right', 1000, 200);
   const {push} = useRouter()
     return (
-        <div className="bg-white text-black py-16 px-8 md:px-20 lg:px-32 mt-10">
+        <div className="bg-white dark:bg-black text-black py-16 px-8 md:px-20 lg:px-32 mt-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {/* Left Section */}
             <div ref={leftRef}>
               <div className='flex gap-8 mb-2 items-center'>
-                <h3 className="text-[#1D2130] font-bold uppercase text-lg tracking-wide mb-2">
+                <h3 className="text-[#1D2130]  dark:text-white font-bold uppercase text-lg tracking-wide mb-2">
                     Introduction
                 </h3>
-                <p className='w-24 h-1 rounded-full bg-black'></p>
+                <p className='w-24 h-1 rounded-full bg-black  dark:bg-white'></p>
               </div>
-              <h1 className="text-4xl text-[#1D2130] font-bold mb-6">Know about Us</h1>
-              <p className="text-[#525560] mb-8 leading-relaxed">
+              <h1 className="text-4xl text-[#1D2130] dark:text-white font-bold mb-6">Know about Us</h1>
+              <p className="text-[#525560]  dark:text-white mb-8 leading-relaxed">
                 One Map Africa is an international non-governmental organization
                 (NGO) committed to fostering the unity and prosperity of Africa. Our
                 mission is to promote dialogue, collaboration, and integration among
@@ -35,12 +35,12 @@ const AboutUs = () => {
             {/* Right Section */}
             <div ref={rightRef}>
               <div className='flex gap-8 mb-2 items-center'>
-                <h3 className="text-[#1D2130] font-bold uppercase text-lg tracking-wide mb-2">
+                <h3 className="text-[#1D2130]  dark:text-white font-bold uppercase text-lg tracking-wide mb-2">
                     Our Story
                 </h3>
                 <p className='w-24 h-1 rounded-full bg-black'></p>
               </div>
-              <p className="text-[#525560] leading-relaxed">
+              <p className="text-[#525560]  dark:text-white leading-relaxed">
                 Our journey began with a vision shared by seven individuals from
                 diverse parts of Africa, including South Sudan, Ghana, Nigeria,
                 Zambia, Uganda, and South Africa. These pioneers founded the

@@ -1,5 +1,73 @@
-import Subscription from '@/components/pages/Subscription'
-import React from 'react'
+import Subscription from "@/components/pages/Subscription";
+import React from "react";
+// components/AdditionalBenefitsTable.js
+const AdditionalBenefitsTable = () => {
+  return (
+    <div className="overflow-x-auto bg-[007A15]">
+      <table className="min-w-full border-collapse border border-gray-200">
+        <thead>
+          <tr>
+            <th className="px-4 py-2 border border-gray-200 text-left font-medium text-gray-600">
+              Tier
+            </th>
+            <th className="px-4 py-2 border border-gray-200 text-left font-medium text-gray-600">
+              Included
+            </th>
+            <th className="px-4 py-2 border border-gray-200 text-left font-medium text-gray-600">
+              Benefits
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td className="px-4 py-2 border border-gray-200 font-medium text-gray-800">
+              Premium
+            </td>
+            <td className="px-4 py-2 border border-gray-200 text-center">
+              <span className="text-green-500 font-bold">✓</span>
+            </td>
+            <td className="px-4 py-2 border border-gray-200 text-gray-800">
+              Access to NGO&apos;s network of professionals and experts
+            </td>
+          </tr>
+          <tr>
+            <td className="px-4 py-2 border border-gray-200 font-medium text-gray-800">
+              Silver
+            </td>
+            <td className="px-4 py-2 border border-gray-200 text-center">
+              <span className="text-green-500 font-bold">✓</span>
+            </td>
+            <td className="px-4 py-2 border border-gray-200 text-gray-800">
+              Opportunities for professional development and training
+            </td>
+          </tr>
+          <tr>
+            <td className="px-4 py-2 border border-gray-200 font-medium text-gray-800">
+              Gold
+            </td>
+            <td className="px-4 py-2 border border-gray-200 text-center">
+              <span className="text-green-500 font-bold">✓</span>
+            </td>
+            <td className="px-4 py-2 border border-gray-200 text-gray-800">
+              Discounts on products and services from partner organizations
+            </td>
+          </tr>
+          <tr>
+            <td className="px-4 py-2 border border-gray-200 font-medium text-gray-800">
+              Diamond
+            </td>
+            <td className="px-4 py-2 border border-gray-200 text-center">
+              <span className="text-green-500 font-bold">✓</span>
+            </td>
+            <td className="px-4 py-2 border border-gray-200 text-gray-800">
+              Recognition on NGO&apos;s social media channels
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  );
+};
 
 export default function page() {
   return (
@@ -13,11 +81,15 @@ export default function page() {
           backgroundRepeat: "no-repeat",
         }}
       >
-        <h1 className="text-center xl:text-4xl text-xl">
-          Subscription
-        </h1>
+        <h1 className="text-center xl:text-4xl text-xl">Subscription</h1>
       </section>
+      <div className="container m-auto">
         <Subscription />
+        <div className="p-6">
+          <h2 className="text-2xl font-normal mb-4">Additional Benefits</h2>
+          <AdditionalBenefitsTable />
+        </div>{" "}
+      </div>
     </div>
-  )
+  );
 }

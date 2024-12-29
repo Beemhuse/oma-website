@@ -39,11 +39,11 @@ const EventCard = ({
     <div
     onClick={() => push(`events/${slug.current}`)}
     className="bg-white xl:w-[400px] cursor-pointer w-full flex flex-col rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:scale-105">
-      <div className="relative h-48">
+      <div className="relative ">
         <Image src={urlFor(imageSrc)} alt={title} height={200} width={500} objectFit="cover" />
       </div>
-      <div className="p-4">
-        <h3 className="text-[18px] font-semibold mb-2">{title}</h3>
+      <div className="p-4 mt-4">
+        <h3 className="text-[18px] dark:text-black font-semibold mb-2">{title}</h3>
         <p className="text-gray-600 mb-2 flex items-center gap-2">
           <FaRegCalendarAlt /> {formatDate(date)}
         </p>

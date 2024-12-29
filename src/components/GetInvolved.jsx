@@ -46,7 +46,7 @@ export default function GetInvolved({ images }) {
         {images?.map((imgSrc, index) => (
           <div
           key={index}
-          className="w-full flex flex-col lg:flex-row justify-center items-center gap-8 p-8">
+          className="w-full flex  xl:flex-row justify-center items-center gap-8 p-8">
             <div
               onMouseEnter={(e) =>
                 handleMouseEnter(e.currentTarget.querySelector('img'))
@@ -54,7 +54,7 @@ export default function GetInvolved({ images }) {
               onMouseLeave={(e) =>
                 handleMouseLeave(e.currentTarget.querySelector('img'))
               }
-              className="relative w-64 h-48 lg:w-72 lg:h-56"
+              className="relative flex border border-red-500 w-64 h-48 lg:w-72 lg:h-56"
             >
               <Image
                 src={imgSrc}

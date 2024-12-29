@@ -32,7 +32,7 @@ useEffect(()=>{
   getTrustedClients()
 })
   return (
-    <div className="flex flex-col gap-5 items-center whitespace-nowrap  py-10">
+    <div className="flex flex-col gap-5 items-center whitespace-nowrap dark:bg-white  py-10">
       <div className="w-full px-10 flex items-center">
         <Swiper
           modules={[Autoplay, Navigation, Pagination, Scrollbar, A11y, ImLoop2]}

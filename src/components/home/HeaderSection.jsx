@@ -46,7 +46,7 @@ const {push } = useRouter()
                 collaboration, and integration among nations.
               </p>
               <div className="flex justify-center space-x-4">
-                <button onClick={()=>push("/about-us")} className="bg-red-500 text-white px-6 py-3 rounded-md hover:bg-red-600">
+                <button onClick={()=>push("/about")} className="bg-red-500 text-white px-6 py-3 rounded-md hover:bg-red-600">
                   Learn More
                 </button>
                 <button onClick={()=>push("/get-involved")} className="border border-red-500 text-red-500 px-6 py-3 rounded-md hover:bg-red-500 hover:text-white">
@@ -85,7 +85,7 @@ const {push } = useRouter()
                 collaboration, and integration among nations.
               </p>
               <div className="flex justify-center space-x-4">
-                <button onClick={()=>push("/about-us")} className="bg-red-500 text-white px-6 py-3 rounded-md hover:bg-red-600">
+                <button onClick={()=>push("/about")} className="bg-red-500 text-white px-6 py-3 rounded-md hover:bg-red-600">
                   Learn More
                 </button>
                 <button onClick={()=>push("/get-involved")} className="border border-red-500 text-red-500 px-6 py-3 rounded-md hover:bg-red-500 hover:text-white">

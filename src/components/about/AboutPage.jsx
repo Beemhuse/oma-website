@@ -70,7 +70,7 @@ export default function AboutPage() {
       <div className="mt-[70px]">
         <div className="text-center my-5">
           <h2 className="text-[45px] font-[500]">Our Programs</h2>
-          <p className="text-[18px] text-[#525560]">
+          <p className="text-[18px] text-[#525560] dark:text-white">
             Some of our Project Areas
           </p>
         </div>
@@ -78,19 +78,19 @@ export default function AboutPage() {
       </div>
 
       <div className="">
-        <div className="bg-white text-black py-16  ">
+        <div className="bg-white dark:bg-inherit text-black py-16  ">
           <div className=" flex flex-col justify-between lg:flex-row items-center">
             {/* Text Content */}
             <div className=" lg:w-1/3 mb-8 lg:mb-0">
               <div className="text-black text-sm uppercase gap-10 font-semibold flex  mb-5 justify-left items-center transform ">
                 <div className=""> About us</div>{" "}
-                <p className="bg-black w-[50px]  h-[2px]"></p>
+                <p className="bg-black dark:bg-white w-[50px]  h-[2px]"></p>
               </div>
-              <h3 className="text-5xl font-semibold text-black mb-6">
+              <h3 className="text-5xl dark:text-white font-semibold text-black mb-6">
                 Our Mission
               </h3>
 
-              <p className="text-black/70 mb-6">
+              <p className="text-black/70 dark:text-white mb-6">
                 One Map Africa is dedicated to promoting dialogue,
                 collaboration, and integration among African nations, to create
                 a unified continent with a common purpose. We facilitate open
@@ -135,7 +135,7 @@ export default function AboutPage() {
           {/* sliding animated circle */}
           <div className="h-[60%]  w-[50px] flex justify-center relative ">
             <p className="bg-[#000] w-[2px] h-full"></p>
-            <div className="bg-[#fff] rounded-[50%] p-[7px] flex justify-center items-center absolute anim">
+            <div className="bg-[#fff] dark:bg-black rounded-[50%] p-[7px] flex justify-center items-center absolute anim">
               <p className="w-[10px] h-[10px]  bg-[#DB101C] rounded-[50%]"></p>
             </div>
           </div>
@@ -143,8 +143,8 @@ export default function AboutPage() {
           {/* Core Values Grid */}
           <div className="grid grid-cols-1 md:coreBox gap-8 overflow-scroll no-scrollbar">
             {/* sub topics */}
-            <div className="text-black p-6 pr-12 tracking-[2px]  md:core1">
-              <h3 className="text-xl font-semibold mb-2">
+            <div className="text-black dark:text-white p-6 pr-12 tracking-[2px]  md:core1">
+              <h3 className="text-xl dark:text-white font-semibold mb-2">
                 Our Work is guided by four core values
               </h3>
             </div>

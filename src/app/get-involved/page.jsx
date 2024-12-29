@@ -153,7 +153,6 @@ export default function GetInvolved() {
           backgroundAttachment: "fixed",
           backgroundBlendMode: "overlay",
 
-          // backgroundColor: "rgba(0, 74, 13, 0.5)", // Adds a black overlay
         }}
       >
         <div className="max-w-3xl mx-auto">

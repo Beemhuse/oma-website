@@ -87,10 +87,10 @@ const Testimonies = () => {
     >
       <div className="container m-auto">
         <div className="text-left my-10">
-          <h1 className="text-[32px] mb-4 font-[600] capitalize">
+          <h1 className="text-[32px] dark:text-black mb-4 font-[600] capitalize">
             Testimonies
           </h1>
-          <p className="capitalize">What people says about us</p>
+          <p className="capitalize dark:text-black">What people says about us</p>
         </div>
         <div className="w-full px-10 flex items-center">
           <Swiper

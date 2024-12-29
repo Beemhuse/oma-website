@@ -19,10 +19,10 @@ export default function Page() {
             </h3>
             <p>Transfer the amount to the NGO&apos;s account:</p>
             <ul className="list-disc pl-6 mt-2">
-              <li>Bank Name: ABC Bank</li>
-              <li>Account Name: NGO Fund</li>
-              <li>Account Number: 1234567890</li>
-              <li>SWIFT Code: ABCD1234</li>
+              <li>Bank Name: Ecobank Ghana Limited</li>
+              <li>Account Name: One Map Africa LBG</li>
+              <li>Account Number: 1441004115273</li>
+              <li>SWIFT Code: ECOCGHAC</li>
             </ul>
           </div>
         );

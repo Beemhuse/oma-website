@@ -35,7 +35,7 @@ const Footer = () => {
         </div>
 
         {/* Links Section */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mb-10">
           <div>
             <h3 className="font-semibold mb-4">NAVIGATION</h3>
             <ul className="space-y-2">
@@ -81,7 +81,14 @@ const Footer = () => {
               <li>
                 <Link href="tel:+233501052495">+233501052495</Link>
               </li>
-              <li>Contact Us</li>
+             
+            </ul>
+          </div>
+
+          <div className="">
+          <h3 className="font-semibold mb-4">CONTACT US</h3>
+
+            <ul>
               <li>
                 {" "}
                 <Link
@@ -97,7 +104,7 @@ const Footer = () => {
                   href={"https://www.tiktok.com/@one_map_africa"}
                   target="_blank"
                 >
-                Tiktok
+                  Tiktok
                 </Link>{" "}
               </li>
               <li>
@@ -130,12 +137,26 @@ const Footer = () => {
               alt="One Map Africa Logo"
               className="w-24 h-auto object-contain"
             />
-            <span>© 2024 One Map Africa. All Rights Reserved.</span>
+            <span className="text-sm">
+              © {new Date().getFullYear()} One Map Africa. All Rights Reserved.
+            </span>
           </div>
           <div className="flex space-x-4 mt-4 lg:mt-0">
-            <FaFacebookF className="hover:text-gray-300 cursor-pointer" />
-            <FaLinkedinIn className="hover:text-gray-300 cursor-pointer" />
-            <FaTwitter className="hover:text-gray-300 cursor-pointer" />
+            <Link
+              href={"https://www.facebook.com/onemapofficial"}
+              target="_blank"
+            >
+              <FaFacebookF className="hover:text-gray-300 cursor-pointer" />
+            </Link>
+            <Link
+              href={"https://www.linkedin.com/company/one-map-africa/"}
+              target="_blank"
+            >
+              <FaLinkedinIn className="hover:text-gray-300 cursor-pointer" />
+            </Link>
+            <Link href={"https://x.com/_onemapofficial"} target="_blank">
+              <FaTwitter className="hover:text-gray-300 cursor-pointer" />
+            </Link>
           </div>
         </div>
       </div>

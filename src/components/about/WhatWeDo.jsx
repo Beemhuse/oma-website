@@ -27,19 +27,19 @@ export default function WhatWeDo() {
   };
   return (
     <div className="">
-      <div className="bg-white text-black py-16  ">
+      <div className="bg-white dark:bg-inherit text-black py-16  ">
         <div className=" flex flex-col  lg:flex-row-reverse justify-center items-center">
           {/* Text Content */}
           <div ref={leftRef} className=" lg:w-1/3 w-full mb-8 lg:mb-0">
-            <div className="text-black text-sm uppercase gap-10 font-semibold flex  mb-5 justify-left items-center transform ">
+            <div className="text-black dark:text-white text-sm uppercase gap-10 font-semibold flex  mb-5 justify-left items-center transform ">
               <div className="uppercase"> What We Do</div>{" "}
-              <p className="bg-black w-[50px]  h-[2px]"></p>
+              <p className="bg-black dark:bg-white w-[50px]  h-[2px]"></p>
             </div>
-            <h3 className="text-5xl font-semibold text-black mb-6">
+            <h3 className="text-5xl font-semibold text-black dark:text-white mb-6">
               Our Mission
             </h3>
 
-            <p className="text-black/70 mb-6">
+            <p className="text-black/70 dark:text-white mb-6">
               To see a united Africa that champions socio-economic development
               and sustainable growth. We are dedicated to empowering communities
               and fostering long-term prosperity through collaboration and

@@ -9,7 +9,7 @@ const imageArray = [
 ];
 export default function Page() {
   return (
-    <section className="bg-[#FFFFFFB2] font-[inter]">
+    <section className="bg-[#FFFFFFB2] dark:bg-[#0a0a0a] font-inter">
       <div className="xl:p-[60px] p-4 flex justify-between items-start gap-4">
         <div className="w-[30%] ">
           <div>
