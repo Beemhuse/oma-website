@@ -45,7 +45,6 @@ export function PricingTable() {
     setPlanId(id);
     setPrice(price);
   };
-  // Fetch plans from the API
   useEffect(() => {
     const getPlans = async () => {
       try {
@@ -61,7 +60,6 @@ export function PricingTable() {
   }, []);
 
   const onSubmit = async (formData) => {
-    console.log(formData);
     setSubmissionError(null);
     setLoading(true);
 
@@ -91,19 +89,19 @@ export function PricingTable() {
       {/* Billing Toggle */}
       <div className="flex justify-center gap-2 mb-8">
         <div className="inline-flex items-center rounded-full border bg-white p-1 text-sm">
-          <button
+          {/* <button
             onClick={() => setIsAnnual(false)}
             className={`rounded-full px-4 py-2 transition-colors ${
               !isAnnual ? "bg-green-950 text-white" : "hover:bg-green-50"
             }`}
           >
             Billed Monthly
-          </button>
+          </button> */}
           <button
-            onClick={() => setIsAnnual(true)}
-            className={`rounded-full px-4 py-2 transition-colors ${
-              isAnnual ? "bg-green-950 text-white" : "hover:bg-green-50"
-            }`}
+            // onClick={() => setIsAnnual(true)}
+            className={`rounded-full px-4 py-2 transition-colors 
+               bg-green-950 text-white
+            `}
           >
             Billed Annually
           </button>

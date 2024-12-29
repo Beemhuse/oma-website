@@ -6,8 +6,6 @@ export async function POST(req) {
   try {
     // Parse the incoming request body
     const body = await req.json();
-    console.log(body)
-
     const { name, email,phone, subject, message } = body;
 
     // Validate required fields

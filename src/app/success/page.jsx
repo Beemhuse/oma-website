@@ -116,8 +116,6 @@ const Success = () => {
       </div>
     );
   }
-  console.log(data);
-  // Render the success screen with donation data once the payment is successful
   return (
     <div className="min-h-screen flex items-center justify-center px-4 py-12">
       <motion.div

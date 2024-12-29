@@ -1,26 +1,34 @@
-'use client'
-import useSlideIn from '@/hooks/useSlideIn';
-import Image from 'next/image';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-import React from 'react';
-import { FaFacebookF, FaLinkedinIn, FaTwitter } from 'react-icons/fa';
+"use client";
+import useSlideIn from "@/hooks/useSlideIn";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import React from "react";
+import { FaFacebookF, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
-    const {push} = useRouter()
-  let slideinRef = useSlideIn()
+  const { push } = useRouter();
+  let slideinRef = useSlideIn();
 
   return (
     <footer ref={slideinRef} className="bg-green-800 text-white py-12">
       <div className="container mx-auto px-4">
         {/* Top Section */}
         <div className="text-center mb-10">
-          <h1 className="xl:text-3xl text-xl font-normal w-full xl:w-[300px] m-auto">Erasing the lines that divide us</h1>
+          <h1 className="xl:text-3xl text-xl font-normal w-full xl:w-[300px] m-auto">
+            Erasing the lines that divide us
+          </h1>
           <div className="flex justify-center gap-4 mt-6">
-            <button onClick={()=> push("/subscription")} className="px-6 py-2 border border-white rounded-md hover:bg-white hover:text-green-800 transition">
+            <button
+              onClick={() => push("/subscription")}
+              className="px-6 py-2 border border-white rounded-md hover:bg-white hover:text-green-800 transition"
+            >
               JOIN US
             </button>
-            <button onClick={()=> push("/donations")} className="px-6 py-2 bg-white text-green-800 rounded-md hover:bg-opacity-80 transition">
+            <button
+              onClick={() => push("/donations")}
+              className="px-6 py-2 bg-white text-green-800 rounded-md hover:bg-opacity-80 transition"
+            >
               DONATE
             </button>
           </div>
@@ -54,20 +62,60 @@ const Footer = () => {
             <ul className="space-y-2">
               <li>General Info</li>
               <li>
-              <Link href="/privacy-policy">Privacy Policy</Link>
+                <Link href="/privacy-policy">Privacy Policy</Link>
               </li>
-              <li> <Link href={'/terms'}> Terms of Service</Link></li>
+              <li>
+                {" "}
+                <Link href={"/terms"}> Terms of Service</Link>
+              </li>
             </ul>
           </div>
           <div>
             <h3 className="font-semibold mb-4">TALK TO US</h3>
             <ul className="space-y-2">
-              <li>support@ercom.com</li>
-              <li>+66 2399 1145</li>
+              <li>
+                <Link href="mailto:onemapafrica@gmail.com">
+                  onemapafrica@gmail.com
+                </Link>
+              </li>
+              <li>
+                <Link href="tel:+233501052495">+233501052495</Link>
+              </li>
               <li>Contact Us</li>
-              <li>Facebook</li>
-              <li>LinkedIn</li>
-              <li>Twitter</li>
+              <li>
+                {" "}
+                <Link
+                  href={"https://www.facebook.com/onemapofficial"}
+                  target="_blank"
+                >
+                  Facebook{" "}
+                </Link>{" "}
+              </li>
+              <li>
+                {" "}
+                <Link
+                  href={"https://www.tiktok.com/@one_map_africa"}
+                  target="_blank"
+                >
+                Tiktok
+                </Link>{" "}
+              </li>
+              <li>
+                {" "}
+                <Link
+                  href={"https://www.linkedin.com/company/one-map-africa/"}
+                  target="_blank"
+                >
+                  LinkedIn
+                </Link>{" "}
+              </li>
+              <li>
+                {" "}
+                <Link href={"https://x.com/_onemapofficial"} target="_blank">
+                  {" "}
+                  Twitter
+                </Link>{" "}
+              </li>
             </ul>
           </div>
         </div>
@@ -76,8 +124,8 @@ const Footer = () => {
         <div className="flex flex-col lg:flex-row justify-between items-center border-t border-white pt-6">
           <div className="flex items-center space-x-3">
             <Image
-            width={200}
-            height={200}
+              width={200}
+              height={200}
               src="/one_map.svg"
               alt="One Map Africa Logo"
               className="w-24 h-auto object-contain"

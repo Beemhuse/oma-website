@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -6,6 +6,7 @@ import { BiMenuAltLeft } from "react-icons/bi";
 import { HiXMark } from "react-icons/hi2";
 import { RxCaretDown, RxCaretUp } from "react-icons/rx";
 import Button from "@/components/reusables/Button";
+import Image from "next/image";
 
 const MobileNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -47,7 +48,8 @@ const MobileNavbar = () => {
   }, []);
 
   const toggleMenu = () => setIsOpen(!isOpen);
-  const toggleSubmenu = (label) => setActiveSubmenu(activeSubmenu === label ? null : label);
+  const toggleSubmenu = (label) =>
+    setActiveSubmenu(activeSubmenu === label ? null : label);
 
   const isActive = (href) =>
     pathname === href || (pathname.startsWith(href) && href !== "/");
@@ -64,7 +66,19 @@ const MobileNavbar = () => {
           {/* Mobile Drawer */}
           {isOpen && (
             <div className="bg-green-700 text-white fixed top-0 left-0 w-full h-fit pb-10 z-50">
-              <div className="flex justify-end p-4">
+              <div className="flex justify-between items-center p-4">
+                <div
+                  onClick={() => push("/")}
+                  className="flex cursor-pointer  items-center space-x-4"
+                >
+                  <Image
+                    src="/one_map.svg"
+                    width={150}
+                    height={50}
+                    alt="One Map Africa"
+                    className="w-auto h-auto"
+                  />
+                </div>
                 <button onClick={toggleMenu} className="text-2xl">
                   <HiXMark />
                 </button>

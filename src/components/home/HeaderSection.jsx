@@ -36,7 +36,7 @@ const {push } = useRouter()
             ref={leftRef}
             className="container mx-auto text-center md:px-28 relative"
           >
-            <div className="h-full w-full md:w-4/5 text-left flex flex-col items-center md:items-start justify-center gap-10 static md:absolute">
+            <div className="h-full w-full md:w-4/5 text-left flex flex-col items-center md:items-start justify-center gap-10 static p-2 md:absolute">
               <h1 className="text-4xl md:text-6xl text-center md:text-left text-white font-semibold">
                 Erasing the Lines that Divide us
               </h1>
@@ -60,7 +60,7 @@ const {push } = useRouter()
 
       <SwiperSlide>
         <section
-          className="h-screen relative grid grid-cols-1 md:grid-cols-2"
+          className="h-screen relative grid grid-cols-1 md:grid-cols-2 p-2"
           style={{
             backgroundImage: `url(${pics2.src})`,
             backgroundSize: 'cover',

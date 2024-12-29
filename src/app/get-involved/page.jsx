@@ -45,7 +45,6 @@ export default function GetInvolved() {
   });
 
   const onSubmit = async (data) => {
-    // console.log(data);
     setLoading(true);
     try {
       await postRequest("/api/volunteer", { data });

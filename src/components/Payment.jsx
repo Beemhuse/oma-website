@@ -36,7 +36,6 @@ const Payment = () => {
   });
 
   const onSubmit = async (data) => {
-    console.log("Form Submitted:", data);
     setLoading(true)
     try{
         const response = await postRequest("/api/donations", data);

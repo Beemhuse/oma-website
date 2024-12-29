@@ -147,11 +147,10 @@ export default function Page() {
             />
           </div>
           <div className="min-h-[250px] grid11 gap-1 md:gap-x-2 col-span-4 grid grid-cols-3 md:grid-cols-4">
-            {images?.slice(starter, starter + num).map((data, item) => (
+            {images?.slice(starter, starter + num).map((data, idx) => (
               <div
-                key={item}
+                key={idx}
                 className="aspect-square md:h-[250px] grid12 md:w-full"
-                onClick={() => console.log("this is item", item + 1)}
               >
                 <Image
                   src={data}

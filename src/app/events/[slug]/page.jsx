@@ -12,17 +12,16 @@ export default async function Page({ params }) {
 
   const event = await client.fetch(
     `*[_type == "event" && slug.current == $slug][0]{
-                  title,
-                  "imageSrc": imageUrl,
-                  "date": date,
-                  location,
-                  description,
-                  eventCategory,
-                  registrationLink
-              }`,
+        title,
+        "imageSrc": imageUrl,
+        "date": date,
+        location,
+        description,
+        eventCategory,
+        registrationLink
+    }`,
     { slug }
   );
-  console.log(event.description)
   return (
     <div className="min-h-screen bg-gray-100">
       <div className="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
@@ -36,7 +35,7 @@ export default async function Page({ params }) {
 
         <div className="xl:col-span-3 xl:w-2/3 m-auto w-full col-span-1 flex-col justify-center">
           <ul className="flex gap-3 items-center mt-auto justify-end m-2">
-            {event?.eventCategory.map((category, index) => (
+            {event?.eventCategory?.map((category, index) => (
               <li
                 key={index}
                 className="text-gray-500 text-xs p-2 rounded-xl bg-[#F2F8F7]"
@@ -72,16 +71,14 @@ export default async function Page({ params }) {
           </article>
         </div>
         {event?.registrationLink && (
-          <div className="mt-8 text-center">
-            <a
+            <Link
               href={event?.registrationLink}
-              className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300"
+              target="_blank"
+              className="bg-blue-600 mt-8 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300"
             >
               Register for Event
-            </a>
-          </div>
+            </Link>
         )}
-        
       </div>
     </div>
   );

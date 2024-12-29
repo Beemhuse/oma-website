@@ -30,7 +30,6 @@ const Page = () => {
   });
 
   const onSubmit = async (data) => {
-    console.log('Form Data Submitted: ', data);
     setIsLoading(true);
     try {
       const response = await postRequest('/api/auth/login', {

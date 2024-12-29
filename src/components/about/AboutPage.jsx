@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import Button from "../reusables/Button";
-import ProgramCard from "../component/card/ProgramCard";
 import Image from "next/image";
 import useSlideInAnimation from "@/hooks/slideAnimation";
 import WhatWeDo from "./WhatWeDo";
@@ -11,31 +10,12 @@ import core2 from "../../../public/landingPage/core2.svg";
 import core3 from "../../../public/landingPage/core3.svg";
 import core4 from "../../../public/landingPage/core4.svg";
 import { useRouter } from "next/navigation";
+import Programs from "./Programs";
 
-const programs = [
-  {
-    src: "/energy.png",
-    title: "Agriculture",
-    description:
-      "To enhance agricultural productivity and sustainability, ensuring food security and economic growth.",
-  },
-  {
-    src: "/energy.png",
-    title: "Healthcare",
-    description:
-      "Improving access to healthcare services and promoting public health initiatives for better community wellbeing.",
-  },
-  {
-    src: "/energy.png",
-    title: "Education",
-    description:
-      "Providing quality education and learning resources to empower individuals for a brighter future.",
-  },
-];
 export default function AboutPage() {
   const leftRef = useSlideInAnimation("left", 1000);
   const rightRef = useSlideInAnimation("right", 1000, 200);
-  const {push} = useRouter()
+  const { push } = useRouter();
   const handleMouseEnter = (target) => {
     anime({
       targets: target,
@@ -53,6 +33,7 @@ export default function AboutPage() {
       easing: "easeOutQuad",
     });
   };
+
   return (
     <section className="py-10 xl:w-[70%] mt-20 w-full px-4 mx-auto">
       <div
@@ -93,29 +74,7 @@ export default function AboutPage() {
             Some of our Project Areas
           </p>
         </div>
-        <div className=" m-auto flex flex-col gap-2 ">
-          <div className="justify-center  gap-6 flex xl:flex-row flex-col">
-            {programs.map((program, index) => (
-              <ProgramCard
-                key={index}
-                src={program.src}
-                title={program.title}
-                description={program.description}
-                mouseEnter={handleMouseEnter}
-                mouseLeave={handleMouseLeave}
-              />
-            ))}
-          </div>
-          <div className="mt-4">
-            <Button
-              bgColor="bg-[#DB101C]"
-              hoverColor="bg-[#DB101C]"
-              href={"/donations"}
-              label={"Donate Now"}
-              isButton={false}
-            />
-          </div>
-        </div>
+        <Programs />
       </div>
 
       <div className="">
@@ -138,7 +97,10 @@ export default function AboutPage() {
                 communication and encourage cooperative efforts to
                 achieve this vision.
               </p>
-              <button onClick={()=> push ('/donations')} className="bg-red-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-700">
+              <button
+                onClick={() => push("/donations")}
+                className="bg-red-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-700"
+              >
                 Donate
               </button>
             </div>
@@ -168,7 +130,7 @@ export default function AboutPage() {
       <WhatWeDo />
 
       <div className=" text-black flex justify-center py-20 md:py-10 flex-col px-8 md:px-20 h-screen md:h-[70vh]">
-        <h1 className="text-4xl font-bold mb-4 pl-24">Core Value</h1>
+        <h1 className="xl:text-4xl text-3xl font-bold mb-4 ">Core Value</h1>
         <div className="max-w-6xl mx-auto flex h-full gap-5">
           {/* sliding animated circle */}
           <div className="h-[60%]  w-[50px] flex justify-center relative ">

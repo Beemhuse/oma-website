@@ -28,7 +28,6 @@ export const createUser = async (user) => {
 
     // Only pass valid fields to the Sanity client
     const sanityResponse = await client.create(userData);
-    console.log("Sanity Response:", sanityResponse);
     return sanityResponse; // Ensure returned type matches Customer interface
   } catch (sanityError) {
     if (sanityError instanceof Error) {
@@ -111,7 +110,6 @@ export const updateTransactionStatus = async (transactionRef, newStatus) => {
           }`,
       { transactionId: updatedTransaction._id }
     );
-    console.log(updatedTransaction, "updated transaction")
 
     return {
       success: true,
