@@ -65,7 +65,7 @@ export default function Page() {
     } else {
       setDisabled(false);
     }
-  },[num])
+  },[images.length, num, starter])
   return (
     <>
       <section

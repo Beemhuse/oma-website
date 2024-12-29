@@ -44,9 +44,10 @@ export default function GetInvolved({ images }) {
       {/* Left Column - Images */}
       <div>
         {images?.map((imgSrc, index) => (
-          <div className="w-full flex flex-col lg:flex-row justify-center items-center gap-8 p-8">
+          <div
+          key={index}
+          className="w-full flex flex-col lg:flex-row justify-center items-center gap-8 p-8">
             <div
-              key={index}
               onMouseEnter={(e) =>
                 handleMouseEnter(e.currentTarget.querySelector('img'))
               }
