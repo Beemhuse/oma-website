@@ -88,7 +88,7 @@ export function PricingTable() {
     <div className="py-12 px-4">
       {/* Billing Toggle */}
       <div className="flex justify-center gap-2 mb-8">
-        <div className="inline-flex items-center rounded-full border bg-white p-1 text-sm">
+        <div className="inline-flex items-center rounded-full border bg-white  p-1 text-sm">
           {/* <button
             onClick={() => setIsAnnual(false)}
             className={`rounded-full px-4 py-2 transition-colors ${
@@ -118,7 +118,7 @@ export function PricingTable() {
               <Card
                 key={tier._id}
                 className={
-                  tier.highlighted ? "bg-green-950 text-white" : "bg-white"
+                  tier.highlighted ? "bg-green-950 text-white" : "bg-white dark:bg-black"
                 }
               >
                 <div className="p-6">
