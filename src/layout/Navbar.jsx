@@ -13,22 +13,28 @@ const menuItems = [
   {
     label: "Projects",
     submenu: [
-      {
-        label: (
-          <p className="flex items-center gap-5">
-            E-Commerce
-            <Image src={arrowRight} alt="arrow right" />
-          </p>
-        ),
-        href: "/projects/e-commerce",
-      },
-      { label: "Agriculture", href: "/projects/agriculture" },
-      { label: "Fashion & Event", href: "/projects/fashion-event" },
-      { label: "Education & Mentorship", href: "/projects/education" },
-      { label: "House", href: "/projects/house" },
-      { label: "Women Empowerment", href: "/projects/women-empowerment" },
-      { label: "Energy", href: "/projects/energy" },
-      { label: "Tourism", href: "/projects/tourism" },
+      // {
+      //   label: (
+      //     <p className="flex items-center gap-5">
+      //       E-Commerce
+      //       <Image src={arrowRight} alt="arrow right" />
+      //     </p>
+      //   ),
+      //   href: "/projects/e-commerce",
+      // },
+      { label: <p className="flex items-center gap-5">
+        Agriculture
+        <Image src={arrowRight} alt="arrow right" />
+      </p>, href: "/projects/agriculture" },
+      // { label: "Fashion & Event", href: "/projects/fashion-event" },
+      // { label: "Education & Mentorship", href: "/projects/education" },
+      // { label: "House", href: "/projects/house" },
+      // { label: "Women Empowerment", href: "/projects/women-empowerment" },
+      { label: <p className="flex items-center gap-5">
+        Energy
+        <Image src={arrowRight} alt="arrow right" />
+      </p>, href: "/projects/energy" },
+      // { label: "Tourism", href: "/projects/tourism" },
     ],
   },
   { label: "Get Involved", href: "/get-involved" },
