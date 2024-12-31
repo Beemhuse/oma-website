@@ -83,7 +83,7 @@ const Testimonies = () => {
   return (
     <section
       key={slideInRef}
-      className="px-10  flex md:justify-center bg-[#F6F4F4] w-full"
+      className="px-10  flex md:justify-center bg-[#F6F4F4] w-full "
     >
       <div className="container m-auto">
         <div className="text-left my-10">
@@ -92,7 +92,7 @@ const Testimonies = () => {
           </h1>
           <p className="capitalize dark:text-black">What people says about us</p>
         </div>
-        <div className="w-full px-10 flex items-center">
+        <div className="w-full px-10 flex items-center maskGradient">
           <Swiper
             modules={[Autoplay, Navigation, Pagination, Scrollbar, A11y, ImLoop2]}
             spaceBetween={10}

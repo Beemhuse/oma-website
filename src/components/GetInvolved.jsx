@@ -1,8 +1,8 @@
-'use client'
-import anime from 'animejs';
-import Image from 'next/image';
-import React from 'react';
-import { FaRegCircleCheck } from 'react-icons/fa6';
+"use client";
+import anime from "animejs";
+import Image from "next/image";
+import React from "react";
+import { FaRegCircleCheck } from "react-icons/fa6";
 
 export default function GetInvolved({ images }) {
   const handleMouseEnter = (target) => {
@@ -10,7 +10,7 @@ export default function GetInvolved({ images }) {
       targets: target,
       scale: 1.1,
       duration: 500,
-      easing: 'easeOutQuad',
+      easing: "easeOutQuad",
     });
   };
 
@@ -19,7 +19,7 @@ export default function GetInvolved({ images }) {
       targets: target,
       scale: 1,
       duration: 500,
-      easing: 'easeOutQuad',
+      easing: "easeOutQuad",
     });
   };
 
@@ -27,26 +27,28 @@ export default function GetInvolved({ images }) {
     <div className="flex flex-col lg:flex-row justify-center items-center gap-8 p-8">
       {/* Left Column - Images */}
       <div className="flex flex-wrap items-center justify-center w-2/4 gap-4">
-        {images?.map((imgSrc, index) => (
-          <div
-            key={index}
-            onMouseEnter={(e) =>
-              handleMouseEnter(e.currentTarget.querySelector('img'))
-            }
-            onMouseLeave={(e) =>
-              handleMouseLeave(e.currentTarget.querySelector('img'))
-            }
-            className="relative w-64 h-48 lg:w-72 lg:h-56"
-          >
-            <Image
-              src={imgSrc}
-              alt={`Agriculture Image ${index + 1}`}
-              layout="fill"
-              objectFit="cover"
-              className="rounded-lg"
-            />
-          </div>
-        ))}
+        {images
+          ?.filter((imgSrc) => typeof imgSrc === "string") // Filter out non-string items
+          .map((imgSrc, index) => (
+            <div
+              key={index} // Safely use index as a key
+              onMouseEnter={(e) =>
+                handleMouseEnter(e.currentTarget.querySelector("img"))
+              }
+              onMouseLeave={(e) =>
+                handleMouseLeave(e.currentTarget.querySelector("img"))
+              }
+              className="relative w-64 h-48 lg:w-72 lg:h-56"
+            >
+              <Image
+                src={imgSrc}
+                alt={`Agriculture Image ${index + 1}`}
+                height={400}
+                width={400}
+                className="rounded-lg h-52 w-full object-cover"
+              />
+            </div>
+          ))}
       </div>
 
       {/* Right Column - Text */}

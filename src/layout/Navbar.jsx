@@ -88,6 +88,8 @@ const Navbar = () => {
               <div
                 className="group "
                 key={item.label}
+                // onMouseLeave={() => setOpenSubmenu(null)} // Close submenu on mouse leave
+
                 onClick={() => toggleSubmenu(item.label)} // Toggle on click
               >
                 <button className={`hover:text-[#FFD700] ${
@@ -149,6 +151,8 @@ const Navbar = () => {
               <Link
                 href={item.href}
                 key={item.label}
+                onMouseEnter={() => setOpenSubmenu(null)} // Close submenu on mouse leave
+
                 className={`hover:text-[#FFD700] ${
                   pathname === item.href ? "text-[#FFD700] " : "text-white"
                 }`}              >
