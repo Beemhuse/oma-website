@@ -65,7 +65,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-green-700 fixed top-0 z-50 w-full text-white px-6 py-4 ">
+    <nav className="bg-green-700  w-full text-white px-6 py-4 ">
       <div className="flex relative items-center justify-between">
         {/* Logo */}
         <div
@@ -83,12 +83,11 @@ const Navbar = () => {
 
         {/* Menu Links */}
         <div className="hidden md:flex space-x-6 ">
-          {menuItems.map((item) =>
+          {menuItems.map((item, index) =>
             item.submenu ? (
               <div
                 className="group "
                 key={item.label}
-                // onMouseLeave={() => setOpenSubmenu(null)} // Close submenu on mouse leave
 
                 onClick={() => toggleSubmenu(item.label)} // Toggle on click
               >
@@ -116,10 +115,10 @@ const Navbar = () => {
                       </p>
                     </div>
                     <div className="md:w-2/3 grid grid-cols-3 w-full gap-6 p-10 text-sm font-semibold ">
-                      {item.submenu.map((subItem) => (
+                      {item.submenu.map((subItem, index) => (
                         <Link
                           href={subItem.href}
-                          key={subItem.label}
+                          key={index}
                           className={`block text-sm hover:text-black/50 ${
                             pathname === subItem.href ? "text-[#FFD700] font-bold" : ""
                           }`}                        >
@@ -134,10 +133,10 @@ const Navbar = () => {
                       openSubmenu === item.label ? "block" : "hidden"
                     } bg-white text-gray-700 shadow-lg z-10 transition-all duration-300 absolute top-full flex flex-col gap-3 p-5 text-sm font-semibold `}
                   >
-                    {item.submenu.map((subItem) => (
+                    {item.submenu.map((subItem,index) => (
                       <Link
                         href={subItem.href}
-                        key={subItem.label}
+                        key={index}
                         className={`block text-sm hover:text-black/50 ${
                           pathname === subItem.href ? "text-gold-500 font-bold" : ""
                         }`}                      >
@@ -150,9 +149,8 @@ const Navbar = () => {
             ) : (
               <Link
                 href={item.href}
-                key={item.label}
+                key={index}
                 onMouseEnter={() => setOpenSubmenu(null)} // Close submenu on mouse leave
-
                 className={`hover:text-[#FFD700] ${
                   pathname === item.href ? "text-[#FFD700] " : "text-white"
                 }`}              >

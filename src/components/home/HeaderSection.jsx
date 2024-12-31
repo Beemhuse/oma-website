@@ -18,11 +18,11 @@ const {push } = useRouter()
       loop
       autoplay={{ delay: 8000 }}
       modules={[Autoplay]}
-      className="h-screen"
+      className=""
     >
       <SwiperSlide>
         <section
-          className="h-screen relative grid grid-cols-1 md:grid-cols-2"
+          className="h-[50rem] relative grid grid-cols-1 md:grid-cols-2"
           style={{
             backgroundImage: `url(${pics1.src})`,
             backgroundSize: 'cover',
@@ -60,7 +60,7 @@ const {push } = useRouter()
 
       <SwiperSlide>
         <section
-          className="h-screen relative grid grid-cols-1 md:grid-cols-2 p-2"
+          className="h-[50rem] relative grid grid-cols-1 md:grid-cols-2 p-2"
           style={{
             backgroundImage: `url(${pics2.src})`,
             backgroundSize: 'cover',

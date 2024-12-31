@@ -1,24 +1,13 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import EventCard from "../component/card/EventCard";
-import { fetchEvents } from "@/services/apiService";
 import useSlideIn from "@/hooks/useSlideIn";
+import useSWR from "swr";
+import { eventsQuery } from "@/sanity/queries";
 
 const Events = () => {
-  const [eventData, setEventData] = useState([]);
+const {data: eventData} = useSWR(eventsQuery)
 
-  useEffect(() => {
-    const getEvents = async () => {
-      try {
-        const event = await fetchEvents();
-        setEventData(event);
-      } catch (error) {
-        console.error("Failed to fetch blogs:", error);
-      }
-    };
-
-    getEvents();
-  }, []);
   const slideInRef = useSlideIn();
   return (
     <section className="py-16 bg-gray-100  ">
@@ -30,7 +19,7 @@ const Events = () => {
           ref={slideInRef}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {eventData.slice(0, 4).map((event, index) => (
+          {eventData?.slice(0, 4)?.map((event, index) => (
             <EventCard key={index} {...event} />
           ))}
         </div>

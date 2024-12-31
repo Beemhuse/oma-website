@@ -11,6 +11,8 @@ import { fetchPlans } from "@/services/apiService";
 import { Input } from "../component/ui/input";
 import ActionLoader from "../reusables/ActionLoader";
 import toast from "react-hot-toast";
+import useSWR from "swr";
+import { plansQuery } from "@/sanity/queries";
 
 const subscriptionSchema = yup.object().shape({
   name: yup.string().required("Name is required."),
@@ -22,8 +24,6 @@ const subscriptionSchema = yup.object().shape({
 });
 
 export function PricingTable() {
-  const [tiers, setTiers] = useState([]);
-  const [loadingPlans, setLoadingPlans] = useState(true);
   const [isAnnual, setIsAnnual] = useState(true);
   const [submissionError, setSubmissionError] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -45,19 +45,7 @@ export function PricingTable() {
     setPlanId(id);
     setPrice(price);
   };
-  useEffect(() => {
-    const getPlans = async () => {
-      try {
-        const res = await fetchPlans();
-        setTiers(res);
-      } catch (error) {
-        console.error("Failed to fetch plans:", error);
-      } finally {
-        setLoadingPlans(false);
-      }
-    };
-    getPlans();
-  }, []);
+  const {data: tiers, isLoading: loadingPlans} = useSWR(plansQuery)
 
   const onSubmit = async (formData) => {
     setSubmissionError(null);

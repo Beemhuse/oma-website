@@ -20,9 +20,9 @@ export const SWRProvider = ({ children }) => (
   <SWRConfig
     value={{
       fetcher: customFetcher,
-      revalidateOnFocus: true,
+      revalidateOnFocus: false,
       dedupingInterval: 2000, 
-      errorRetryCount: 3,    
+      errorRetryCount: 1,    
     }}
   >
     {children}

@@ -48,10 +48,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
-      <body className="antialiased  overflow-x-hidden font-poppins">
+      <body className="antialiased max-w-[1440px] m-auto overflow-x-hidden font-poppins">
         <MainLayout>
         <Header />
-        <div className="mt-20">
+        <div className="">
 
           {children}
         </div>
