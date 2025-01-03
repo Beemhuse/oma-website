@@ -90,7 +90,7 @@ const Testimonies = () => {
           <h1 className="text-[32px] dark:text-black mb-4 font-[600] capitalize">
             Testimonies
           </h1>
-          <p className="capitalize dark:text-black">What people says about us</p>
+          <p className="capitalize dark:text-black text-red-500">What people says about us</p>
         </div>
         <div className="w-full px-10 flex items-center maskGradient">
           <Swiper

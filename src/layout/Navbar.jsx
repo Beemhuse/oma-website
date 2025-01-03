@@ -65,7 +65,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-green-700  w-full text-white px-6 py-4 ">
+    <nav className="bg-white   w-full text-white px-6 py-4 ">
       <div className="flex relative items-center justify-between">
         {/* Logo */}
         <div
@@ -94,7 +94,7 @@ const Navbar = () => {
                 <button className={`hover:text-[#FFD700] ${
                     openSubmenu === item.label || pathname.startsWith(item.href)
                       ? "text-[#FFD700] "
-                      : ""
+                      : "text-green-500"
                   }`}>{item.label}</button>
                 {/* Submenu */}
                 {item.label === "Projects" ? (
@@ -120,7 +120,7 @@ const Navbar = () => {
                           href={subItem.href}
                           key={index}
                           className={`block text-sm hover:text-black/50 ${
-                            pathname === subItem.href ? "text-[#FFD700] font-bold" : ""
+                            pathname === subItem.href ? "text-[#FFD700] font-bold" : "text-green-500"
                           }`}                        >
                           {subItem.label}
                         </Link>
@@ -152,7 +152,7 @@ const Navbar = () => {
                 key={index}
                 onMouseEnter={() => setOpenSubmenu(null)} // Close submenu on mouse leave
                 className={`hover:text-[#FFD700] ${
-                  pathname === item.href ? "text-[#FFD700] " : "text-white"
+                  pathname === item.href ? "text-[#FFD700] " : "text-green-500"
                 }`}              >
                 {item.label}
               </Link>

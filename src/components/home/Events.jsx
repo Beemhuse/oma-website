@@ -11,7 +11,7 @@ const {data: eventData} = useSWR(eventsQuery)
   const slideInRef = useSlideIn();
   return (
     <section className="py-16 bg-gray-100  ">
-      <div className="container mx-auto xl:px-0 px-4">
+      <div className="container mx-auto xl:px-10 px-4">
         <h2 className="text-[32px] font-[600] dark:text-black text-start mb-8">
           Upcoming Events
         </h2>

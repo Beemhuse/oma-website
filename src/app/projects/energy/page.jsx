@@ -5,7 +5,7 @@ const imageArray = ["/energy-1.png", "/energy-2.png", "/energy-3.png"];
 export default function Page() {
   return (
     <section className="bg-[#FFFFFFB2] dark:bg-inherit font-[inter]">
-      <div className="p-3 md:p-[60px] flex flex-col md:flex-row justify-between items-start gap-4">
+      <div className="p-3 md:p-[60px] flex  md:flex-row flex-col-reverse justify-between items-start gap-4">
         <div className="w-full md:w-[30%] ">
           <div>
             <h3 className="font-[inter] 2xl:text-[95px] lg:text-[60px] font-bold">
@@ -20,7 +20,7 @@ export default function Page() {
             <h5 className="font-[inter] text-[32px] font-bold">
               Impact Stories
             </h5>
-            <ul className="list-disc">
+            <ul className="list-disc p-2">
               <li className="mb-7">
                 Solar Power in Rural Nigeria: Installed solar panels in
                 villages, providing reliable electricity to over 1,000

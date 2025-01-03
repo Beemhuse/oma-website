@@ -1,6 +1,6 @@
 'use client'
 import Image from 'next/image';
-import donate from '../../../public/landingPage/donate.svg'
+import donate from '../../../public/landingPage/donate.jpg'
 import useSlideInAnimation from '@/hooks/slideAnimation';
 import { useRouter } from 'next/navigation';
 const Donation = () => {
@@ -9,11 +9,11 @@ const Donation = () => {
 const {push} = useRouter()
     return (
       <div className="bg-white text-black py-16 px-8 md:px-20 lg:px-32">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center">
+        <div className="max-w-7xl mx-auto flex flex-col justify-between lg:flex-row items-center">
           {/* Text Content */}
           <div ref={leftRef} className="lg:w-1/2 mb-8 lg:mb-0">
-            <div className="text-black text-sm font-semibold flex gap-2 mb-2 justify-left items-center transform -translate-x-[54px]">
-                <p className='bg-black w-[50px] h-[2px]'></p> Donate
+            <div className="text-red-500 text-sm font-semibold flex gap-2 mb-2 justify-left items-center transform -translate-x-[54px]">
+                <p className='bg-black w-[50px]  h-[2px]'></p> Donate
             </div>
             {/* <h3 className="uppercase text-sm font-semibold text-gray-400 mb-2">Donate</h3> */}
             <h1 className="text-4xl font-bold mb-6">
@@ -30,11 +30,11 @@ const {push} = useRouter()
           </div>
   
           {/* Image Content */}
-          <div ref={rightRef} className="lg:w-1/2">
+          <div ref={rightRef} className="lg:w-1/3">
             <Image
               src={donate}
               alt="Donation Box"
-              className="rounded-2xl shadow-lg"
+              className="  w-full h-auto"
             />
           </div>
         </div>

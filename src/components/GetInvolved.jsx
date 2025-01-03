@@ -26,19 +26,19 @@ export default function GetInvolved({ images }) {
   return (
     <div className="flex flex-col lg:flex-row justify-center items-center gap-8 p-8">
       {/* Left Column - Images */}
-      <div className="flex flex-wrap items-center justify-center w-2/4 gap-4">
+      <div className="flex flex-wrap items-center justify-center xl:w-2/4 w-full gap-4">
         {images
-          ?.filter((imgSrc) => typeof imgSrc === "string") // Filter out non-string items
+          ?.filter((imgSrc) => typeof imgSrc === "string") 
           .map((imgSrc, index) => (
             <div
-              key={index} // Safely use index as a key
+              key={index} 
               onMouseEnter={(e) =>
                 handleMouseEnter(e.currentTarget.querySelector("img"))
               }
               onMouseLeave={(e) =>
                 handleMouseLeave(e.currentTarget.querySelector("img"))
               }
-              className="relative w-64 h-48 lg:w-72 lg:h-56"
+              className="relative w-64 xl:h-48 lg:w-72 lg:h-56"
             >
               <Image
                 src={imgSrc}

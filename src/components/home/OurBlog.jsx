@@ -44,11 +44,11 @@ const OurBlogs = () => {
     });
   };
   return (
-    <section ref={slideInRef} className="xl:px-0 px-10 my-10 container m-auto">
+    <section ref={slideInRef} className="xl:px-10 px-10 my-10 container m-auto">
       <div>
         <div className="text-left my-10">
-          <h1 className="text-[32px] mb-4 font-[600] capitalize">Our Blog</h1>
-          <p className="capitalize">Our recent blogs</p>
+          <h1 className="text-[32px] mb-4 font-[600] capitalize ">Our Blog</h1>
+          <p className="capitalize text-red-500">Our recent blogs</p>
         </div>
         <div className="flex flex-col md:flex-row gap-8">
           {blogData?.map((blog, index) => (

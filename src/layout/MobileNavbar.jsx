@@ -59,7 +59,7 @@ const MobileNavbar = () => {
       {isMobile && (
         <div className="md:hidden">
           {/* Hamburger Button */}
-          <button onClick={toggleMenu} className="text-white text-2xl p-2">
+          <button onClick={toggleMenu} className="text-green-500 text-2xl p-2">
             {isOpen ? <HiXMark size={30} /> : <BiMenuAltLeft size={30} />}
           </button>
 

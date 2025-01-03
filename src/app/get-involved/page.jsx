@@ -134,7 +134,7 @@ export default function GetInvolved() {
                   people.
                 </p>
                 <Button asChild>
-                  <Link href="#social-share">Share Our Mission</Link>
+                  <Link href="#social-share" >Share Our Mission</Link>
                 </Button>
               </CardContent>
             </Card>
@@ -277,7 +277,7 @@ export default function GetInvolved() {
                 href="https://twitter.com/intent/tweet?text=Join%20me%20in%20supporting%20One%20Map%20Africa%20to%20create%20a%20unified%20map%20of%20the%20continent!%20%23OneMapAfrica"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="dark:text-[#FFD700] "
+                className="dark:text-[#FFD700]  text-red-500"
               >
                 Share on Twitter
               </Link>
@@ -287,7 +287,7 @@ export default function GetInvolved() {
                 href="https://www.facebook.com/sharer/sharer.php?u=https://www.onemapafrica.org"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="dark:text-[#FFD700] "
+                className="dark:text-[#FFD700] text-red-500 "
               >
                 Share on Facebook
               </Link>
@@ -297,7 +297,7 @@ export default function GetInvolved() {
                 href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.onemapafrica.org"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="dark:text-[#FFD700] "
+                className="dark:text-[#FFD700] text-red-500"
               >
                 Share on LinkedIn
               </Link>

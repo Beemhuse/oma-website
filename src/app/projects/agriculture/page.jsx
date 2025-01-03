@@ -10,8 +10,8 @@ const imageArray = [
 export default function Page() {
   return (
     <section className="bg-[#FFFFFFB2] dark:bg-[#0a0a0a] font-inter">
-      <div className="xl:p-[60px] p-4 flex justify-between items-start gap-4">
-        <div className="w-[30%] ">
+      <div className="xl:p-[60px] p-4 flex xl:flex-row flex-col-reverse justify-between items-start gap-4">
+        <div className="xl:w-[30%] w-full ">
           <div>
             <h3 className="font-[inter] 2xl:text-[95px] lg:text-[60px] font-bold">
               Agriculture
@@ -25,7 +25,7 @@ export default function Page() {
             <h5 className="font-[inter] text-[32px] font-bold">
               Impact Stories
             </h5>
-            <ul className="list-disc">
+            <ul className="list-disc p-4">
               <li className="mb-7">
                 Sustainable Farming in South Sudan: Farmers adopted sustainable
                 practices, resulting in a 30% increase in crop yields.
@@ -37,7 +37,7 @@ export default function Page() {
             </ul>
           </div>
         </div>
-        <div className="w-2/4">
+        <div className="xl:w-2/4 w-full">
           <Image
             src={"/agric.png"}
             width={500}

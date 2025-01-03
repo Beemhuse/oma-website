@@ -35,7 +35,7 @@ export default function AboutPage() {
   };
 
   return (
-    <section className="py-10 xl:w-[70%] mt-20 w-full px-4 mx-auto">
+    <section className="py-10   w-full px-4 mx-auto">
       <div
         ref={leftRef}
         className="flex xl:flex-row flex-col-reverse gap-6 justify-between"
@@ -53,7 +53,7 @@ export default function AboutPage() {
             hoverColor="bg-[#DB101C]"
             rounded={false}
             label={"Join Now"}
-            href={"/get-involved"}
+            href={"/subscription"}
             isButton={false}
           />
         </div>
@@ -77,7 +77,7 @@ export default function AboutPage() {
         <Programs />
       </div>
 
-      <div className="">
+      
         <div className="bg-white dark:bg-inherit text-black py-16  ">
           <div className=" flex flex-col justify-between lg:flex-row items-center">
             {/* Text Content */}
@@ -126,7 +126,6 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
-      </div>
       <WhatWeDo />
 
       <div className=" text-black flex justify-center py-20 md:py-10 flex-col px-8 md:px-20 h-screen md:h-[70vh]">

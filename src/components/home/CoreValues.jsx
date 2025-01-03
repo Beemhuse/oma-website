@@ -17,7 +17,7 @@ const CoreValues = () => {
         backgroundSize: "cover",
         backgroundAttachment: "fixed",
         backgroundBlendMode: "overlay",
-        backgroundColor: "rgba(0, 0, 0, 0.8)", // Adds a black overlay
+        backgroundColor: "rgba(0, 0, 0, 0.3)", // Adds a black overlay
       }}
     >
       <h1 className="text-4xl font-bold mb-4 pl-24">Core Value</h1>
