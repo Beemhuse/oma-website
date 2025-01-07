@@ -35,7 +35,7 @@ export default async function Page() {
         <div className="container m-auto">
 
         <div className="flex flex-wrap justify-start items-start gap-8  ">
-          {teamMembers?.map((member, index) => (
+          {!teamMembers?.map((member, index) => (
             <TeamCard
               key={index}
               name={member.name}
@@ -53,7 +53,7 @@ export default async function Page() {
             <Link className="xl:hidden md:hidden inline bg-red-600 text-white rounded-xl p-2 text-xs" href='/get-involved'>Join us now</Link>
             <div className="hidden md:inline xl:inline">
 
-            <Button isButton={false} href={"/get-involved"} hoverColor="bg-red-600" bgColor="bg-red-500" label={"Join us now"} />
+            <Button isButton={false} href={"/subscription"} hoverColor="bg-red-600" bgColor="bg-red-500" label={"Join us now"} />
             </div>
           </div>
         </div>

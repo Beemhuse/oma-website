@@ -15,10 +15,7 @@ const schema = yup.object().shape({
     .string()
     .email("Invalid email format")
     .required("Email is required"),
-  phone: yup
-    .string()
-    .matches(/^(\+234|0)[0-9]{10}$/, "Invalid phone number format")
-    .notRequired(),
+
   subject: yup.string().required("Subject is required"),
   message: yup.string().required("Message is required"),
 });
@@ -166,7 +163,7 @@ export default function Page() {
               <input
                 type="tel"
                 id="phone"
-                placeholder="NG +234"
+                placeholder="Your phone number"
                 {...register("phone")}
                 className={`mt-2 block w-full p-3 border ${
                   errors.phone ? "border-red-500" : "border-gray-300"
