@@ -29,7 +29,7 @@ const {push } = useRouter()
             backgroundPosition: 'center',
             backgroundAttachment: 'fixed',
             backgroundBlendMode: 'overlay',
-            backgroundColor: 'rgba(0, 0, 0, 0.3)',
+            backgroundColor: 'rgba(0, 0, 0, 0.6)',
           }}
         >
           <div
@@ -67,7 +67,7 @@ const {push } = useRouter()
             backgroundPosition: 'center',
             backgroundAttachment: 'fixed',
             backgroundBlendMode: 'overlay',
-            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+            backgroundColor: 'rgba(0, 0, 0, 0.6)',
           }}
         >
           {/* Repeat content or modify as needed */}

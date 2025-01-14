@@ -16,8 +16,18 @@ const MobileNavbar = () => {
 
   const menuItems = [
     { label: "Home", href: "/" },
-    { label: "About Us", href: "/about" },
     {
+      label: "About Us",
+      submenu: [
+        { label: "About One Map Africa", href: "/about" },
+        { label: "Our Mission", href: "/about/#mission" },
+        { label: "Our Vision", href: "/about/#vision" },
+        { label: "Get Involved", href: "/get-involved" },
+        { label: "FAQ", href: "/faq" },
+        { label: "Gallery", href: "/gallery" },
+        { label: "Privacy Policy", href: "/privacy-policy" },
+      ],
+    },    {
       label: "Projects",
       submenu: [
         // { label: "E-Commerce", href: "/projects/e-commerce" },

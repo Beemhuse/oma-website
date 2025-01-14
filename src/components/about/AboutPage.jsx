@@ -81,7 +81,7 @@ export default function AboutPage() {
         <div className="bg-white dark:bg-inherit text-black py-16  ">
           <div className=" flex flex-col justify-between lg:flex-row items-center">
             {/* Text Content */}
-            <div className=" lg:w-1/3 mb-8 lg:mb-0">
+            <div id="mission" className=" lg:w-1/3 mb-8 lg:mb-0">
               <div className="text-black text-sm uppercase gap-10 font-semibold flex  mb-5 justify-left items-center transform ">
                 <div className=""> About us</div>{" "}
                 <p className="bg-black dark:bg-white w-[50px]  h-[2px]"></p>
