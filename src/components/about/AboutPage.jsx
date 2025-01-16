@@ -38,7 +38,7 @@ export default function AboutPage() {
     <section className="py-10   w-full px-4 mx-auto">
       <div
         ref={leftRef}
-        className="flex xl:flex-row flex-col-reverse gap-6 justify-between"
+        className="flex xl:flex-row  flex-col-reverse gap-6 justify-between"
       >
         <div className="xl:w-[545px] w-full flex flex-col items-start gap-5">
           <h1 className="xl:text-[64px] text-4xl leading-snug">
