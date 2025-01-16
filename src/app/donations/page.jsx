@@ -30,8 +30,8 @@ export default function Page() {
         return (
           <div className="dark:text-black">
             <h3 className="text-xl font-semibold mb-4 dark:text-black">Cheque Payment</h3>
-            <p>Please send your cheque to the following address:</p>
-            <p className="mt-2">123 NGO Street, City, Country</p>
+            {/* <p>Please send your cheque to the following address:</p>
+            <p className="mt-2">123 NGO Street, City, Country</p> */}
           </div>
         );
       default:

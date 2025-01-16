@@ -21,7 +21,8 @@ const menuItems = [
       { label: "Gallery", href: "/gallery" },
       { label: "Privacy Policy", href: "/privacy-policy" },
     ],
-  },  {
+  },
+  {
     label: "Projects",
     submenu: [
       // {
@@ -33,18 +34,28 @@ const menuItems = [
       //   ),
       //   href: "/projects/e-commerce",
       // },
-      { label: <p className="flex items-center gap-5">
-        Agriculture
-        <Image src={arrowRight} alt="arrow right" />
-      </p>, href: "/projects/agriculture" },
+      {
+        label: (
+          <p className="flex items-center gap-5">
+            Agriculture
+            <Image src={arrowRight} alt="arrow right" />
+          </p>
+        ),
+        href: "/projects/agriculture",
+      },
       // { label: "Fashion & Event", href: "/projects/fashion-event" },
       // { label: "Education & Mentorship", href: "/projects/education" },
       // { label: "House", href: "/projects/house" },
       // { label: "Women Empowerment", href: "/projects/women-empowerment" },
-      { label: <p className="flex items-center gap-5">
-        Energy
-        <Image src={arrowRight} alt="arrow right" />
-      </p>, href: "/projects/energy" },
+      {
+        label: (
+          <p className="flex items-center gap-5">
+            Energy
+            <Image src={arrowRight} alt="arrow right" />
+          </p>
+        ),
+        href: "/projects/energy",
+      },
     ],
   },
   { label: "Get Involved", href: "/get-involved" },
@@ -53,7 +64,7 @@ const menuItems = [
     label: "Our Team",
     href: "/team",
   },
- 
+
   { label: "Contact", href: "/contact" },
 ];
 
@@ -62,13 +73,13 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
 
-  const pathname = usePathname(); // Get current route
+  const pathname = usePathname();
 
   const [openSubmenu, setOpenSubmenu] = useState(null);
 
   // Toggle submenu visibility on click
   const toggleSubmenu = (label) => {
-    setOpenSubmenu((prev) => (prev === label ? null : label)); // Toggle the submenu
+    setOpenSubmenu((prev) => (prev === label ? null : label));
   };
   useEffect(() => {
     let lastScrollY = window.scrollY;
@@ -90,9 +101,11 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   return (
-    <nav className={`bg-white   w-full text-white px-6 py-4 fixed top-0 z-50  transition-transform duration-300 ${
+    <nav
+      className={`bg-white   w-full text-white px-6 py-4 fixed top-0 z-50  transition-transform duration-300 ${
         isVisible ? "translate-y-0" : "-translate-y-full"
-      } ${isScrolled ? "bg-white shadow-lg" : "bg-transparent"}`}>
+      } ${isScrolled ? "bg-white shadow-lg" : "bg-transparent"}`}
+    >
       <div className="flex relative items-center justify-between">
         {/* Logo */}
         <div
@@ -115,16 +128,62 @@ const Navbar = () => {
               <div
                 className="group "
                 key={item.label}
-
                 onClick={() => toggleSubmenu(item.label)} // Toggle on click
               >
-                <button className={`hover:text-[#FFD700] ${
+                <button
+                  className={`hover:text-[#FFD700] flex items-center gap-4 ${
                     openSubmenu === item.label || pathname.startsWith(item.href)
                       ? "text-[#FFD700] "
                       : "text-green-500"
-                  }`}>{item.label}</button>
+                  }`}
+                >
+                  {item.label}
+                  {item.submenu && <FaAngleDown />}
+                </button>
                 {/* Submenu */}
                 {item.label === "Projects" ? (
+                  <div
+                    className={`absolute ${
+                      openSubmenu === item.label ? "block" : "hidden"
+                    } bg-white text-gray-700 text-xs shadow-lg w-full  top-full z-10 transition-all duration-300 absolute left-0 flex`}
+                  >
+                    <div className="md:w-1/3 pr-20 bg-[#EBEBEB] p-10">
+                      <p className="text-black/80 ">
+                        At One Map Africa, our projects are driven by the
+                        overarching goal of fostering unity and sustainable
+                        development across the continent. We aim to empower
+                        individuals and communities through strategic
+                        initiatives in various sectors, including E-commerce,
+                        Education, Agriculture, Energy, Housing, Tourism,
+                        Fashion and Events, and Women Empowerment.
+                      </p>
+                    </div>
+                    <div className="md:w-2/3 grid grid-cols-3 w-full gap-6 p-10 text-sm font-semibold ">
+                    {item.submenu.map((subItem, index) => (
+                        <Link
+                          href={subItem.href}
+                          key={index}
+                          className={`flex items-center gap-2 text-sm ${
+                            pathname === subItem.href
+                              ? "text-[#FFD700] font-bold"
+                              : "text-black"
+                          } group`}
+                        >
+                          {subItem.label}
+                          <div className="relative">
+                            <Image
+                              src={arrowRight}
+                              alt="arrow right"
+                              className={`absolute right-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${
+                                pathname === subItem.href ? "hidden" : ""
+                              }`}
+                            />
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                ) : item.label === "About Us" ? (
                   <div
                     className={`absolute ${
                       openSubmenu === item.label ? "block" : "hidden"
@@ -146,62 +205,44 @@ const Navbar = () => {
                         <Link
                           href={subItem.href}
                           key={index}
-                          className={`block text-sm hover:text-[#FFD700] ${
-                            pathname === subItem.href ? "text-[#FFD700] font-bold" : "text-black"
-                          }`}                        >
+                          className={`flex items-center gap-2 text-sm ${
+                            pathname === subItem.href
+                              ? "text-[#FFD700] font-bold"
+                              : "text-black"
+                          } group`}
+                        >
                           {subItem.label}
+                          <div className="relative">
+                            <Image
+                              src={arrowRight}
+                              alt="arrow right"
+                              className={`absolute right-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${
+                                pathname === subItem.href ? "hidden" : ""
+                              }`}
+                            />
+                          </div>
                         </Link>
                       ))}
                     </div>
                   </div>
-                ) : item.label === "About Us" ? (
-                  <div
-                  className={`absolute ${
-                    openSubmenu === item.label ? "block" : "hidden"
-                  } bg-white text-gray-700 text-xs shadow-lg w-full  top-full z-10 transition-all duration-300 absolute left-0 flex`}
-                >
-                  <div className="md:w-1/3 pr-20 bg-[#EBEBEB] p-10">
-                    <p className="text-black/80 ">
-                      At One Map Africa, our projects are driven by the
-                      overarching goal of fostering unity and sustainable
-                      development across the continent. We aim to empower
-                      individuals and communities through strategic
-                      initiatives in various sectors, including E-commerce,
-                      Education, Agriculture, Energy, Housing, Tourism,
-                      Fashion and Events, and Women Empowerment.
-                    </p>
-                  </div>
-                  <div className="md:w-2/3 grid grid-cols-3 w-full gap-6 p-10 text-sm font-semibold ">
-                    {item.submenu.map((subItem, index) => (
-                      <Link
-                        href={subItem.href}
-                        key={index}
-                        className={`flex items-center gap-2 text-sm hover:text-[#FFD700] ${
-                          pathname === subItem.href ? "text-[#FFD700] font-bold" : "text-black"
-                        }`}                        >
-                        {subItem.label}
-        <Image src={arrowRight} alt="arrow right" />
-
-                      </Link>
-                    ))}
-                  </div>
-                </div>
                 ) : (
                   <div
                     className={`absolute ${
                       openSubmenu === item.label ? "block" : "hidden"
                     } bg-white text-gray-700 shadow-lg z-10 transition-all duration-300 absolute top-full flex flex-col gap-3 p-5 text-sm font-semibold `}
                   >
-                    {item.submenu.map((subItem,index) => (
+                    {item.submenu.map((subItem, index) => (
                       <Link
                         href={subItem.href}
                         key={index}
                         className={`block text-sm hover:text-black/50 ${
-                          pathname === subItem.href ? "text-gold-500 font-bold" : ""
-                        }`}                      >
+                          pathname === subItem.href
+                            ? "text-gold-500 font-bold"
+                            : ""
+                        }`}
+                      >
                         {subItem.label}
                         <FaAngleDown />
-
                       </Link>
                     ))}
                   </div>
@@ -214,7 +255,8 @@ const Navbar = () => {
                 onMouseEnter={() => setOpenSubmenu(null)} // Close submenu on mouse leave
                 className={`hover:text-[#FFD700]  ${
                   pathname === item.href ? "text-[#FFD700] " : "text-green-500"
-                }`}              >
+                }`}
+              >
                 {item.label}
               </Link>
             )

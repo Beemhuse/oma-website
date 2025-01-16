@@ -163,7 +163,7 @@ export default function GetInvolved() {
               <div>
                 <label
                   htmlFor="first-name"
-                  className="block text-sm font-medium text-gray-700"
+                  className="block text-sm font-medium text-gray-700 dark:text-white"
                 >
                   First Name
                 </label>
@@ -182,7 +182,7 @@ export default function GetInvolved() {
               <div>
                 <label
                   htmlFor="last-name"
-                  className="block text-sm font-medium text-gray-700"
+                  className="block text-sm font-medium text-gray-700 dark:text-white"
                 >
                   Last Name
                 </label>
@@ -202,7 +202,7 @@ export default function GetInvolved() {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium text-gray-700"
+                className="block text-sm font-medium text-gray-700 dark:text-white"
               >
                 Email
               </label>
@@ -219,7 +219,7 @@ export default function GetInvolved() {
             <div>
               <label
                 htmlFor="skills"
-                className="block text-sm font-medium text-gray-700"
+                className="block text-sm font-medium text-gray-700 dark:text-white"
               >
                 Skills
               </label>
@@ -237,7 +237,7 @@ export default function GetInvolved() {
             <div>
               <label
                 htmlFor="message"
-                className="block text-sm font-medium text-gray-700"
+                className="block text-sm font-medium text-gray-700 dark:text-white"
               >
                 Message
               </label>

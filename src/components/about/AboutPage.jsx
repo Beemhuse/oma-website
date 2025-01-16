@@ -128,8 +128,8 @@ export default function AboutPage() {
         </div>
       <WhatWeDo />
 
-      <div className=" text-black flex justify-center py-20 md:py-10 flex-col px-8 md:px-20 h-screen md:h-[70vh]">
-        <h1 className="xl:text-4xl text-3xl font-bold mb-4 ">Core Value</h1>
+      <div className=" text-black  flex justify-center py-20 md:py-10 flex-col px-8 md:px-20 h-screen md:h-[70vh]">
+        <h1 className="xl:text-4xl text-3xl font-bold mb-4 dark:text-white">Core Value</h1>
         <div className="max-w-6xl mx-auto flex h-full gap-5">
           {/* sliding animated circle */}
           <div className="h-[60%]  w-[50px] flex justify-center relative ">

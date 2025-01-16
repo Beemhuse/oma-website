@@ -52,7 +52,7 @@ export default function RootLayout({ children }) {
       <body className="antialiased max-w-[1440px] m-auto overflow-x-hidden font-poppins">
         <MainLayout>
         <Header />
-        <div className="relative">
+        <div className="relative mt-20">
 
           {children}
         <BackToTopButton />

@@ -14,8 +14,8 @@ export default function ProgramCard({
       onMouseLeave={(e) => mouseLeave(e.currentTarget.querySelector("img"))}
       className=" max-w-[450px] m-auto"
     >
-  <div className="relative w-full h-[300px] overflow-hidden">
-  <Image
+      <div className="relative w-full h-[300px] overflow-hidden">
+        <Image
           src={src}
           layout="fill"
           objectFit="cover"
@@ -26,7 +26,7 @@ export default function ProgramCard({
       <h3 className="text-[20px] capitalize font-inter  font-[500] my-3">
         {title}
       </h3>
-      <p className="text-[18px] text-[#525560]">{description} </p>
+      <p className="text-[18px] text-[#525560] dark:text-white">{description} </p>
     </div>
   );
 }
