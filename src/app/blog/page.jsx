@@ -2,9 +2,13 @@ import BlogCard from "@/components/component/card/BlogCard";
 import React from "react";
 import { fetchBlogs, fetchEvents } from "@/services/apiService";
 import EventCard from "@/components/component/card/EventCard";
-import { LoaderIcon } from "react-hot-toast";
+// import { LoaderIcon } from "react-hot-toast";
 import CircularLoader from "@/components/component/loaders/CircularLoader";
 
+export const metadata = {
+  title: "Blog | One Map Africa",
+  description: "Stay updated with articles on recent events, project updates, and industry news."
+}
 export default async function Page() {
   let data = await fetchBlogs();
   const event = await fetchEvents();

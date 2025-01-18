@@ -7,6 +7,10 @@ import { FaRegCalendarAlt } from "react-icons/fa";
 import { formatDate } from "@/utils/formatDate";
 import { EventLocation } from "@/components/component/card/EventCard";
 
+export const metadata = {
+  title: "Events | One Map Africa",
+  description: " We aim to empower communities, drive sustainable growth, contribute to the long-term prosperity of the continent."
+}
 export default async function Page({ params }) {
   const { slug } = params;
 

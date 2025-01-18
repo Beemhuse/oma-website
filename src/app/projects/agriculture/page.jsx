@@ -2,6 +2,10 @@ import GetInvolved from "@/components/GetInvolved";
 import Image from "next/image";
 import React from "react";
 
+export const metadata = {
+  title: "Projects | One Map Africa",
+  description: "Agriculture: To enhance agricultural productivity and sustainability, ensuring food security and economic growth."
+}
 const imageArray = [
   '/agric-1.png',
   '/agric-2.png',

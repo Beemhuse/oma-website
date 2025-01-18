@@ -122,7 +122,7 @@ const Navbar = () => {
         </div>
 
         {/* Menu Links */}
-        <div className="hidden md:flex space-x-6 ">
+        <div className="hidden lg:flex  md:hidden space-x-6 ">
           {menuItems.map((item, index) =>
             item.submenu ? (
               <div
@@ -261,15 +261,16 @@ const Navbar = () => {
               </Link>
             )
           )}
+          <Link className="text-green-500 hover:text-[#FFD700]" target="_blank" href="https://www.events.onemapafrica.org">Events</Link>
         </div>
 
         {/* Donate Button */}
-        <span className="hidden md:flex">
+        <span className="hidden lg:flex">
           <Button
             onClick={() => push("/donations")}
             label={"Donate"}
             bgColor="bg-red-500"
-            className="hidden md:block"
+            className="hidden md:hidden lg:block"
           />
         </span>
         <MobileNavbar />

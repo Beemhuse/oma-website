@@ -2,6 +2,10 @@ import GetInvolved from "@/components/GetInvolved";
 import Image from "next/image";
 import React from "react";
 const imageArray = ["/energy-1.png", "/energy-2.png", "/energy-3.png"];
+export const metadata = {
+  title: "Projects | One Map Africa",
+  description: "Energy: To promote sustainable energy solutions that improve access to electricity and reduce environmental impact."
+}
 export default function Page() {
   return (
     <section className="bg-[#FFFFFFB2] dark:bg-inherit font-[inter]">

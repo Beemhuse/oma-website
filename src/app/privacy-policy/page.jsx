@@ -1,6 +1,9 @@
 import PrivacyPolicy from "@/components/pages/PrivacyPolicy";
 import React from "react";
-
+export const metadata = {
+  title: "Privacy policy | One Map Africa",
+  description: "At One Map Africa, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy outlines how we collect, use, and safeguard the information you provide when you use our website or engage with our organization."
+}
 export default function Page() {
   return (
     <div>
