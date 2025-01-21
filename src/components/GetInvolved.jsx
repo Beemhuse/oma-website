@@ -26,7 +26,7 @@ export default function GetInvolved({ images }) {
   return (
     <div className="flex flex-col lg:flex-row justify-center items-center gap-8 p-8">
       {/* Left Column - Images */}
-      <div className="flex flex-wrap items-center justify-center xl:w-2/4 w-full gap-4">
+      <div className="flex flex-wrap items-center gap-y-7 justify-center xl:w-2/4 w-full gap-4">
         {images
           ?.filter((imgSrc) => typeof imgSrc === "string") 
           .map((imgSrc, index) => (

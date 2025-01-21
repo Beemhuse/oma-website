@@ -38,20 +38,20 @@ const menuItems = [
         label: (
           <p className="flex items-center gap-5">
             Agriculture
-            <Image src={arrowRight} alt="arrow right" />
+            {/* <Image src={arrowRight} alt="arrow right" /> */}
           </p>
         ),
         href: "/projects/agriculture",
       },
-      // { label: "Fashion & Event", href: "/projects/fashion-event" },
-      // { label: "Education & Mentorship", href: "/projects/education" },
-      // { label: "House", href: "/projects/house" },
-      // { label: "Women Empowerment", href: "/projects/women-empowerment" },
+      { label: "Fashion & Event", href: "/projects/fashion-event" },
+      { label: "Education & Mentorship", href: "/projects/education" },
+      { label: "E-commerce", href: "/projects/ecommerce" },
+      { label: "Women Empowerment", href: "/projects/women-empowerment" },
       {
         label: (
           <p className="flex items-center gap-5">
             Energy
-            <Image src={arrowRight} alt="arrow right" />
+            {/* <Image src={arrowRight} alt="arrow right" /> */}
           </p>
         ),
         href: "/projects/energy",

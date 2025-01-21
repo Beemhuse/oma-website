@@ -73,6 +73,16 @@ export default function GetInvolved() {
         <h1 className="text-center  xl:text-4xl text-xl">
           Get Involved with One Map Africa
         </h1>
+        {/* <p>
+          At One Map Africa, we believe that collective efforts lead to greater
+          impact. We offer numerous opportunities for individuals,
+          organizations, and businesses to get involved and support our mission
+          of fostering unity and sustainable development across Africa. Whether
+          you&apos;re interested in joining our network of proactive changemakers,
+          volunteering your time, providing financial support, or partnering
+          with us on specific projects, your involvement can make a significant
+          difference.
+        </p> */}
       </section>
       <div className="absolute bottom-0 right-0 lg:block hidden">
         <Image
@@ -134,7 +144,7 @@ export default function GetInvolved() {
                   people.
                 </p>
                 <Button asChild>
-                  <Link href="#social-share" >Share Our Mission</Link>
+                  <Link href="#social-share">Share Our Mission</Link>
                 </Button>
               </CardContent>
             </Card>

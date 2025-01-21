@@ -11,37 +11,22 @@ export default function Page() {
   return (
     <section className="bg-[#FFFFFFB2] dark:bg-inherit font-[inter]">
       <div className="p-3 md:p-[60px] flex  md:flex-row flex-col-reverse justify-between items-start gap-4">
-        <div className="w-full md:w-[30%] ">
+        <div className="w-full md:w-[35%] ">
           <div>
-            <h3 className="font-[inter] 2xl:text-[70px] lg:text-[50px] font-bold">
-              Energy
+          <h3 className="font-[inter] 2xl:text-[60px] lg:text-[50px] leading-tight font-bold">
+          Education & Mentorship
             </h3>
             <p className="text-[15.5px]">
-              To promote sustainable energy solutions that improve access to
-              electricity and reduce environmental impact.
+              We offer education and mentorship programs to people with
+              disabilities, to promote social inclusion, equity and sustainable
+              growth.
             </p>
           </div>
-          <div className="mt-10">
-            <h5 className="font-[inter] text-[32px] font-bold">
-              Impact Stories
-            </h5>
-            <ul className="list-disc p-2">
-              <li className="mb-7">
-                Solar Power in Rural Nigeria: Installed solar panels in
-                villages, providing reliable electricity to over 1,000
-                households.
-              </li>
-              <li>
-                Community Gardens in Ghana: Established community gardens that
-                not only provide food but also create communal spaces and
-                educational opportunities.
-              </li>
-            </ul>
-          </div>
+         
         </div>
         <div className="w-full md:w-2/4">
           <Image
-            src={"/energy.png"}
+            src={"/edu.jpg"}
             width={500}
             height={500}
             alt=""

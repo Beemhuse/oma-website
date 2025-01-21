@@ -54,12 +54,28 @@ body {
     grid-column: 6 / span 4;
     grid-row: 2;
   }
+  .core6 {
+    grid-column: 1 / span 4;
+    grid-row: 3;
+  }
+  .core7 {
+    grid-column: 5 / span 4;
+    grid-row: 3;
+  }
+  .core8 {
+    grid-column: 9 / span 4;
+    grid-row: 3;
+  }
+  .core9 {
+    grid-column: 10 / span 4;
+    grid-row: 2;
+  }
 
   .core1,
   .core2,
   .core3,
   .core4,
-  .core5 {
+  .core5, .core6, .core7, .core8 {
     position: relative;
     padding: 20px; 
     transition: box-shadow 0.3s ease, border 0.3s ease;
@@ -70,7 +86,7 @@ body {
   .core2:hover,
   .core3:hover,
   .core4:hover,
-  .core5:hover {
+  .core5:hover, .core6:hover, .core7:hover, .core8:hover, .core9:hover{
     box-shadow: 0 0 0 2px rgba(0, 117, 10, 0.1); 
     z-index: 10; 
     transition: box-shadow 0.3s ease;

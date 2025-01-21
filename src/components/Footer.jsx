@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React from "react";
-import { FaFacebookF, FaLinkedinIn, FaTwitter } from "react-icons/fa";
+import { FaFacebookF, FaLinkedinIn, FaTwitter, FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
   const { push } = useRouter();
@@ -123,12 +123,19 @@ const Footer = () => {
                   Twitter
                 </Link>{" "}
               </li>
+              <li>
+                {" "}
+                <Link href={"https://www.youtube.com/@onemapofficial"} target="_blank">
+                  {" "}
+                  Youtube
+                </Link>{" "}
+              </li>
             </ul>
           </div>
         </div>
 
         {/* Bottom Section */}
-        <div className="flex flex-col lg:flex-row justify-between items-center border-t border-white pt-6">
+        <div className="flex flex-col px-8 lg:flex-row justify-between items-center border-t border-white pt-6">
           <div className="flex items-center space-x-3">
             <Image
               width={200}
@@ -156,6 +163,9 @@ const Footer = () => {
             </Link>
             <Link href={"https://x.com/_onemapofficial"} target="_blank">
               <FaTwitter className="hover:text-gray-300 cursor-pointer" />
+            </Link>
+            <Link href={"https://www.youtube.com/@onemapofficial"} target="_blank">
+              <FaYoutube className="hover:text-gray-300 cursor-pointer" />
             </Link>
           </div>
         </div>
