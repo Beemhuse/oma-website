@@ -1,15 +1,24 @@
 import sendMail from "@/lib/sendMail";
 import { client } from "@/sanity/client";
+import { NextResponse } from "next/server";
 
 export const POST = async (req) => {
   try {
-    const { firstName, lastName, email, skills, message } = await req.json();
-
+    const { email, firstName, lastName, skills, message } = await req.json();
+    const formattedEmail = email.toLowerCase();
+console.log(email, firstName, lastName, skills, message)
+     if (!firstName || !lastName || !formattedEmail || !skills || !message) {
+          return NextResponse.json(
+            { error: "All fields are required." },
+            { status: 400 }
+          );
+        }
+    
     const result = await client.create({
       _type: "volunteer",
       firstName,
       lastName,
-      email,
+      formattedEmail,
       skills,
       message,
     });

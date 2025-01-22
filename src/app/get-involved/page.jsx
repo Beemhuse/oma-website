@@ -38,6 +38,7 @@ export default function GetInvolved() {
 
   const {
     register,
+    reset,
     handleSubmit,
     formState: { errors },
   } = useForm({
@@ -47,10 +48,11 @@ export default function GetInvolved() {
   const onSubmit = async (data) => {
     setLoading(true);
     try {
-      await postRequest("/api/volunteer", { data });
+      await postRequest("/api/volunteer", data);
       toast.success(
         "Form submitted successfully. Thank you for volunteering with us."
       );
+      reset()
       setLoading(false);
     } catch (error) {
       setLoading(false);

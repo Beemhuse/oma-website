@@ -45,7 +45,7 @@ export function PricingTable() {
     setPlanId(id);
     setPrice(price);
   };
-  const {data: tiers, isLoading: loadingPlans} = useSWR(plansQuery)
+  const { data: tiers, isLoading: loadingPlans } = useSWR(plansQuery);
 
   const onSubmit = async (formData) => {
     setSubmissionError(null);
@@ -57,8 +57,7 @@ export function PricingTable() {
         plan: planId,
         amount: price,
       });
-      const paymentLink =
-      response?.paymentResponse?.authorization_url;
+      const paymentLink = response?.paymentResponse?.authorization_url;
       toast.success("Subscription successful! 🎉");
       reset();
       setLoading(false);
@@ -106,7 +105,9 @@ export function PricingTable() {
               <Card
                 key={tier._id}
                 className={
-                  tier.highlighted ? "bg-green-950 text-white" : "bg-white dark:bg-black"
+                  tier.highlighted
+                    ? "bg-green-950 text-white"
+                    : "bg-white dark:bg-black"
                 }
               >
                 <div className="p-6">
@@ -145,8 +146,10 @@ export function PricingTable() {
       {/* Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white rounded-lg shadow-lg w-full max-w-lg p-6">
-            <h2 className="text-xl font-semibold mb-4">Subscribe to a Plan</h2>
+          <div className="bg-white   rounded-lg shadow-lg w-full max-w-lg p-6">
+            <h2 className="text-xl font-semibold mb-4 dark:text-black">
+              Subscribe to a Plan
+            </h2>
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="mb-4">
                 <label
