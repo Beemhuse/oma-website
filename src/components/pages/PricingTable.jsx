@@ -58,7 +58,9 @@ export function PricingTable() {
         amount: price,
       });
       const paymentLink = response?.paymentResponse?.authorization_url;
-      toast.success("Subscription successful! 🎉");
+      toast.success("Complete checkout! 🎉", {
+        duration: 8000,
+      });
       reset();
       setLoading(false);
       setIsModalOpen(false);
