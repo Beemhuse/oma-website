@@ -27,7 +27,7 @@ export default async function Page({ params }) {
     { slug }
   );
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen ">
       <div className="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <Link
           href="/blog"
@@ -67,7 +67,7 @@ export default async function Page({ params }) {
               alt="event image"
               width={500}
               height={500}
-              className="object-cover xl:w-2/3 w-full aspect-auto"
+              className="object-cover  w-full aspect-auto"
             />
           </div>
           <article className=" m-auto">

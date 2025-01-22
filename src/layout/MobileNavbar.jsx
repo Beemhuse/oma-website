@@ -30,14 +30,12 @@ const MobileNavbar = () => {
     },    {
       label: "Projects",
       submenu: [
-        // { label: "E-Commerce", href: "/projects/e-commerce" },
         { label: "Agriculture", href: "/projects/agriculture" },
-        // { label: "Fashion & Event", href: "/projects/fashion-event" },
-        // { label: "Education & Mentorship", href: "/projects/education" },
-        // { label: "House", href: "/projects/house" },
-        // { label: "Women Empowerment", href: "/projects/women-empowerment" },
+        { label: "Fashion & Event", href: "/projects/fashion-event" },
+        { label: "Education & Mentorship", href: "/projects/education" },
+        { label: "E-commerce", href: "/projects/ecommerce" },
+        { label: "Women Empowerment", href: "/projects/women-empowerment" },
         { label: "Energy", href: "/projects/energy" },
-        // { label: "Tourism", href: "/projects/tourism" },
       ],
     },
     { label: "Get Involved", href: "/get-involved" },

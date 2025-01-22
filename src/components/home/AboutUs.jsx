@@ -1,20 +1,20 @@
 "use client";
 import useSlideInAnimation from "@/hooks/slideAnimation";
-import Image from "next/image";
+// import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
+// import { Swiper, SwiperSlide } from "swiper/react";
+// import { Autoplay } from "swiper/modules";
 import "swiper/css";
 const AboutUs = () => {
   const leftRef = useSlideInAnimation("left", 1000);
   const rightRef = useSlideInAnimation("right", 1000, 200);
   const { push } = useRouter();
-  const images = [
-    { src: "/landingPage/img1.jpg", alt: "Image 1", width: 300, height: 200 },
-    { src: "/landingPage/img2.jpg", alt: "Image 2", width: 300, height: 200 },
-    { src: "/landingPage/img3.jpg", alt: "Image 3", width: 300, height: 200 },
-  ];
+  // const images = [
+  //   { src: "/landingPage/img1.jpg", alt: "Image 1", width: 300, height: 200 },
+  //   { src: "/landingPage/img2.jpg", alt: "Image 2", width: 300, height: 200 },
+  //   { src: "/landingPage/img3.jpg", alt: "Image 3", width: 300, height: 200 },
+  // ];
 
   return (
     <div className="bg-white dark:bg-black text-black py-16 px-8 md:px-20 lg:px-32 mt-10">
@@ -71,7 +71,7 @@ const AboutUs = () => {
           </p>
         </div>
       </div>
-      <div className=" my-10">
+      {/* <div className=" my-10">
         <h2 className="text-4xl mb-7 text-[#1D2130] dark:text-white font-bold">Culture & People</h2>
         <div className="flex">
           <Swiper
@@ -108,7 +108,7 @@ const AboutUs = () => {
             ))}
           </Swiper>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
