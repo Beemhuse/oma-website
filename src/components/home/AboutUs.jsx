@@ -31,8 +31,10 @@ const AboutUs = () => {
             Know about Us
           </h1>
           <p className="text-[#525560]  dark:text-white mb-8 leading-relaxed">
-            One Map Africa is an international non-governmental organization
-            (NGO) committed to fostering the unity and prosperity of Africa. Our
+            One Map Africa is both an international non-governmental
+            organization (NGO) and a specialized consulting firm committed to
+            advancing socio-economic development and global trade, we are
+            committed to fostering the unity and prosperity of Africa. Our
             mission is to promote dialogue, collaboration, and integration among
             African nations to create a continent that stands united in pursuit
             of common goals. By empowering individuals and communities, we
@@ -57,9 +59,9 @@ const AboutUs = () => {
           </div>
           <p className="text-[#525560]  dark:text-white leading-relaxed">
             Our journey began with a vision shared by seven individuals from
-            diverse parts of Africa, including South Sudan, Ghana, Nigeria,
-            Zambia, Uganda, and South Africa. These pioneers founded the
-            organization under the name Africa&apos;s Eye Alliance, with the
+            diverse parts of Africa, including South Sudan, Zimbabwe, Ghana,
+            Nigeria, Zambia, Uganda, and South Africa. These pioneers founded
+            the organization under the name Africa&apos;s Eye Alliance, with the
             slogan &quot;Erasing the Lines that Divide Us.&quot; Formally
             incorporated in Ghana in 2022, the organization was renamed One Map
             Africa to reflect our enduring commitment to unity and integration.

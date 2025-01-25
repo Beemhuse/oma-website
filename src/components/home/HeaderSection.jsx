@@ -81,10 +81,11 @@ const HeaderSection = () => {
           >
             <div className="h-full w-full md:w-4/5 text-left flex flex-col items-center md:items-start justify-center gap-10 static p-2 md:absolute">
               <h2 className="text-4xl md:text-6xl text-center md:text-left text-white font-semibold">
-                Erasing the Lines that Divide us
-              </h2>
+              Facilitating open communication and
+              encourage cooperative efforts.               </h2>
               <p className="text-lg text-center md:text-left text-white mb-6 md:pr-16">
-                One Map Africa is a non-governmental organization (NGO)
+                One Map Africa is a non-governmental organization (NGO) and a specialized consulting firm
+                committed to advancing socio-economic development and global trade, we are also
                 dedicated to uniting Africa through fostering dialogue,
                 collaboration, and integration among nations.
               </p>
@@ -126,7 +127,7 @@ const HeaderSection = () => {
           >
             <div className="h-full w-full md:w-4/5 text-left flex flex-col items-center md:items-start justify-center gap-10 static md:absolute">
               <h2 className="text-4xl md:text-6xl text-center md:text-left text-white font-semibold">
-                Erasing the Lines that Divide us
+                A united and borderless Africa
               </h2>
               <p className="text-lg text-center md:text-left text-white mb-6 md:pr-16">
               To see a united Africa that champions socio-economic development and sustainable growth.

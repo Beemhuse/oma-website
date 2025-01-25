@@ -145,7 +145,7 @@ const Navbar = () => {
                   <div
                     className={`absolute ${
                       openSubmenu === item.label ? "block" : "hidden"
-                    } bg-white text-gray-700 text-xs shadow-lg w-full  top-full z-10 transition-all duration-300 absolute left-0 flex`}
+                    } bg-white text-gray-700 text-xs shadow-lg w-full  top-full z-50 transition-all duration-300 absolute left-0 flex`}
                   >
                     <div className="md:w-1/3 pr-20 bg-[#EBEBEB] p-10">
                       <p className="text-black/80 ">

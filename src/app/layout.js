@@ -15,7 +15,7 @@ const poppins = Poppins({
 
 export const metadata = {
   title: "One Map Africa",
-  description: "One Map Africa is a dedicated NGO leveraging innovative mapping and GIS solutions to address pressing challenges across Africa. We empower communities, support sustainable development, and drive impactful decision-making through real-time data and geographic insights. Join us in creating a brighter future for the continent.",
+  description: "One Map Africa is both a non-governmental organization and a specialized consulting firmcommitted to advancing socio-economic development and global trade",
   twitter: {
     card: "summary_large_image",
   },
@@ -49,10 +49,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
-      <body className="antialiased max-w-[1440px] m-auto overflow-x-hidden font-poppins">
+      <body className="antialiased max-w-[120em] m-auto overflow-x-hidden font-poppins">
         <MainLayout>
         <Header />
-        <div className="relative mt-20">
+        <div className="relative ">
 
           {children}
         <BackToTopButton />

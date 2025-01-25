@@ -50,7 +50,7 @@ export default function Page() {
   return (
     <>
      <section
-  className="relative py-20 px-4 sm:px-6 lg:px-8 text-white"
+  className="relative py-20 px-4  sm:px-6 lg:px-8 text-white"
   style={{
     backgroundImage: "url(/landingPage/class.jpg)",
     backgroundPosition: "center",
@@ -60,7 +60,7 @@ export default function Page() {
 >
   {/* Overlay with mix-blend-mode */}
   <div
-    className="absolute inset-0 bg-green-500 opacity-60"
+    className="absolute inset-0 bg-black opacity-60"
     style={{ mixBlendMode: "multiply" }}
   ></div>
   

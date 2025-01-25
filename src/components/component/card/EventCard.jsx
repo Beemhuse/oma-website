@@ -38,7 +38,7 @@ const EventCard = ({
   return (
     <div
     onClick={() => push(`events/${slug.current}`)}
-    className="bg-white xl:w-[400px] cursor-pointer w-full flex flex-col rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:scale-105">
+    className="bg-white  cursor-pointer w-full flex flex-col rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:scale-105">
       <div className="relative ">
         <Image src={urlFor(imageSrc)} alt={title} height={200} width={500} objectFit="cover" />
       </div>

@@ -64,28 +64,25 @@ export default function GetInvolved() {
     <div className="bg-gray-50 dark:bg-inherit">
       {/* Hero Section */}
       <section
-        className="relative py-20 px-4 sm:px-6 lg:px-8  text-white"
-        style={{
-          backgroundImage: "url(/bg-layout.png)",
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-        }}
-      >
-        <h1 className="text-center  xl:text-4xl text-xl">
-          Get Involved with One Map Africa
-        </h1>
-        {/* <p>
-          At One Map Africa, we believe that collective efforts lead to greater
-          impact. We offer numerous opportunities for individuals,
-          organizations, and businesses to get involved and support our mission
-          of fostering unity and sustainable development across Africa. Whether
-          you&apos;re interested in joining our network of proactive changemakers,
-          volunteering your time, providing financial support, or partnering
-          with us on specific projects, your involvement can make a significant
-          difference.
-        </p> */}
-      </section>
+  className="relative py-20 px-4  sm:px-6 lg:px-8 text-white"
+  style={{
+    backgroundImage: "url(/landingPage/class.jpg)",
+    backgroundPosition: "center",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+  }}
+>
+  {/* Overlay with mix-blend-mode */}
+  <div
+    className="absolute inset-0 bg-black opacity-60"
+    style={{ mixBlendMode: "multiply" }}
+  ></div>
+  
+  {/* Content */}
+  <div className="relative z-10">
+    <h1 className="text-center xl:text-4xl text-xl">Get involved with One Map Africa</h1>
+  </div>
+</section>
       <div className="absolute bottom-0 right-0 lg:block hidden">
         <Image
           src="/landingPage/africa.png"

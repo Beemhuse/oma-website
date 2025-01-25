@@ -8,7 +8,8 @@ export default function robots() {
         },
         {
           userAgent: ['Applebot', 'Bingbot'],
-          disallow: ['/'],
+          allow: ['/'],
+          disallow: ['/private/'],
         },
       ],
       sitemap: 'https://onemapafrica.org/sitemap.xml',

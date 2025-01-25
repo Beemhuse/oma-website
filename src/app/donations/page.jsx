@@ -41,19 +41,26 @@ export default function Page() {
 
   return (
     <>
-      <section
-        className="relative py-20 px-4 sm:px-6 lg:px-8  text-white"
-        style={{
-          backgroundImage: "url(/bg-layout.png)",
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-        }}
-      >
-        <h1 className="text-center font-[600] xl:text-2xl text-xl">
-          Donations
-        </h1>
-      </section>
+         <section
+  className="relative py-20 px-4  sm:px-6 lg:px-8 text-white"
+  style={{
+    backgroundImage: "url(/landingPage/class.jpg)",
+    backgroundPosition: "center",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+  }}
+>
+  {/* Overlay with mix-blend-mode */}
+  <div
+    className="absolute inset-0 bg-black opacity-60"
+    style={{ mixBlendMode: "multiply" }}
+  ></div>
+  
+  {/* Content */}
+  <div className="relative z-10">
+    <h1 className="text-center xl:text-4xl text-xl">Donations</h1>
+  </div>
+</section>
       <div className="bg-gray-100 py-16 px-6 md:px-12 lg:px-20">
         <div className="container mx-auto flex gap-5 xl:flex-row flex-col ">
           {/* Contact Information */}

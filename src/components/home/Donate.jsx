@@ -16,10 +16,10 @@ const {push} = useRouter()
                 <p className='bg-black w-[50px]  h-[2px]'></p> Donate
             </div>
             {/* <h3 className="uppercase text-sm font-semibold text-gray-400 mb-2">Donate</h3> */}
-            <h1 className="text-4xl font-bold mb-6">
+            <h2 className="text-4xl font-bold mb-6">
               Making a donation for <br />
               African.
-            </h1>
+            </h2>
             <p className="text-black/70 mb-6">
               When you donate, you&apos;re supporting effective care to children with
               special needs—an investment in the leaders of tomorrow.
