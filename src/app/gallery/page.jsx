@@ -85,9 +85,9 @@ export default function Page() {
 
         <div className="grid  gridBox  gap-1 md:gap-4">
           <div className="h-[250px] grid2 md:px-24 text-center md:text-left md:flex md:flex-col md:justify-end">
-            <h1 className="text-3xl md:text-5xl leading-[48px] tracking-[2] font-bold md:mb-2">
+            <h2 className="text-3xl md:text-5xl leading-[48px] tracking-[2] font-bold md:mb-2">
               ONE MAP <br className="hidden md:block"/> GALLERY
-            </h1>
+            </h2>
             <p className="text-lg text-gray-500">Press Coverage / Event <br className="md:hidden"/> Pictures</p>
           </div>
           <div className=" grid3">

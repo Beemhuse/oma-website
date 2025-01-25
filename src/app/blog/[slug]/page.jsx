@@ -1,15 +1,54 @@
 import DisplayFormattedArticle from "@/components/component/card/DisplayFormattedArticle";
 import { client } from "@/sanity/client";
 import { fetchBlogs } from "@/services/apiService";
+import { extractText } from "@/utils/extractText";
 import { formatDate } from "@/utils/formatDate";
 import { getFirstLetter } from "@/utils/getFirstLetter";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { FaRegCalendarAlt } from "react-icons/fa";
+import { FaFacebookF, FaTwitter, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
 
+export async function generateMetadata({ params }) {
+  const { slug } = params;
+  const currentUrl = `https://www.onemapafrica.org/blog/${slug}`; // Update with your domain
+
+  const blog = await client.fetch(
+    `*[_type == "blog" && slug.current == $slug][0]{
+      title,
+      "imageSrc": mainImage.asset->url,
+      "author": author->name,
+      publishedAt,
+      content
+    }`,
+    { slug }
+  );
+
+  if (!blog) {
+    return { title: "Blog not found" };
+  }
+
+  return {
+    title: `${blog.title} | One Map Africa Blog`,
+    description: extractText(blog.content),
+    openGraph: {
+      title: blog.title,
+      description: extractText(blog.content),
+      image: blog.imageSrc,
+      url: currentUrl,
+    },
+    twitter: {
+      title: blog.title,
+      description: extractText(blog.content),
+      image: blog.imageSrc,
+      card: "summary_large_image",
+    },
+  };
+}
 export default async function Page({ params }) {
   const { slug } = params;
+  const currentUrl = `https://www.onemapafrica.org/blog/${slug}`; // Update this to your blog's domain
 
   const blog = await client.fetch(
     `*[_type == "blog" && slug.current == $slug][0]{
@@ -90,22 +129,50 @@ export default async function Page({ params }) {
                 ))}
               </ul>
             </div>
-
-            {/* Tags */}
-            <div className="mt-10">
-              <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">
-                Search With Tags
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {["Travel", "Lifestyle", "Ghana", "USA Visa"].map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-3 py-1 bg-green-100 text-green-600 text-xs rounded-lg"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
+            <div className="mt-8">
+            <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">
+              Share this article
+            </h3>
+            <div className="flex items-center space-x-4">
+              <Link
+                href={`https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 bg-blue-600 text-white rounded-full"
+              >
+                <FaFacebookF />
+              </Link>
+              <Link
+                href={`https://twitter.com/intent/tweet?url=${currentUrl}&text=${encodeURIComponent(
+                  blog?.title
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 bg-blue-400 text-white rounded-full"
+              >
+                <FaTwitter />
+              </Link>
+              <Link
+                href={`https://www.linkedin.com/shareArticle?url=${currentUrl}&title=${encodeURIComponent(
+                  blog?.title
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 bg-blue-700 text-white rounded-full"
+              >
+                <FaLinkedinIn />
+              </Link>
+              <Link
+                href={`https://wa.me/?text=${encodeURIComponent(
+                  `${blog?.title} - ${currentUrl}`
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 bg-green-500 text-white rounded-full"
+              >
+                <FaWhatsapp />
+              </Link>
+            </div>
             </div>
           </aside>{" "}
         </div>

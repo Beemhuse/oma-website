@@ -20,7 +20,7 @@ const CoreValues = () => {
         backgroundColor: "rgba(0, 0, 0, 0.3)", // Adds a black overlay
       }}
     >
-      <h1 className="text-4xl font-bold mb-4 pl-24">Core Value</h1>
+      <h2 className="text-4xl font-bold mb-4 pl-24">Core Value</h2>
       <div className="max-w-6xl mx-auto flex h-full gap-5">
         {/* sliding animated circle */}
         <div className="h-[500px]  w-[50px] flex justify-center relative ">

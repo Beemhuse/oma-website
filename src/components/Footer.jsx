@@ -15,9 +15,9 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         {/* Top Section */}
         <div className="text-center mb-10">
-          <h1 className="xl:text-3xl text-xl font-normal w-full xl:w-[300px] m-auto">
+          <h3 className="xl:text-3xl text-xl font-normal w-full xl:w-[300px] m-auto">
             Erasing the lines that divide us
-          </h1>
+          </h3>
           <div className="flex justify-center gap-4 mt-6">
             <button
               onClick={() => push("/subscription")}

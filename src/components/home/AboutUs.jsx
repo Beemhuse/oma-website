@@ -27,9 +27,9 @@ const AboutUs = () => {
             </h3>
             <p className="w-24 h-1 rounded-full bg-black  dark:bg-white"></p>
           </div>
-          <h1 className="text-4xl text-[#1D2130] dark:text-white font-bold mb-6">
+          <h2 className="text-4xl text-[#1D2130] dark:text-white font-bold mb-6">
             Know about Us
-          </h1>
+          </h2>
           <p className="text-[#525560]  dark:text-white mb-8 leading-relaxed">
             One Map Africa is both an international non-governmental
             organization (NGO) and a specialized consulting firm committed to

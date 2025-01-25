@@ -1,9 +1,10 @@
 "use client";
 import React from "react";
-import EventCard from "../component/card/EventCard";
+// import EventCard from "../component/card/EventCard";
 import useSlideIn from "@/hooks/useSlideIn";
 import useSWR from "swr";
 import { eventsQuery } from "@/sanity/queries";
+import { EventCard } from "../component/card/EventCard";
 
 const Events = () => {
 const {data: eventData} = useSWR(eventsQuery)

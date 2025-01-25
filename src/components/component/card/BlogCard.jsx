@@ -23,7 +23,7 @@ export default function BlogCard({
   return (
     <article
       onClick={() => push(`blog/${slug?.current}`)}
-      className="md:w-[380px] h-auto w-full flex flex-col cursor-pointer  transition-all duration-300"
+      className="md:w-[340px] w-full h-fit flex flex-col cursor-pointer  transition-all duration-300"
     >
       <Image
         src={imageSrc}
@@ -37,7 +37,6 @@ export default function BlogCard({
       />
       <div className="p-8 flex flex-col flex-grow justify-between h-full">
         <h2 className="font-[600] font-poppins mb-2 text-[19px]">
-          {/* {title?.slice(0, 30) + (title?.length > 30 ? "..." : " ")} */}
           {title}
         </h2>
         <div className="text-[#AAAAAA] text-[15px] font-inter">{extractText(description)}</div>
