@@ -33,7 +33,7 @@ if(!data) {
       </section>
     <section className="xl:px-10 px-4 container m-auto">
       <div className="text-center my-10">
-        <h1 className="text-[32px]  mb-4 font-[600]">Recent Blog</h1>
+        <h2 className="text-[32px]  mb-4 font-[600]">Recent Blog</h2>
         <p>
           Stay updated with articles on recent events, project updates, and
           industry news.
@@ -45,7 +45,7 @@ if(!data) {
         ))}
       </div>
       <div className="text-center my-10">
-        <h1 className="text-[32px] mb-4 font-[600]">All Events</h1>
+        <h2 className="text-[32px] mb-4 font-[600]">All Events</h2>
         <p>
           Stay updated with articles on recent events, project updates, and
           industry news.

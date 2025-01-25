@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import HeaderSection from "./home/HeaderSection";
-import TrustedClients from "./home/TrustedClients";
+// import TrustedClients from "./home/TrustedClients";
 import AboutUs from "./home/AboutUs";
 import CoreValues from "./home/CoreValues";
 import OurBlogs from "./home/OurBlog";
@@ -17,7 +17,7 @@ const OneMapAfrica = () => {
       <HeaderSection />
 
       {/* Trusted companies */}
-      <TrustedClients />
+      {/* <TrustedClients /> */}
 
       {/* about page */}
       <AboutUs />
