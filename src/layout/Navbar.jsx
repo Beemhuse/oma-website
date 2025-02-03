@@ -41,7 +41,7 @@ const menuItems = [
             {/* <Image src={arrowRight} alt="arrow right" /> */}
           </p>
         ),
-        href: "/projects/agriculture",
+        href: "/projects/agribusiness",
       },
       { label: "Fashion & Event", href: "/projects/fashion-event" },
       { label: "Education & Mentorship", href: "/projects/education" },
