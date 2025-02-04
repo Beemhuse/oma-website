@@ -27,17 +27,19 @@ const MobileNavbar = () => {
         { label: "Gallery", href: "/gallery" },
         { label: "Privacy Policy", href: "/privacy-policy" },
       ],
-    },    {
+    },
+    {
       label: "Projects",
       submenu: [
-        { label: "Agribusiness & Food Security", href: "/projects/agribusiness" },
-      { label: "Digitalization", href: "/projects/digitalization" },
-        
-        // { label: "Fashion & Event", href: "/projects/fashion-event" },
-        // { label: "Education & Mentorship", href: "/projects/education" },
-        // { label: "E-commerce", href: "/projects/ecommerce" },
-        // { label: "Women Empowerment", href: "/projects/women-empowerment" },
-        // { label: "Energy", href: "/projects/energy" },
+        {
+          label: "Agribusiness & Food Security",
+          href: "/projects/agribusiness",
+        },
+        { label: "Digitalization", href: "/projects/digitalization" },
+        {
+          label: "Woman & Youth Empowerment",
+          href: "/projects/women-youth-empowerment",
+        },
       ],
     },
     { label: "Get Involved", href: "/get-involved" },

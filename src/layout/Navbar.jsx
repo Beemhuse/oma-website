@@ -37,7 +37,7 @@ const menuItems = [
       {
         label: (
           <p className="flex items-center gap-5">
-            Agriculture
+            Agribusiness & Food Security
             {/* <Image src={arrowRight} alt="arrow right" /> */}
           </p>
         ),
@@ -48,7 +48,7 @@ const menuItems = [
 
       // { label: "Education & Mentorship", href: "/projects/education" },
       // { label: "E-commerce", href: "/projects/ecommerce" },
-      // { label: "Women Empowerment", href: "/projects/women-empowerment" },
+      { label: "Women & Youth Empowerment", href: "/projects/women-youth-empowerment" },
       {
         label: (
           <p className="flex items-center gap-5">
