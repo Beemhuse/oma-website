@@ -44,6 +44,8 @@ const menuItems = [
         href: "/projects/agribusiness",
       },
       { label: "Fashion & Event", href: "/projects/fashion-event" },
+      { label: "Digitalization", href: "/projects/digitalization" },
+
       { label: "Education & Mentorship", href: "/projects/education" },
       { label: "E-commerce", href: "/projects/ecommerce" },
       { label: "Women Empowerment", href: "/projects/women-empowerment" },

@@ -23,7 +23,7 @@ const Footer = () => {
               onClick={() => push("/subscription")}
               className="px-6 py-2 border border-white rounded-md hover:bg-white hover:text-green-800 transition"
             >
-              SUBSCRIBE
+              PARTNER WITH US
             </button>
             <button
               onClick={() => push("/donations")}
