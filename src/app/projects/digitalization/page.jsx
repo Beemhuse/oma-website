@@ -11,12 +11,12 @@ export default function DigitalizationProject() {
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-red-400 to-green-700 text-white py-20 px-4">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center">
+        <div className="max-w-6xl mx-auto flex flex-col-reverse gap-y-6 md:flex-row items-center">
           <div className="md:w-1/2 mb-10 md:mb-0">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">Bridging the Digital Divide</h1>
             <p className="text-xl mb-6">Empowering communities through technology and digital literacy</p>
-            <Button asChild className="bg-white text-blue-600 hover:bg-gray-100">
-              <Link href="#learn-more">
+            <Button asChild className="bg-white  text-blue-600 hover:bg-gray-100">
+              <Link href="#learn-more" className="flex items-center">
                 Learn More <BsArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
@@ -134,13 +134,13 @@ export default function DigitalizationProject() {
             we have a place for you in our mission.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Button asChild className="bg-white text-green-600 hover:bg-gray-100">
+            <Button asChild className="bg-white text-black border-2 border-green-500 hover:bg-gray-100">
               <Link href="/get-involved/#volunteer-form">Volunteer</Link>
             </Button>
-            <Button asChild className="bg-transparent border-2 border-white hover:bg-white hover:text-green-600">
+            <Button asChild className="bg-transparent border-2  border-green-500 hover:bg-white hover:text-green-600">
               <Link href="/donations">Donate</Link>
             </Button>
-            <Button asChild className="bg-transparent border-2 border-white hover:bg-white hover:text-green-600">
+            <Button asChild className="bg-transparent border-2  border-green-500 hover:bg-white hover:text-green-600">
               <Link href="/subscription">Partner With Us</Link>
             </Button>
           </div>

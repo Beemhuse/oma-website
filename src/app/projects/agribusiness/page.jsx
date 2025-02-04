@@ -32,7 +32,7 @@ export default function AgribusinessProject() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative h-[80vh] min-h-[400px]">
+      <section className="relative h-[80vh] p-4 min-h-[400px]">
         <Image
           src="/agriculture.jpg"
           alt="Farmers working in a lush green field"
@@ -48,12 +48,12 @@ export default function AgribusinessProject() {
       </section>
 
       {/* Project Description */}
-      <section className="flex justify-around gap-12 py-16 px-4 md:px-8  mx-auto">
+      <section className="flex justify-around flex-col md:flex-row gap-12 py-16 px-4 md:px-8  mx-auto">
         {/* <div className=""> */}
 
-        <div ref={leftRef} className="w-2/5">
+        <div ref={leftRef} className="md:w-2/5">
           <div className="flex gap-8 mb-2 items-center">
-            <h2 className="text-3xl font-bold mb-6 text-center">Our Mission</h2>
+            <h2 className="text-2xl md:text-3xl dark:text-black font-bold mb-6 text-center">Our Mission</h2>
             <p className="w-24 h-1 rounded-full bg-black  dark:bg-white"></p>
           </div>
 
@@ -72,7 +72,7 @@ export default function AgribusinessProject() {
           </p>
           <div className="grid md:grid-cols-2 gap-8">
             <div>
-              <h3 className="text-xl font-semibold mb-4">Goals</h3>
+              <h3 className="text-xl font-semibold dark:text-black mb-4">Goals</h3>
               <ul className="list-disc pl-5 space-y-2 text-gray-700">
                 <li>Increase crop yields by 50% within 3 years</li>
                 <li>
@@ -83,7 +83,7 @@ export default function AgribusinessProject() {
               </ul>
             </div>
             <div>
-              <h3 className="text-xl font-semibold mb-4">Impact</h3>
+              <h3 className="text-xl font-semibold dark:text-black mb-4">Impact</h3>
               <ul className="list-disc pl-5 space-y-2 text-gray-700">
                 <li>Improved food security for over 50,000 families</li>
                 <li>30% increase in average household income</li>
@@ -93,14 +93,14 @@ export default function AgribusinessProject() {
             </div>
           </div>
         </div>
-        <div ref={rightRef} className="">
-          <div className="flex items-center gap-8">
-            <h2 className="text-3xl font-bold mb-6 text-center">
+        <div ref={rightRef} className="p-4">
+          <div className="flex items-center gap-4">
+            <h2 className="text-2xl dark:text-black md:text-3xl font-bold mb-6 text-center">
               Key Initiatives
             </h2>
             <p className="w-24 h-1 rounded-full bg-black  dark:bg-white"></p>
           </div>
-          <ul className="list-disc space-y-4 mt-10">
+          <ul className="list-disc dark:text-black space-y-4 mt-10">
             <li>Training programs for farmers on sustainable agriculture</li>
             <li>Support for agribusiness startups and cooperatives</li>
             <li>Access to microfinance and investment opportunities</li>
@@ -110,8 +110,8 @@ export default function AgribusinessProject() {
       </section>
 
       {/* Image Gallery */}
-      <section className="py-16 bg-gray-100">
-        <h2 className="text-3xl font-bold mb-8 text-center">Project Gallery</h2>
+      <section className="py-16 bg-gray-100 dark:bg-neutral-800">
+        <h2 className="text-3xl font-bold  mb-8 text-center">Project Gallery</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-4 md:px-8 max-w-6xl mx-auto">
           {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
             <div
@@ -132,10 +132,10 @@ export default function AgribusinessProject() {
 
       {/* Key Statistics */}
       <section className="py-16 px-4 md:px-8 max-w-5xl mx-auto">
-        <h2 className="text-3xl font-bold mb-8 text-center">
+        <h2 className="text-3xl dark:text-black font-bold mb-8 text-center">
           Our Achievements
         </h2>
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid md:grid-cols-4  gap-4">
           {stats.map((item, index) => (
             <StatsGrid key={index} stats={item} />
           ))}
@@ -154,17 +154,17 @@ export default function AgribusinessProject() {
         className="py-16     text-center"
       >
         <div className="max-w-3xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-4">Support Our Mission</h2>
-          <p className="mb-8 text-lg">
+          <h2 className="text-3xl dark:text-black font-bold mb-4">Support Our Mission</h2>
+          <p className="mb-8 dark:text-black text-lg">
             Join us in empowering rural communities and building a sustainable
             future through agribusiness. Your support can make a real
             difference.
           </p>
           <div className="space-x-4">
-            <Button asChild>
+            <Button asChild className="border-2 dark:text-black border-green-500">
               <Link href="/donations">Donate Now</Link>
             </Button>
-            <Button variant="outline" asChild>
+            <Button  asChild className="border-2 dark:text-black border-green-500">
               <Link href="/get-involved/#volunteer-form">Volunteer</Link>
             </Button>
           </div>
