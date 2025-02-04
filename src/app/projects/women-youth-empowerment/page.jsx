@@ -26,7 +26,7 @@ return(
 
 export default function WomenYouthEmpowermentProject() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-purple-50 to-green-50">
+    <div className="min-h-screen bg-gradient-to-b dark:from-purple-200 from-purple-50 to-green-50 dark:to-green-100 dark:bg-gradient-to-tr ">
       {/* Hero Section */}
       <section className="relative xl:py-20 xl:px-4 overflow-hidden">
         <div className="max-w-6xl bg-black p-8 mx-auto">
@@ -98,7 +98,7 @@ export default function WomenYouthEmpowermentProject() {
             ].map((item, index) => (
               <div
                 key={index}
-                className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
+                className="bg-white dark:bg-black p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
               >
                 <div className={`inline-block p-3 rounded-full bg-gradient-to-r ${item.color} text-white mb-4`}>
                   <item.icon className="h-6 w-6" />
@@ -129,13 +129,11 @@ export default function WomenYouthEmpowermentProject() {
                   className="w-full h-48 object-cover"
                 />
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">Transforming Lives</h3>
+                  <h3 className="text-xl dark:text-black font-semibold mb-2">Transforming Lives</h3>
                   <p className="text-gray-600 mb-4">
                     How our program helped Sarah start her own business and become a community leader.
                   </p>
-                  <Button variant="outline" asChild className="w-full justify-center">
-                    <Link href={`/stories/${i}`}>Read Full Story</Link>
-                  </Button>
+              
                 </div>
               </div>
             ))}
@@ -165,13 +163,13 @@ export default function WomenYouthEmpowermentProject() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button asChild className="bg-white border-2 border-green-500 text-black">
-              <Link href="/volunteer">Volunteer</Link>
+              <Link href="/get-involved#volunteer-form">Volunteer</Link>
             </Button>
             <Button asChild className="bg-white border-2 border-green-500 text-black">
-              <Link href="/donate">Donate</Link>
+              <Link href="/donations">Donate</Link>
             </Button>
             <Button asChild  className="bg-white border-2 border-green-500 text-black">
-              <Link href="/partner">Partner With Us</Link>
+              <Link href="/subscription">Partner With Us</Link>
             </Button>
           </div>
         </div>
