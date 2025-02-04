@@ -27,7 +27,7 @@ const Footer = () => {
             </button>
             <button
               onClick={() => push("/donations")}
-              className="px-6 py-2 bg-white text-green-800 rounded-md hover:bg-opacity-80 transition"
+            className="px-6 py-2 bg-white text-green-800 rounded-md hover:bg-opacity-80 transition"
             >
               DONATE
             </button>
