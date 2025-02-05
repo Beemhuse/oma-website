@@ -36,6 +36,7 @@ const MobileNavbar = () => {
           href: "/projects/agribusiness",
         },
         { label: "Digitalization", href: "/projects/digitalization" },
+        { label: "Renewable Energy", href: "/projects/renewable-energy" },
         {
           label: "Woman & Youth Empowerment",
           href: "/projects/women-youth-empowerment",

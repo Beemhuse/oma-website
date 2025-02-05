@@ -43,7 +43,8 @@ const menuItems = [
         ),
         href: "/projects/agribusiness",
       },
-      // { label: "Fashion & Event", href: "/projects/fashion-event" },
+      { label: "Renewable Energy", href: "/projects/renewable-energy" },
+
       { label: "Digitalization", href: "/projects/digitalization" },
 
       // { label: "Education & Mentorship", href: "/projects/education" },

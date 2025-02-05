@@ -47,7 +47,7 @@ export default function WomenYouthEmpowermentProject() {
             </Button>
           </div>
         </div>
-        <div className="absolute top-0 left-0 w-full h-full flex justify-between items-center opacity-30 overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full flex justify-between items-center opacity-60 overflow-hidden">
           <Image
             src="/women.jpg"
             alt="Women empowerment"
@@ -98,12 +98,12 @@ export default function WomenYouthEmpowermentProject() {
             ].map((item, index) => (
               <div
                 key={index}
-                className="bg-white dark:bg-black p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
+                className="bg-white  p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
               >
                 <div className={`inline-block p-3 rounded-full bg-gradient-to-r ${item.color} text-white mb-4`}>
                   <item.icon className="h-6 w-6" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                <h3 className="text-xl dark:text-gray-800 font-semibold mb-2">{item.title}</h3>
                 <p className="text-gray-600">{item.description}</p>
               </div>
             ))}
