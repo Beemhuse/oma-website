@@ -88,7 +88,7 @@ export default function RenewableEnergyProject() {
                     >
                       <item.icon className="h-8 w-8" />
                     </div>
-                    <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                    <h3 className="text-xl dark:text-gray-700 font-semibold mb-2">{item.title}</h3>
                     <p className="text-gray-600">
                       Harnessing the power of {item.title.toLowerCase()} for a
                       cleaner future.
@@ -173,7 +173,7 @@ export default function RenewableEnergyProject() {
                   className="w-full h-48 object-cover"
                 />
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">
+                  <h3 className="text-xl dark:text-gray-700 font-semibold mb-2">
                     Powering Rural Communities
                   </h3>
                   <p className="text-gray-600 mb-4">

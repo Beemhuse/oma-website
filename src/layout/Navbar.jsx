@@ -46,18 +46,16 @@ const menuItems = [
       { label: "Renewable Energy", href: "/projects/renewable-energy" },
 
       { label: "Digitalization", href: "/projects/digitalization" },
+      {
+        label: "Education and Mentorship",
+        href: "/projects/education-mentorship",
+      },
 
       // { label: "Education & Mentorship", href: "/projects/education" },
       // { label: "E-commerce", href: "/projects/ecommerce" },
-      { label: "Women & Youth Empowerment", href: "/projects/women-youth-empowerment" },
       {
-        label: (
-          <p className="flex items-center gap-5">
-            Energy
-            {/* <Image src={arrowRight} alt="arrow right" /> */}
-          </p>
-        ),
-        href: "/projects/energy",
+        label: "Women & Youth Empowerment",
+        href: "/projects/women-youth-empowerment",
       },
     ],
   },
@@ -162,7 +160,7 @@ const Navbar = () => {
                       </p>
                     </div>
                     <div className="md:w-2/3 grid grid-cols-3 w-full gap-6 p-10 text-sm font-semibold ">
-                    {item.submenu.map((subItem, index) => (
+                      {item.submenu.map((subItem, index) => (
                         <Link
                           href={subItem.href}
                           key={index}
@@ -264,7 +262,13 @@ const Navbar = () => {
               </Link>
             )
           )}
-          <Link className="text-green-500 hover:text-[#FFD700]" target="_blank" href="https://www.events.onemapafrica.org">Events</Link>
+          <Link
+            className="text-green-500 hover:text-[#FFD700]"
+            target="_blank"
+            href="https://www.events.onemapafrica.org"
+          >
+            Events
+          </Link>
         </div>
 
         {/* Donate Button */}

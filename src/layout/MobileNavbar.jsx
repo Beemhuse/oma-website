@@ -38,6 +38,11 @@ const MobileNavbar = () => {
         { label: "Digitalization", href: "/projects/digitalization" },
         { label: "Renewable Energy", href: "/projects/renewable-energy" },
         {
+          label: "Education and Mentorship",
+          href: "/projects/education-mentorship",
+        },
+
+        {
           label: "Woman & Youth Empowerment",
           href: "/projects/women-youth-empowerment",
         },
