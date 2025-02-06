@@ -57,6 +57,14 @@ const menuItems = [
         label: "Women & Youth Empowerment",
         href: "/projects/women-youth-empowerment",
       },
+      {
+        label: "Leadership Development",
+        href: "/projects/leadership-development",
+      },
+      {
+        label: "Culture & Heritage",
+        href: "/projects/culture-heritage",
+      },
     ],
   },
   { label: "Get Involved", href: "/get-involved" },

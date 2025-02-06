@@ -41,7 +41,14 @@ const MobileNavbar = () => {
           label: "Education and Mentorship",
           href: "/projects/education-mentorship",
         },
-
+        {
+          label: "Leadership Development",
+          href: "/projects/leadership-development",
+        },
+        {
+          label: "Culture & Heritage",
+          href: "/projects/culture-heritage",
+        },
         {
           label: "Woman & Youth Empowerment",
           href: "/projects/women-youth-empowerment",
