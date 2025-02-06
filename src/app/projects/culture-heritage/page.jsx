@@ -12,7 +12,7 @@ export default function CultureHeritageProject() {
         <div className="absolute inset-0 z-0">
           <div className="grid grid-cols-4 md:grid-cols-8 gap-1 h-full">
             {Array.from({ length: 32 }).map((_, i) => (
-              <div key={i} className="bg-gradient-to-br from-amber-100 to-green-200 opacity-50"></div>
+              <div key={i} className="bg-gradient-to-br dark:bg-none  from-amber-100 to-green-200 opacity-50"></div>
             ))}
           </div>
         </div>
@@ -23,7 +23,7 @@ export default function CultureHeritageProject() {
               Culture & Heritage
             </span>
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-black">
+          <p className="text-xl md:text-2xl mb-8 dark:text-white text-black">
             Celebrating diversity, honoring traditions, and bridging generations through cultural preservation.
           </p>
           <Button asChild size="lg" className="bg-green-600 text-white hover:bg-green-700">
@@ -133,7 +133,7 @@ export default function CultureHeritageProject() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 px-4  text-black">
+      <section className="py-20 px-4 dark:text-white  text-black">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">Voices of Our Heritage</h2>
           <div className="grid md:grid-cols-2 gap-8">
@@ -162,7 +162,7 @@ export default function CultureHeritageProject() {
               <div key={index} className="bg-red-900 p-6 rounded-xl shadow-lg">
                 <p className="mb-4 italic">&quot;{item.quote}&quot;</p>
                 <div className="font-semibold">{item.name}</div>
-                <div className="text-amber-300">{item.role}</div>
+                <div className="text-green-300">{item.role}</div>
               </div>
             ))}
           </div>
@@ -178,8 +178,8 @@ export default function CultureHeritageProject() {
         backgroundAttachment: "fixed",
         backgroundBlendMode: "overlay",
       }}className="py-20 px-4  text-black">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6">Be a Guardian of Culture</h2>
+        <div className="max-w-4xl dark:text-white mx-auto text-center">
+          <h2 className="text-3xl font-bold dark:text-white mb-6">Be a Guardian of Culture</h2>
           <p className="text-xl mb-8">
             Join us in preserving and celebrating the rich tapestry of our shared cultural heritage.
           </p>
@@ -191,7 +191,7 @@ export default function CultureHeritageProject() {
               asChild
               size="lg"
               variant="outline"
-              className="text-black border-white hover:bg-white hover:text-green-600"
+              className=" border-white hover:bg-white hover:text-green-600"
             >
               <Link href="/donations">Support Our Projects</Link>
             </Button>
