@@ -69,7 +69,7 @@ export default function CultureHeritageProject() {
       </section>
 
       {/* Cultural Tapestry */}
-      <section className="py-20 px-4 bg-gradient-to-b from-green-50 to-green-100">
+      {/* <section className="py-20 px-4 bg-gradient-to-b from-green-50 to-green-100">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12 text-green-900">Our Cultural Tapestry</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -89,7 +89,7 @@ export default function CultureHeritageProject() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Interactive Timeline */}
       <section className="py-20 px-4 bg-white">

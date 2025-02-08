@@ -154,7 +154,7 @@ export default function RenewableEnergyProject() {
       </section>
 
       {/* Success Stories Carousel */}
-      <section className="py-20 px-4 bg-gray-50">
+      {/* <section className="py-20 px-4 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
             Success Stories
@@ -185,7 +185,7 @@ export default function RenewableEnergyProject() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Call to Action */}
       <section className="py-20 px-4 text-black">

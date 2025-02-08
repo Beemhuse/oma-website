@@ -112,7 +112,7 @@ export default function WomenYouthEmpowermentProject() {
       </section>
 
       {/* Impact Stories */}
-      <section className="py-20 px-4 bg-white">
+      {/* <section className="py-20 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">Impact Stories</h2>
           <div className="flex flex-nowrap overflow-x-auto gap-6 pb-6">
@@ -139,7 +139,7 @@ export default function WomenYouthEmpowermentProject() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Statistics */}
       <section className="py-20 px-4 bg-gradient-to-r from-purple-600 to-green-600 text-white">

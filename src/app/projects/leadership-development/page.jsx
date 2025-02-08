@@ -136,7 +136,7 @@ export default function LeadershipDevelopmentProject() {
       </section>
 
       {/* Success Stories Hexagon Grid */}
-      <section className="py-20 px-4">
+      {/* <section className="py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
             Leadership Success Stories
@@ -149,9 +149,7 @@ export default function LeadershipDevelopmentProject() {
                     <div className="text-center text-white">
                       <h3 className="font-semibold mb-2">Leader {i}</h3>
                       <p className="text-sm">Transformed their community</p>
-                      {/* <Button variant="link" asChild className="mt-2 text-white hover:text-purple-200">
-                        <Link href={`/stories/${i}`}>Read More</Link>
-                      </Button> */}
+                    
                     </div>
                   </div>
                 </div>
@@ -159,7 +157,7 @@ export default function LeadershipDevelopmentProject() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Program Stats with Circular Progress */}
       <section

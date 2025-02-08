@@ -75,7 +75,7 @@ const Footer = () => {
             <ul className="space-y-2">
               <li>
                 <Link href="mailto:onemapafrica@gmail.com">
-                  onemapafrica@gmail.com
+                  info@onemapafrica.org
                 </Link>
               </li>
               <li>

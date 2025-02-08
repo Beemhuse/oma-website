@@ -11,7 +11,11 @@ const stats = [
   { end: 2000, description: "in Farmer Income", prefix: "$" },
   { end: 30, description: "Partner Organizations" },
 ];
-
+const images = [
+  "/agriculture.jpg",
+  "/women-farm.jpg",
+  "/farmers-1.webp",
+]
 const StatsGrid = ({ stats }) => {
   const count = useCountUp(0, stats.end);
   return (
@@ -113,13 +117,13 @@ export default function AgribusinessProject() {
       <section className="py-16 bg-gray-100 dark:bg-neutral-800">
         <h2 className="text-3xl font-bold  mb-8 text-center">Project Gallery</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-4 md:px-8 max-w-6xl mx-auto">
-          {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
+          {images.map((item, i) => (
             <div
               key={i}
               className="relative h-64 overflow-hidden rounded-lg group"
             >
               <Image
-                src={`/agriculture.jpg`}
+                src={item}
                 alt={`Project image ${i}`}
                 fill
                 className="object-cover rounded-lg transition-transform duration-300 group-hover:scale-105"

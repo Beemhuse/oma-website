@@ -42,7 +42,7 @@ export default function AboutPage() {
     <section className="py-10   w-full px-4 mx-auto">
       <div
         ref={leftRef}
-        className="flex xl:flex-row  flex-col-reverse gap-6 justify-between"
+        className="flex xl:flex-row  flex-col-reverse gap-6 justify-around"
       >
         <div className="xl:w-[545px] w-full flex flex-col items-start gap-5">
           <h1 className="xl:text-[64px] text-4xl leading-snug">
@@ -67,7 +67,7 @@ export default function AboutPage() {
           alt="united World"
           height={500}
           width={500}
-          className="w-full rounded-xl object-cover aspect-auto"
+          className="w-3/5 rounded-xl object-cover aspect-auto"
         />
       </div>
 
@@ -81,10 +81,10 @@ export default function AboutPage() {
         <Programs />
       </div>
 
-      <div className="bg-white dark:bg-inherit text-black py-16  ">
-        <div className=" flex flex-col justify-between lg:flex-row items-center">
+      <div className="w-full dark:bg-inherit text-black py-16  ">
+        <div className=" flex flex-col  justify-center  lg:flex-row items-center">
           {/* Text Content */}
-          <div id="mission" className=" lg:w-1/3 mb-8 lg:mb-0">
+          <div id="mission" className=" lg:w-1/3 mb-8  lg:mb-0">
             <div className="text-black text-sm uppercase gap-10 font-semibold flex  mb-5 justify-left items-center transform ">
               <div className=""> About us</div>{" "}
               <p className="bg-black dark:bg-white w-[50px]  h-[2px]"></p>
@@ -110,7 +110,7 @@ export default function AboutPage() {
           {/* Image Content */}
           <div
             ref={rightRef}
-            className="lg:w-1/2"
+            className="lg:w-fit  w-full"
             onMouseEnter={(e) =>
               handleMouseEnter(e.currentTarget.querySelector("img"))
             }
@@ -123,7 +123,7 @@ export default function AboutPage() {
               alt="Donation Box"
               width={500}
               height={500}
-              className="rounded-tr-[80px] rounded-bl-[80px] shadow-lg"
+              className="rounded-tr-[80px] w-inherit rounded-bl-[80px] shadow-lg"
             />
           </div>
         </div>

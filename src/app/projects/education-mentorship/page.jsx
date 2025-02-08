@@ -112,7 +112,7 @@ export default function EducationMentorshipProject() {
       </section>
 
       {/* Success Stories Carousel */}
-      <section className="py-20 px-4 bg-gray-100">
+      {/* <section className="py-20 px-4 bg-gray-100">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">Success Stories</h2>
           <div className="flex overflow-x-auto space-x-6 pb-6">
@@ -136,7 +136,7 @@ export default function EducationMentorshipProject() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Impact Statistics with Animation */}
       <section className="py-20 px-4 bg-green-100 text-black">

@@ -15,7 +15,7 @@ export default function DigitalizationProject() {
           <div className="md:w-1/2 mb-10 md:mb-0">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">Bridging the Digital Divide</h1>
             <p className="text-xl mb-6">Empowering communities through technology and digital literacy</p>
-            <Button asChild className="bg-white  text-blue-600 hover:bg-gray-100">
+            <Button asChild className="bg-white  text-green-600 hover:bg-gray-100">
               <Link href="#learn-more" className="flex items-center">
                 Learn More <BsArrowRight className="ml-2 h-4 w-4" />
               </Link>
@@ -91,7 +91,7 @@ export default function DigitalizationProject() {
       </section>
 
       {/* Success Stories */}
-      <section className="py-20 px-4">
+      {/* <section className="py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold dark:text-black text-center mb-12">Success Stories</h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -116,7 +116,7 @@ export default function DigitalizationProject() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Get Involved */}
       <section
