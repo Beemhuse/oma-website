@@ -11,9 +11,10 @@ import Events from "./home/Events";
 import { Button } from "./component/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "./component/ui/card";
 import Link from "next/link";
+import BlackHistory from "./home/black-history";
+import Particles from "./component/particles";
 
 const OneMapAfrica = () => {
-
   return (
     <div>
       {/* Hero Section */}
@@ -24,7 +25,10 @@ const OneMapAfrica = () => {
 
       {/* about page */}
       <AboutUs />
+      <div style={{ width: '100%', position: 'relative' }}>
 
+      <BlackHistory />
+</div>
       {/* our core values */}
       <CoreValues />
       <Events />
@@ -38,12 +42,10 @@ const OneMapAfrica = () => {
       <Donation />
       <section id="ways-to-help" className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-        <div className="text-red-500 text-sm font-semibold flex gap-2 mb-2 justify-left items-center transform -translate-x-[54px]">
-                <p className='bg-black w-[50px]  h-[2px]'></p> Get Involved
-            </div>
-          <h2 className="text-3xl font-bold  mb-1">
-            Ways to Get Involved
-          </h2>
+          <div className="text-red-500 text-sm font-semibold flex gap-2 mb-2 justify-left items-center transform -translate-x-[54px]">
+            <p className="bg-black w-[50px]  h-[2px]"></p> Get Involved
+          </div>
+          <h2 className="text-3xl font-bold  mb-1">Ways to Get Involved</h2>
           <p className="mt-1 mb-12 text-lg  max-w-3xl">
             Join us in our mission to create a unified map of Africa. Your
             support can make a real difference in improving lives and fostering
@@ -60,7 +62,9 @@ const OneMapAfrica = () => {
                   support our projects.
                 </p>
                 <Button asChild>
-                  <Link href="/get-involved/#volunteer-form">Become a Volunteer</Link>
+                  <Link href="/get-involved/#volunteer-form">
+                    Become a Volunteer
+                  </Link>
                 </Button>
               </CardContent>
             </Card>
@@ -88,7 +92,9 @@ const OneMapAfrica = () => {
                   people.
                 </p>
                 <Button asChild>
-                  <Link href="/get-involved/#social-share">Share Our Mission</Link>
+                  <Link href="/get-involved/#social-share">
+                    Share Our Mission
+                  </Link>
                 </Button>
               </CardContent>
             </Card>
