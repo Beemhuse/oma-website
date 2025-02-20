@@ -4,7 +4,6 @@ import { Inter, Poppins } from "next/font/google";
 import MainLayout from "./MainLayout";
 import Footer from "@/components/Footer";
 import BackToTopButton from "@/components/BackToTopButton";
-
 // Import the Inter and Poppins fonts
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const poppins = Poppins({
@@ -51,6 +50,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
       <body className="antialiased max-w-[120em] mt-20 m-auto overflow-x-hidden font-poppins">
         <MainLayout>
+
         <Header />
         <div className="relative ">
 

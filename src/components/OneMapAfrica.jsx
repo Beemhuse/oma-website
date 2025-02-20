@@ -12,23 +12,22 @@ import { Button } from "./component/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "./component/ui/card";
 import Link from "next/link";
 import BlackHistory from "./home/black-history";
-import Particles from "./component/particles";
 
 const OneMapAfrica = () => {
   return (
     <div>
       {/* Hero Section */}
-      <HeaderSection />
+      {/* <HeaderSection /> */}
+      <div style={{ width: '100%', position: 'relative' }}>
+
+      <BlackHistory />
+</div>
 
       {/* Trusted companies */}
       {/* <TrustedClients /> */}
 
       {/* about page */}
       <AboutUs />
-      <div style={{ width: '100%', position: 'relative' }}>
-
-      <BlackHistory />
-</div>
       {/* our core values */}
       <CoreValues />
       <Events />
