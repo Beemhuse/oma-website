@@ -158,11 +158,21 @@ const MobileNavbar = () => {
                     </li>
                   )
                 )}
-                <Button
-                  onClick={() => push("/donations")}
-                  label={"Donate"}
-                  bgColor="bg-red-500"
-                />
+                <div className="flex gap-6 items-center">
+                  <Link
+                    className="text-white underline hover:text-[#FFD700]"
+                    target="_blank"
+                    href="https://africanfashionfestival.com/"
+                  >
+                    Events
+                  </Link>
+
+                  <Button
+                    onClick={() => push("/donations")}
+                    label={"Donate"}
+                    bgColor="bg-red-500"
+                  />
+                </div>
               </ul>
             </div>
           )}

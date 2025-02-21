@@ -270,24 +270,27 @@ const Navbar = () => {
               </Link>
             )
           )}
+        </div>
+
+        <div className=" hidden lg:flex items-center gap-8">
           <Link
-            className="text-green-500 hover:text-[#FFD700]"
+            className="text-blue-500 underline hover:text-[#FFD700]"
             target="_blank"
-            href="https://www.events.onemapafrica.org"
+            href="https://africanfashionfestival.com/"
           >
             Events
           </Link>
-        </div>
 
+          <span className="">
+            <Button
+              onClick={() => push("/donations")}
+              label={"Donate"}
+              bgColor="bg-red-500"
+              className="hidden md:hidden lg:block"
+            />
+          </span>
+        </div>
         {/* Donate Button */}
-        <span className="hidden lg:flex">
-          <Button
-            onClick={() => push("/donations")}
-            label={"Donate"}
-            bgColor="bg-red-500"
-            className="hidden md:hidden lg:block"
-          />
-        </span>
         <MobileNavbar />
       </div>
     </nav>

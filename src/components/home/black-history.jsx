@@ -1,11 +1,13 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import CircularGallery from "../component/circular-gallery";
-// import Button from "../reusables/Button";
+// import CircularGallery from "../component/circular-gallery";
 import Particles from "../component/particles";
 import { client } from "@/sanity/client";
 import Link from "next/link";
-import InfiniteScroll from "../component/infinite-scroll";
+// import InfiniteScroll from "../component/infinite-scroll";
+import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
 
 export default function BlackHistory() {
   const [galleryItems, setGalleryItems] = useState([]);
@@ -25,10 +27,9 @@ export default function BlackHistory() {
       })
       .catch(console.error);
   }, []);
-  console.log(galleryItems);
   return (
     <div>
-      <section className="relative py-16 px-4 h-full sm:px-6 lg:px-8 bg-gradient-to-r from-black to-[#FFD700] text-white overflow-hidden">
+      <section className="relative flex flex-col xl:flex-row justify-center py-16 px-4 h-full sm:px-6 lg:px-8 bg-gradient-to-r from-black to-[#FFD700] text-white overflow-hidden">
         {/* Particles as background */}
         <div className="absolute inset-0 z-0">
           <Particles
@@ -44,12 +45,12 @@ export default function BlackHistory() {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto">
+        <div className="relative z-10 max-w-5xl mx-auto">
           <div className="text-yellow-300 text-sm font-semibold flex gap-2 mb-2 items-center">
             <div className="bg-yellow-300 w-[50px] h-[2px]"></div>
             <span>Upcoming Event</span>
           </div>
-          <h2 className="text-4xl font-bold mb-4">Black History Month 2025</h2>
+          <h2 className="xl:text-6xl text-4xl font-bold mb-4">Black History Month 2025</h2>
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
               <p className="text-lg mb-6">
@@ -68,7 +69,9 @@ export default function BlackHistory() {
                 Register
               </Link>
             </div>
-            <div style={{ height: "500px", position: "relative" }}>
+          </div>
+        </div>
+            <div style={{ height: "500px", position: "relative" }} className="mt-10 xl:w-2/5 w-full ">
               {/* <CircularGallery
                 bend={3}
                 textColor="#ffffff"
@@ -76,7 +79,7 @@ export default function BlackHistory() {
                 images={galleryItems}
               />
               <div style={{height: '500px', position: 'relative'}}> */}
-              <InfiniteScroll
+              {/* <InfiniteScroll
                 items={galleryItems}
                 isTilted={false}
                 tiltDirection="left"
@@ -84,10 +87,29 @@ export default function BlackHistory() {
                 autoplaySpeed={0.5}
                 autoplayDirection="down"
                 pauseOnHover={true}
-              />
+              /> */}
+
+<Swiper
+      modules={[Autoplay]}
+      spaceBetween={10}
+      slidesPerView={1}
+      autoplay={{ delay: 5000, disableOnInteraction: false }}
+      pagination={{ clickable: true }}
+      className="w-full xl:h-[500px]"
+    >
+      {galleryItems.map((image, index) => (
+        <SwiperSlide key={index} className="flex justify-center items-center">
+          <Image
+            src={image.imageUrl}
+            height={500}
+            width={500}
+            alt=""
+            className="h-full w-auto object-cover"
+          />
+        </SwiperSlide>
+      ))}
+    </Swiper>
             </div>
-          </div>
-        </div>
       </section>
     </div>
   );

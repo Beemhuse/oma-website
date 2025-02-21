@@ -9,12 +9,12 @@ gsap.registerPlugin(Observer);
 
 export default function InfiniteScroll({
   // ----- Layout / Style Props -----
-  width = "30rem",             // Width of the outer wrapper
+  width = "50rem",             // Width of the outer wrapper
   maxHeight = "100%",          // Max-height of the outer wrapper
   negativeMargin = "-0.5em",   // Negative margin to reduce spacing between items
   // ----- Items Prop -----
   items = [],                  // Array of items with { content: ... }
-  itemMinHeight = 250,         // Fixed height for each item
+  itemMinHeight = 400,         // Fixed height for each item
   // ----- Tilt Props -----
   isTilted = false,            // Whether the container is in "skewed" perspective
   tiltDirection = "left",      // tiltDirection: "left" or "right"
@@ -165,7 +165,7 @@ export default function InfiniteScroll({
               marginTop: negativeMargin,
             }}
           >
-            <Image src={item.imageUrl} height={500} width={500} alt="" className="h-full w-auto " />
+            <Image src={item.imageUrl} height={500} width={500} alt="" className="h-full w-auto object-cover" />
             {/* {item.content} */}
           </div>
         ))}
