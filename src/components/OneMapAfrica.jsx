@@ -11,17 +11,16 @@ import Events from "./home/Events";
 import { Button } from "./component/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "./component/ui/card";
 import Link from "next/link";
-// import BlackHistory from "./home/black-history";
+import WomensDayHeader from "./home/WomensDayHeader";
 
 const OneMapAfrica = () => {
   return (
     <div>
       {/* Hero Section */}
-      <HeaderSection />
-      {/* <div style={{ width: '100%', position: 'relative' }}>
-
-      <BlackHistory />
-</div> */}
+      {/* <HeaderSection /> */}
+      <div style={{ width: "100%", position: "relative" }}>
+        <WomensDayHeader />
+      </div>
 
       {/* Trusted companies */}
       {/* <TrustedClients /> */}
