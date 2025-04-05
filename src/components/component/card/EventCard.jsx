@@ -9,6 +9,7 @@ import { LiaMapMarkerSolid } from "react-icons/lia";
 import Link from "next/link";
 import { urlFor } from "@/sanity/client";
 import { useRouter } from "next/navigation";
+import { isEventDateValid } from "@/lib/isDateValid";
 
 
 export const EventLocation = ({ location, isOnline }) => {
@@ -37,7 +38,7 @@ export const EventCard = ({
     
   return (
     <div
-    onClick={() => push(`events/${slug.current}`)}
+    // onClick={() => push(`events/${slug.current}`)}
     className="bg-white max-w-md cursor-pointer w-full flex flex-col rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:scale-105">
       <div className="relative ">
         <Image src={urlFor(imageSrc)} alt={title} height={200} width={500} objectFit="cover" />
@@ -53,16 +54,15 @@ export const EventCard = ({
         />
         <div className="mt-5">
 
-        {registrationLink && (
+        {/* {registrationLink && (
+        )} */}
           <Link
-            href={registrationLink}
-            target="_blank"
+            href={`events/${slug.current}`}
             rel="noopener noreferrer"
             className=" underline text-blue-500"
           >
-            Register Here
+            View details
           </Link>
-        )}
         </div>
       </div>
       <ul className="flex gap-3 items-center mt-auto justify-end m-2">
@@ -92,7 +92,7 @@ export const SmallEventCard = ({
   return (
     <div
       onClick={() => push(`events/${slug.current}`)}
-      className="bg-white w-full max-w-xs cursor-pointer flex flex-col rounded-lg shadow-sm overflow-hidden transition-transform duration-300 hover:scale-105 p-2"
+      className="bg-white w-full max-w-sm cursor-pointer flex flex-col rounded-lg shadow-sm overflow-hidden transition-transform duration-300 hover:scale-105 p-2"
     >
       <div className="relative">
         <Image
@@ -113,15 +113,18 @@ export const SmallEventCard = ({
           isOnline={registrationLink ? true : false}
         />
         <div className="mt-2">
-          {registrationLink && (
+        {registrationLink && isEventDateValid(date) ? (
             <Link
               href={registrationLink}
               target="_blank"
-              rel="noopener noreferrer"
-              className="underline text-blue-500 text-xs"
+              className="bg-blue-600 mt-8 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300"
             >
-              Register Here
+              Register for Event
             </Link>
+          ) : (
+            <p className="mt-8 text-red-600 text-xs font-semibold">
+              This event has ended.
+            </p>
           )}
         </div>
       </div>

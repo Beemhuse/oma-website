@@ -1,10 +1,7 @@
 "use client"; // Required for client-side rendering
 
-import SvgPathLoader from "@/components/component/loaders/SvgLoader";
 import { SWRProvider } from "@/utils/swrConfig";
-import { useState, useEffect } from "react";
 import { Toaster } from "react-hot-toast";
-
 export default function MainLayout({ children }) {
   // const [isAppInitialized, setIsAppInitialized] = useState(false);
 

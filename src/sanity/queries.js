@@ -25,12 +25,17 @@ export const clientsQuery = `*[_type == "trustedClients" && !(_id in path("draft
               "imageSrc": clientImage,
           }`
 export const eventsQuery = `*[_type == "event" && !(_id in path("drafts.**"))]{
+            title,
+            slug,
+            "imageSrc": imageUrl,
+            "date": date,
+            location,
+            description,
+            article,
+            eventCategory,
+            registrationLink,
+            galleryImages[] {
               title,
-              slug,
-              "imageSrc": imageUrl,
-              "date": date,
-              location,
-              description,
-              eventCategory,
-              registrationLink
-          }`
+              "image": image.asset->url
+            }
+          }`;

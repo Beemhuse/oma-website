@@ -6,11 +6,15 @@ import DisplayFormattedArticle from "@/components/component/card/DisplayFormatte
 import { FaRegCalendarAlt } from "react-icons/fa";
 import { formatDate } from "@/utils/formatDate";
 import { EventLocation } from "@/components/component/card/EventCard";
+import { isEventDateValid } from "@/lib/isDateValid";
 
 export const metadata = {
   title: "Events | One Map Africa",
-  description: " We aim to empower communities, drive sustainable growth, contribute to the long-term prosperity of the continent."
-}
+  description:
+    " We aim to empower communities, drive sustainable growth, contribute to the long-term prosperity of the continent.",
+};
+// Utility function to check if the event date is in the future
+
 export default async function Page({ params }) {
   const { slug } = params;
 
@@ -20,7 +24,7 @@ export default async function Page({ params }) {
         "imageSrc": imageUrl,
         "date": date,
         location,
-        description,
+        article,
         eventCategory,
         registrationLink
     }`,
@@ -29,15 +33,15 @@ export default async function Page({ params }) {
   return (
     <div className="min-h-screen ">
       <div className="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
-        <Link
-          href="/blog"
-          className="inline-flex items-center text-blue-600 hover:text-blue-800 mb-6"
-        >
-          {/* <ArrowLeft className="w-4 h-4 mr-2" /> */}
-          Back to Events
-        </Link>
-
         <div className="xl:col-span-3 xl:w-2/3 m-auto w-full col-span-1 flex-col justify-center">
+          <Link
+            href="/blog"
+            className="inline-flex items-center text-blue-600 hover:text-blue-800 mb-6"
+          >
+            {/* <ArrowLeft className="w-4 h-4 mr-2" /> */}
+            Back to Events
+          </Link>
+
           <ul className="flex gap-3 items-center mt-auto justify-end m-2">
             {event?.eventCategory?.map((category, index) => (
               <li
@@ -71,10 +75,9 @@ export default async function Page({ params }) {
             />
           </div>
           <article className=" m-auto">
-            <DisplayFormattedArticle description={event?.description} />
+            <DisplayFormattedArticle description={event?.article} />
           </article>
-        </div>
-        {event?.registrationLink && (
+          {event?.registrationLink && isEventDateValid(event?.date) ? (
             <Link
               href={event?.registrationLink}
               target="_blank"
@@ -82,7 +85,12 @@ export default async function Page({ params }) {
             >
               Register for Event
             </Link>
-        )}
+          ) : (
+            <p className="mt-8 text-red-600 font-semibold">
+              This event has ended.
+            </p>
+          )}
+        </div>
       </div>
     </div>
   );

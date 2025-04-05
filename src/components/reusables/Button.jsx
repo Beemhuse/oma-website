@@ -6,9 +6,9 @@ const Button = ({
   label,
   onClick,
   isButton = true,
-  bgColor = "bg-blue-600",
+  bgColor = "bg-yellow-600",
   textColor = "text-white",
-  hoverColor = "hover:bg-green-700",
+  hoverColor = "hover:bg-yellow-700",
   size = "md",
   rounded = true,
 }) => {

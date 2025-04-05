@@ -37,8 +37,9 @@ export default function WomensDayHeader() {
           </h1>
 
           <p className="max-w-[700px] text-white/90 text-lg md:text-xl leading-relaxed">
-            Join us in honoring the social, economic, cultural, and political
-            achievements of women around the world.
+            {/* Join us in honoring the social, economic, cultural, and political
+            achievements of women around the world. */}
+            
           </p>
 
           <div className="flex items-center text-sm text-white/80 mt-2 backdrop-blur-sm bg-white/5 px-3 py-1.5 rounded-full">

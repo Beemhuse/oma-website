@@ -14,8 +14,7 @@ const menuItems = [
     label: "About Us",
     submenu: [
       { label: "About One Map Africa", href: "/about" },
-      // { label: "Our Mission", href: "/about/#mission" },
-      // { label: "Our Vision", href: "/about/#vision" },
+      { label: "Our Events", href: "/our-events" },
       { label: "Get Involved", href: "/get-involved" },
       { label: "FAQ", href: "/faq" },
       { label: "Gallery", href: "/gallery" },

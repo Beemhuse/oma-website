@@ -17,10 +17,10 @@ const OneMapAfrica = () => {
   return (
     <div>
       {/* Hero Section */}
-      {/* <HeaderSection /> */}
-      <div style={{ width: "100%", position: "relative" }}>
+      <HeaderSection />
+      {/* <div style={{ width: "100%", position: "relative" }}>
         <WomensDayHeader />
-      </div>
+      </div> */}
 
       {/* Trusted companies */}
       {/* <TrustedClients /> */}
