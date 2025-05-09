@@ -16,9 +16,9 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import { ImLoop2 } from "react-icons/im";
-import blog1 from "../../../public/landingPage/test1.svg";
-import blog2 from "../../../public/landingPage/test2.svg";
-import blog3 from "../../../public/landingPage/test3.svg";
+import blog1 from "../../../public/landingPage/test1.webp";
+import blog2 from "../../../public/landingPage/test2.webp";
+import blog3 from "../../../public/landingPage/test3.jpeg";
 import useSlideIn from "@/hooks/useSlideIn";
 
 const Testimonies = () => {
