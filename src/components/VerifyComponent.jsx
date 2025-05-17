@@ -30,7 +30,7 @@ export function VerifyIDCardContent() {
   const searchParams = useSearchParams();
   const cardId = searchParams.get("id");
   const { data, error, isLoading } = useSWR(
-    cardId ? `http://localhost:5000/api/verify-card/${cardId}` : null,
+    cardId ? `https://oma-backend-1.onrender.com/api/verify-card/${cardId}` : null,
     fetcher,
     {
       revalidateOnFocus: false,
